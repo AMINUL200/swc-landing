@@ -186,7 +186,7 @@ const Footer = () => {
                 <div className="container">
                     <div className="footer-wrapper d-flex align-items-center justify-content-between">
                         <p className="wow fadeInLeft" data-wow-delay=".3s">
-                            Copyright © Niotech All rights
+                            Copyright © SWC All rights
                         </p>
                         <ul className="social-links" data-wow-delay=".5s">
                             <li>

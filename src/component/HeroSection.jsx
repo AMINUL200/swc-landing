@@ -2,9 +2,9 @@ import React from 'react'
 import { advanceThumbShape1, advantageThumb1, advantageThumb2, blogThumb1_1, blogThumb1_2, calendar, checkMarkIcon, ctaAppleStore1, ctaplayStore1, ctaShape1, ctaShape2, ctaShape3, ctaShape4, ctaThumb1, faqThumb1, faqThumb2, featureProfileShape1, fireIcon, FolderIcon, introProfileThumb1, introShape1, introShape2, introShape3, introShape4, introShape5, introThumbShape1, introThumbShape2, introThumbShape3, userIcon, wcuIcon1, wcuIcon2, wcuIcon3, wcuIcon4, wcuIcon5, wcuIcon6, wcuThumb1, wcuThumbShape1 } from '../assets';
 import { Link } from 'react-scroll';
 import { useInView } from 'react-intersection-observer';
-const HeroSection = () => {
+const HeroSection = ({ bannerData }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
- 
+
     return (
         <>
 
@@ -24,19 +24,20 @@ const HeroSection = () => {
                                         <div className="intro-content">
                                             <div className="intro-section-title">
                                                 <div className="intro-subtitle">
-                                                    <span>News!</span>Find Your Solution
+                                                    <span>News!</span>{bannerData?.title ?? 'Find Your Solution'}
                                                     <img src={fireIcon} alt="icon" />
                                                 </div>
-                                                <h1 className={`intro-title ${inView1 ? 'fadeInUp delay-1' : ''}`} >We Develop Websites,
-                                                    Applications, and Brands.</h1>
-                                                <p className={`intro-desc ${inView1 ? 'fadeInUp delay-2' : ''} `}>There are many
-                                                    variations of passages of Lorem Ipsum
-                                                    available, but the majority have suffered alteration in some form, by
-                                                    injected humour, or randomised words which don't look even slightly
-                                                    believable. If you are going to use a passage of Lorem Ipsum,</p>
+                                                <h1 className={`intro-title ${inView1 ? 'fadeInUp delay-1' : ''}`} >
+                                                    {bannerData?.heading1 ?? 'We Develop Websites, Applications, and Brands.'}
+                                                </h1>
+                                                <p className={`intro-desc ${inView1 ? 'fadeInUp delay-2' : ''} `}>
+                                                    {bannerData?.heading2 ?? " There are many variations of passages of Lorem Ipsum  available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,"}
+                                                </p>
                                             </div>
                                             <div className={`btn-wrapper style1 ${inView1 ? 'fadeInUp delay-4' : ''} `} >
-                                                <Link className="theme-btn" to='/contact'>Get Started Now
+                                                <a className="theme-btn" href={bannerData?.button1_url}>
+                                                    {bannerData?.button1_name ?? 'Get Started Now'}
+
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 16 16" fill="none">
                                                         <g clip-path="url(#clip0_11_22)">
@@ -51,11 +52,11 @@ const HeroSection = () => {
                                                         </defs>
                                                     </svg>
 
-                                                </Link>
-                                                <Link className={`theme-btn style2 ${inView1 ? 'fadeInUp delay-1' : ''} `}
-                                                    to='/about'
+                                                </a>
+                                                <a className={`theme-btn style2 ${inView1 ? 'fadeInUp delay-1' : ''} `}
+                                                    href={bannerData?.button2_url}
                                                 >
-                                                    Learn More
+                                                    {bannerData?.button2_name ?? 'Learn More'}
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                         viewBox="0 0 16 16" fill="none">
                                                         <g clip-path="url(#clip0_11_27)">
@@ -69,20 +70,26 @@ const HeroSection = () => {
                                                             </clipPath>
                                                         </defs>
                                                     </svg>
-                                                </Link>
+                                                </a>
                                             </div>
                                             <div className="fancy-box-wrapper style1">
                                                 <div className={`fancy-box style1 ${inView1 ? 'fadeInUp delay-1' : ''} `}>
                                                     <div className="item">
-                                                        <img src={introProfileThumb1} alt="thumb" />
+                                                        <img src={bannerData?.image2 ?? introProfileThumb1} alt="thumb" />
                                                     </div>
                                                     <div className="item">
-                                                        <h6>2,291</h6>
-                                                        <p>Happy Customers</p>
+                                                        <h6>
+                                                            {bannerData?.number_of_customer ?? '2,291'}
+                                                        </h6>
+                                                        <p>
+                                                            {bannerData?.paragraph1 ?? 'Happy Customers'}
+                                                        </p>
                                                     </div>
                                                 </div>
                                                 <div className={`fancy-box style5 ${inView1 ? 'fadeInUp delay-2' : ''} `} >
-                                                    <h6>4.8/5</h6>
+                                                    <h6>
+                                                        {bannerData?.reting ?? '4.8/5'}
+                                                    </h6>
                                                     <div className="rating">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="77" height="13"
                                                             viewBox="0 0 77 13" fill="none">
@@ -109,7 +116,8 @@ const HeroSection = () => {
                                                                 </clipPath>
                                                             </defs>
                                                         </svg>
-                                                        Rating
+
+                                                        {bannerData?.paragraph3 ?? 'Rating'}
                                                     </div>
                                                 </div>
                                             </div>
@@ -123,7 +131,7 @@ const HeroSection = () => {
                                                 <img src={introThumbShape2} alt="thumbShape" />
                                             </div>
                                             <img className={`main-thumb  ${inView1 ? 'img-custom-anim-right fadeInUp delay-2' : ''} `}
-                                                src={introThumbShape3} alt="thumb" />
+                                                src={bannerData?.image1 ?? introThumbShape3} alt="thumb" />
                                         </div>
                                     </div>
                                 </div>

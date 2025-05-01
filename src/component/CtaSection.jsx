@@ -1,10 +1,14 @@
 import React from 'react'
 import { ctaAppleStore1, ctaplayStore1, ctaShape1, ctaShape2, ctaShape3, ctaShape4, ctaThumb1, fireIcon } from '../assets'
 import { useInView } from 'react-intersection-observer';
+import { motion } from "motion/react"
+
+const CtaSection = ({ ctaData }) => {
+    const [ref8, inView8] = useInView({ threshold: 0.3, triggerOnce: false });
+
+    console.log(ctaData);
 
 
-const CtaSection = () => {
-    const [ref8, inView8] = useInView({ threshold: 0.1, triggerOnce: true });
     return (
         <section className="cta-section" id='our-app'>
             <div className="cta-container-wrapper style1">
@@ -12,7 +16,7 @@ const CtaSection = () => {
                     <div className="cta-wrapper style1  section-padding fix">
                         <div className="shape1 d-none d-xxl-block"><img src={ctaShape1} alt="shape" />
                         </div>
-                        <div className="shape2 d-none d-xxl-block"><img src={ctaShape2 } alt="shape" />
+                        <div className="shape2 d-none d-xxl-block"><img src={ctaShape2} alt="shape" />
                         </div>
                         <div className="shape3 d-none d-xxl-block"><img src={ctaShape3} alt="shape" />
                         </div>
@@ -23,27 +27,76 @@ const CtaSection = () => {
                                 <div className="col-xl-8 order-2 order-xl-1">
                                     <div className="cta-content">
                                         <div className="section-title">
-                                            <div className={`subtitle text-white bg2 ${inView8 ? 'fadeInUp delay-1' : ''} `}>
-                                                Our App <img src={fireIcon} alt="icon" />
-                                            </div>
-                                            <h2 className={`title text-white ${inView8 ? 'fadeInUp delay-2' : ''}`} >Download our app
-                                                and start your free trail to get
-                                                started today!</h2>
-                                            <p className={`section-desc text-white mxw-651 ${inView8 ? 'fadeInUp delay-4' : ''}`} >
-                                                There are many variations of passages
-                                                of Lorem Ipsum available, but the majority have suffered alteration in some
-                                                form, by injected humour, or randomised</p>
+                                            <motion.div
+                                                initial={{ y: 60, opacity: 0 }}
+                                                whileInView={{ y: 0, opacity: 1 }}
+                                                transition={{ duration: 0.5, delay: 0.2 }}
+                                                viewport={{ once: false, margin: "-30px" }}
+                                                className={`subtitle text-white bg2 `}>
+                                                {ctaData?.title}
+                                                <img src={fireIcon} alt="icon" />
+                                            </motion.div>
+                                            <motion.h2
+                                                initial={{ y: 60, opacity: 0 }}
+                                                whileInView={{ y: 0, opacity: 1 }}
+                                                transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
+                                                viewport={{ once: false, margin: "-50px" }}
+                                                className={`title text-white `} >
+                                                {ctaData?.heading1}
+                                            </motion.h2>
+                                            <motion.p
+                                                initial={{ y: 60, opacity: 0 }}
+                                                whileInView={{ y: 0, opacity: 1 }}
+                                                transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
+                                                viewport={{ once: false, margin: "-50px" }}
+                                                className={`section-desc text-white mxw-651 `} >
+                                                {ctaData?.paragraph1}
+                                            </motion.p>
                                         </div>
-                                        <a className="playstore" href="https://play.google.com/store"><img
-                                            src={ctaplayStore1} alt="img" /></a>
-                                        <a href="https://www.apple.com/store"><img
-                                            src={ctaAppleStore1} alt="img" /></a>
+                                        <motion.a
+                                            initial={{ x: -80, opacity: 0 }}
+                                            whileInView={{ x: 0, opacity: 1 }}
+                                            transition={{
+                                                duration: 0.4,
+                                                delay: 0.2,
+                                                ease: "easeOut"
+                                            }}
+                                            viewport={{ once: false, margin: "100px" }}
+                                            className="playstore"
+                                            href="https://play.google.com/store"
+                                            style={{ display: 'inline-block' }}  // Ensure motion works properly
+                                        >
+                                            <img src={ctaData?.image2} alt="img" />
+                                        </motion.a>
+                                        <motion.a
+                                            initial={{ x: 200, opacity: 0 }}
+                                            whileInView={{ x: 0, opacity: 1 }}
+                                            transition={{
+                                                duration: 0.4,
+                                                delay: 0.2,
+                                                ease: "easeOut"
+                                            }}
+                                            viewport={{
+                                                once: false,
+                                                margin: "-30% 0px 100px 0px",
+                                                threshold: 0.3
+                                            }}
+                                            className="playstore"
+                                            href="https://www.apple.com/store"
+                                            style={{ display: 'inline-block' }}>
+                                            <img src={ctaData?.image3} alt="img" />
+                                        </motion.a>
                                     </div>
                                 </div>
                                 <div className="col-xl-4 order-1 order-xl-2">
-                                    <div className={`cta-thumb ${inView8 ? 'fadeInUp delay-1' : ''}`} data-wow-delay=".2s">
-                                        <img src={ctaThumb1} alt="thumb" />
-                                    </div>
+                                    <motion.div
+                                        initial={{ y: 80, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.5, delay: 0.3 }}
+                                        viewport={{ once: false, margin: "-20px" }}
+                                        className={`cta-thumb `} >
+                                        <img src={ctaData?.image1} alt="thumb" />
+                                    </motion.div>
                                 </div>
                             </div>
                         </div>

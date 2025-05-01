@@ -9,19 +9,28 @@ import { useInView } from 'react-intersection-observer';
 
 const logos = [brandLogo1, brandLogo2, brandLogo3, brandLogo4, brandLogo5, brandLogo3];
 
-const BrandSlider = () => {
-    const [ref1, inView] = useInView({
-        threshold: 0.2,
-        triggerOnce: true
-      });
-      
+const BrandSlider = ({ brandData }) => {
+  const [ref1, inView] = useInView({
+    threshold: 0.2,
+    triggerOnce: true
+  });
+
+  // console.log(brandData[0].title);
+  // const logos2 = brandData.map(item => item.image1);
+  const logos2 = [...brandData.map(item => item.image1), logos[0]];
+  // console.log(logos2);
+
+  
+
+
+
   return (
     <div className="brand-slider-section section-padding fix">
       <div className="brand-slider-container-wrapper style1">
         <div className="container">
           <div className="brand-slider-wrapper style1">
             <h2 ref={ref1} className={`single-section-title ${inView ? 'fadeInUp delay-1' : ''} `} data-wow-delay=".2s">
-              Millions of clients trust us.
+              {brandData[0]?.title ?? 'Millions of clients trust us.'}
             </h2>
             <div className="row">
               <div className="slider-area brandSliderOne">
@@ -39,10 +48,10 @@ const BrandSlider = () => {
                   }}
                   className="gt-slider"
                 >
-                  {logos.map((logo, index) => (
+                  {logos2.map((logo, index) => (
                     <SwiperSlide key={index}>
                       <div className="brand-logo">
-                        <img src={logo} alt="logo" />
+                        <img src={logo} alt={`logo-${index}`} />
                       </div>
                     </SwiperSlide>
                   ))}
