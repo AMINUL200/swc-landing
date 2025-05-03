@@ -3,8 +3,20 @@ import { blogThumb1_1, blogThumb1_2, calendar, fireIcon, FolderIcon, userIcon } 
 import { Link } from 'react-scroll'
 import { useInView } from 'react-intersection-observer';
 
-const BlogSection = () => {
+const BlogSection = ({ blogData }) => {
     const [ref9, inView9] = useInView({ threshold: 0.1, triggerOnce: true });
+
+    // Format date function
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'short', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
+    // Animation delays for each blog card
+    const getDelayClass = (index) => {
+        const delays = ['delay-1', 'delay-2', 'delay-3'];
+        return delays[index % delays.length];
+    };
+
     return (
         <section className="blog-section section-padding fix" id='blog'>
             <div className="container">
@@ -16,90 +28,42 @@ const BlogSection = () => {
                         <h2 className={`title ${inView9 ? 'fadeInUp delay-2' : ''}`} >Recent Articles And Latest Blog</h2>
                     </div>
                     <div className="row gy-5">
-                        <div className="col-xl-4 col-md-6">
-                            <div className={`blog-card style1 ${inView9 ? 'fadeInUp delay-1' : ''}`} >
-                                <div className="thumb">
-                                    <img src={blogThumb1_1} alt="thumb" />
-                                </div>
-                                <div className="body">
-                                    <div className="tag-meta">
-                                        <img src={FolderIcon} alt="icon" />
-                                        Workplace
+
+                        {blogData?.map((blog, index) => (
+                            <div className="col-xl-4 col-md-6" key={blog.id}>
+                                <div className={`blog-card style1 ${inView9 ? `fadeInUp ${getDelayClass(index)}` : ''}`}>
+                                    <div className="thumb">
+                                        <img src={blog.image} alt={blog.title} />
                                     </div>
-                                    <h3><Link to='/blog-details' >Services that printing at you is important</Link></h3>
-                                    <div className="blog-meta">
-                                        <div className="item child1">
-                                            <span className="icon">
-                                                <img src={userIcon} alt="icon" />
-                                            </span>
-                                            <span className="text">By Admin</span>
+                                    <div className="body">
+                                        <div className="tag-meta">
+                                            <img src={FolderIcon} alt="icon" />
+                                            {blog.title}
                                         </div>
-                                        <div className="item">
-                                            <span className="icon">
-                                                <img src={calendar} alt="icon" />
-                                            </span>
-                                            <span className="text">Sep 30, 2024</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 col-md-6">
-                            <div className={`blog-card style1 ${inView9 ? 'fadeInUp delay-2' : ''}`} data-wow-delay=".4s">
-                                <div className="thumb">
-                                    <img src={blogThumb1_2} alt="thumb" />
-                                </div>
-                                <div className="body">
-                                    <div className="tag-meta">
-                                        <img src={FolderIcon} alt="icon" />
-                                        Coding
-                                    </div>
-                                    <h3><Link to='/blog-details' >A checklist to improve your daily routine</Link></h3>
-                                    <div className="blog-meta">
-                                        <div className="item child1">
-                                            <span className="icon">
-                                                <img src={userIcon} alt="icon" />
-                                            </span>
-                                            <span className="text">By Admin</span>
-                                        </div>
-                                        <div className="item">
-                                            <span className="icon">
-                                                <img src={calendar} alt="icon" />
-                                            </span>
-                                            <span className="text">Sep 30, 2024</span>
+                                        <h3><Link to='/blog-details' >{blog.heading}</Link></h3>
+                                        <div className="blog-meta">
+                                            <div className="item child1">
+                                                <span className="icon">
+                                                    <img src={userIcon} alt="icon" />
+                                                </span>
+                                                <span className="text">{blog.paragraph1}</span>
+                                            </div>
+                                            <div className="item">
+                                                <span className="icon">
+                                                    <img src={calendar} alt="icon" />
+                                                </span>
+                                                <span className="text">{formatDate(blog.published_date)}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-xl-4 col-md-6">
-                            <div className={`blog-card style1 ${inView9 ? 'fadeInUp delay-3' : ''}`} >
-                                <div className="thumb">
-                                    <img src={blogThumb1_1} alt="thumb" />
-                                </div>
-                                <div className="body">
-                                    <div className="tag-meta">
-                                        <img src={FolderIcon} alt="icon" />
-                                        Technology
-                                    </div>
-                                    <h3><Link to='/blog-details' >That will help you get 1% better every day</Link></h3>
-                                    <div className="blog-meta">
-                                        <div className="item child1">
-                                            <span className="icon">
-                                                <img src={userIcon} alt="icon" />
-                                            </span>
-                                            <span className="text">By Admin</span>
-                                        </div>
-                                        <div className="item">
-                                            <span className="icon">
-                                                <img src={calendar} alt="icon" />
-                                            </span>
-                                            <span className="text">Sep 30, 2024</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        ))}
+
+                       
+
+
                     </div>
                 </div>
             </div>

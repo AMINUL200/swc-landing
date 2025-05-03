@@ -4,9 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from "motion/react"
 
 const CtaSection = ({ ctaData }) => {
-    const [ref8, inView8] = useInView({ threshold: 0.3, triggerOnce: false });
 
-    console.log(ctaData);
 
 
     return (
@@ -23,7 +21,7 @@ const CtaSection = ({ ctaData }) => {
                         <div className="shape4 d-none d-xxl-block"><img src={ctaShape4} alt="shape" />
                         </div>
                         <div className="container">
-                            <div ref={ref8} className="row gy-5">
+                            <div className="row gy-5">
                                 <div className="col-xl-8 order-2 order-xl-1">
                                     <div className="cta-content">
                                         <div className="section-title">
@@ -31,7 +29,7 @@ const CtaSection = ({ ctaData }) => {
                                                 initial={{ y: 60, opacity: 0 }}
                                                 whileInView={{ y: 0, opacity: 1 }}
                                                 transition={{ duration: 0.5, delay: 0.2 }}
-                                                viewport={{ once: false, margin: "-30px" }}
+                                                viewport={{ once: true, margin: "-30px" }}
                                                 className={`subtitle text-white bg2 `}>
                                                 {ctaData?.title}
                                                 <img src={fireIcon} alt="icon" />
@@ -40,7 +38,7 @@ const CtaSection = ({ ctaData }) => {
                                                 initial={{ y: 60, opacity: 0 }}
                                                 whileInView={{ y: 0, opacity: 1 }}
                                                 transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
-                                                viewport={{ once: false, margin: "-50px" }}
+                                                viewport={{ once: true, margin: "-50px" }}
                                                 className={`title text-white `} >
                                                 {ctaData?.heading1}
                                             </motion.h2>
@@ -48,7 +46,7 @@ const CtaSection = ({ ctaData }) => {
                                                 initial={{ y: 60, opacity: 0 }}
                                                 whileInView={{ y: 0, opacity: 1 }}
                                                 transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
-                                                viewport={{ once: false, margin: "-50px" }}
+                                                viewport={{ once: true, margin: "-50px" }}
                                                 className={`section-desc text-white mxw-651 `} >
                                                 {ctaData?.paragraph1}
                                             </motion.p>
@@ -61,7 +59,7 @@ const CtaSection = ({ ctaData }) => {
                                                 delay: 0.2,
                                                 ease: "easeOut"
                                             }}
-                                            viewport={{ once: false, margin: "100px" }}
+                                            viewport={{ once: true, margin: "100px" }}
                                             className="playstore"
                                             href="https://play.google.com/store"
                                             style={{ display: 'inline-block' }}  // Ensure motion works properly
@@ -77,7 +75,7 @@ const CtaSection = ({ ctaData }) => {
                                                 ease: "easeOut"
                                             }}
                                             viewport={{
-                                                once: false,
+                                                once: true,
                                                 margin: "-30% 0px 100px 0px",
                                                 threshold: 0.3
                                             }}
@@ -93,7 +91,7 @@ const CtaSection = ({ ctaData }) => {
                                         initial={{ y: 80, opacity: 0 }}
                                         whileInView={{ y: 0, opacity: 1 }}
                                         transition={{ duration: 0.5, delay: 0.3 }}
-                                        viewport={{ once: false, margin: "-20px" }}
+                                        viewport={{ once: true, margin: "-20px" }}
                                         className={`cta-thumb `} >
                                         <img src={ctaData?.image1} alt="thumb" />
                                     </motion.div>

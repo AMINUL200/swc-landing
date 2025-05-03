@@ -59,12 +59,12 @@ const Footer = () => {
                                 </div>
                                 <ul className="list-area">
                                     <li>
-                                        <Link to='/'>
+                                        <Link to='#'>
                                             Home
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='/about'>
+                                        <Link to='#'>
                                             About Us
                                         </Link>
                                     </li>
@@ -84,7 +84,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='/contact'>
+                                        <Link to=''>
                                             Contact Us
                                         </Link>
                                     </li>
@@ -96,36 +96,36 @@ const Footer = () => {
                                 <div className="widget-head">
                                     <h3> Utility Pages </h3>
                                 </div>
-                                <ul className="list-area">
+                                <ul className="list-area2">
                                     <li>
-                                        <a href="project1.html">
+                                        <Link to='#'>
                                             Project
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="blog.html">
+                                        <Link to='#'>
                                             Blog
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="contact.html">
+                                        <Link to='#'>
                                             Contact
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="pricing.html">
+                                        <Link to='#'>
                                             Pricing
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="project-details.html">
+                                        <Link to='#'>
                                             Project details
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li>
-                                        <a href="team.html">
+                                        <Link to='#'>
                                             Our Team
-                                        </a>
+                                        </Link>
                                     </li>
                                 </ul>
                             </div>

@@ -1,11 +1,10 @@
 import React from 'react'
 
-const Preloader = () => {
+const Preloader = ({loading}) => {
     return (
-        <div id="preloader" className="preloader">
+        <div id="preloader" className="preloader" style={{display:`${!loading ?'none':''}`}}>
             <div className="animation-preloader">
-                <div className="spinner">
-                </div>
+                <div className="spinner"></div>
                 <div className="txt-loading">
                     <span data-text-preloader="S" className="letters-loading">
                         S

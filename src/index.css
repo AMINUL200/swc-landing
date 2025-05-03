@@ -123,7 +123,7 @@ h6 {
   padding: 0;
   color: var(--title);
   text-transform: capitalize;
-  transition:  font-size 0.4s ease-in-out;
+  transition: font-size 0.4s ease-in-out;
 }
 
 h1 {
@@ -2727,6 +2727,10 @@ input[type=radio]:checked~label::before {
 .preloader .animation-preloader {
   z-index: 1000;
 }
+.animation-preloader {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
 
 .preloader .animation-preloader .spinner {
   animation: spinner 1s infinite linear;
@@ -2833,19 +2837,34 @@ input[type=radio]:checked~label::before {
 .preloader .loader .loader-section .bg {
   background-color: #fff;
   height: 100%;
+  position: absolute;
   left: 0;
   width: 100%;
   transition: all 800ms cubic-bezier(0.77, 0, 0.175, 1);
 }
+.section-left .bg {
+  left: 0;
+  right: auto;
+}
+
+.section-right .bg {
+  right: 0;
+  left: auto;
+}
 
 .preloader.loaded .animation-preloader {
   opacity: 0;
-  transition: 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
 }
+
 
 .preloader.loaded .loader-section .bg {
   width: 0;
   transition: 0.7s 0.3s allcubic-bezier(0.1, 0.1, 0.1, 1);
+}
+.preloader.loaded .loader-section .bg {
+  width: 0% !important;
+  transition: width 0.7s cubic-bezier(0.77, 0, 0.175, 1) 0.5s; /* 0.5s delay */
 }
 
 .back-to-top {
@@ -6141,13 +6160,15 @@ input.main-search-input::placeholder {
   margin-right: 5px;
 }
 
-.footer-widgets-wrapper .single-footer-widget .list-area li a:hover {
+.footer-widgets-wrapper.style1 .single-footer-widget .list-area li a:hover {
   margin-left: 5px;
-}
-
-.footer-widgets-wrapper .single-footer-widget .list-area li a:hover a {
   color: var(--theme2);
 }
+.footer-widgets-wrapper.style1 .single-footer-widget .list-area2 li a:hover {
+  margin-left: 5px;
+  color: var(--theme2);
+}
+
 
 .footer-widgets-wrapper.style1 {
   padding: 90px 0 151px;
@@ -6275,7 +6296,22 @@ input.main-search-input::placeholder {
   font-weight: 400;
   line-height: 267.5%;
   text-transform: capitalize;
+  transition: margin-left 0.4s ease-in-out, color 0.4s ease-in-out;
 }
+.footer-widgets-wrapper.style1 .single-footer-widget .list-area2 li a {
+  color: #565656;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 267.5%;
+  text-transform: capitalize;
+  transition: margin-left 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+.footer-widgets-wrapper.style1 .single-footer-widget .list-area2 li:not(:last-child) {
+  margin-bottom: 5px;
+}
+
 
 .footer-widgets-wrapper.style1 .single-footer-widget .list-area li:not(:last-child) {
   margin-bottom: 5px;
@@ -11049,6 +11085,9 @@ input.main-search-input::placeholder {
   font-style: normal;
   font-weight: 600;
   line-height: 30px;
+}
+.contact-info-box.style1 .contact-content .title.title-2 {
+  font-size: 1.1rem;
 }
 
 .contact-info-box.style1 .contact-content .title a:hover {

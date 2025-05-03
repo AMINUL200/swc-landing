@@ -4,10 +4,10 @@ import { useInView } from 'react-intersection-observer';
 import { div } from 'framer-motion/client';
 
 const FaqsSection = ({ faqHeadData, faqQAData }) => {
-    const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
+    const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: false });
     const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
-    const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
-    const [ref6, inView6] = useInView({ threshold: 0.1, triggerOnce: true });
+    const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: false });
+    const [ref6, inView6] = useInView({ threshold: 0.1, triggerOnce: false });
 
 
     return (
@@ -65,11 +65,11 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-xl-6">
+                        <div ref={ref3} className="col-xl-6">
                             <div className="faq-thumb">
-                                <img className={`main-thumb  ${inView6 ? 'fadeInUp delay-1' : ''} `}
+                                <img className={`main-thumb  ${inView3 ? 'fadeInUp delay-2' : ''} `}
                                     src={faqHeadData?.image2} alt="thumb" />
-                                <div className={`absolute-thumb   ${inView6 ? 'float-bob-x' : ''}`}>
+                                <div className={`absolute-thumb   ${inView3 ? 'float-bob-x' : ''}`}>
                                     <img src={faqHeadData?.image1} alt="thumb" />
                                 </div>
                             </div>

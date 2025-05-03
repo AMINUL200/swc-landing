@@ -1,11 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useInView } from 'react-intersection-observer';
 
-const ContactSection = () => {
+const ContactSection = ({ contactData }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref4, inView4] = useInView({ threshold: 0.1, triggerOnce: true });
+    // console.log(contactData);
+    const [loading, setLoading] = useState(false)
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    })
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true)
+        try {
+            const {data} = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/form.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+           
+            if(data.success){
+                console.log(data.message);
+            }else{
+                console.log(data.message);
+                
+            }
+
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            });
+
+           
+            
+
+        } catch (error) {
+            console.log(error.message);
+            
+        } finally{
+            setLoading(false)
+        }
+    }
+
     return (
         <>
             {/* <!--Contact Section S T A R T --> */}
@@ -27,8 +79,8 @@ const ContactSection = () => {
                                                     fill="#7444FD" />
                                             </svg>
                                         </div>
-                                        <div className="title">Our Address</div>
-                                        <a className="text" href="#">2464 Royal Ln. Mesa, New Jersey 45463.</a>
+                                        <div className="title"> {contactData?.address_heading} </div>
+                                        <a className="text" href="#">{contactData?.address}</a>
                                     </div>
                                 </div>
                             </div>
@@ -62,11 +114,11 @@ const ContactSection = () => {
                                                 </defs>
                                             </svg>
                                         </div>
-                                        <h3 className="title">
-                                            <a href="mailto:info@exmple.com"> info@exmple.com </a>
+                                        <h3 className="title title-2">
+                                            <a href={`mailto:${contactData?.email}`}>  {contactData?.email} </a>
                                         </h3>
 
-                                        <p className="text">Email us anytime for anykind ofquety.</p>
+                                        <p className="text">{contactData?.email_heading}</p>
 
                                     </div>
                                 </div>
@@ -86,10 +138,10 @@ const ContactSection = () => {
                                             </svg>
                                         </div>
                                         <h3 className="title">
-                                            <a href="tel:34534534543"> Hot: +208-666-0112 </a>
+                                            <a href={`tel:${contactData?.number}`}> Hot: {contactData?.number} </a>
                                         </h3>
 
-                                        <p className="text">Call us any kind suppor,we will wait for it</p>
+                                        <p className="text">{contactData?.number_heading}</p>
                                     </div>
                                 </div>
                             </div>
@@ -114,30 +166,31 @@ const ContactSection = () => {
                             <div class="col-xl-6">
                                 <div class="contact-form style1">
                                     <h2 class="contact-title">
-                                        Ready to Get Started?
+                                        {contactData?.heading1}
                                     </h2>
-                                    <p class="desc">Nullam varius, erat quis iaculis dictum, eros urna varius eros, ut blandit
-                                        felis odio in turpis. Quisque rhoncus,</p>
+                                    <p class="desc">{contactData?.paragraph1}</p>
 
-                                    <form action="contact.php" id="contact-form" method="POST" class="contact-form-items">
+                                    <form onSubmit={handleSubmit} method="POST" >
                                         <div class="row g-4">
                                             <div ref={ref1} class={`col-lg-6 ${inView1 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.3s' }}>
                                                 <div class="form-clt">
-                                                    <span>Your name*</span>
-                                                    <input type="text" name="name" id="name" placeholder="Your Name" />
+                                                    <span>Your name*  {formData.name}</span>
+                                                    <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
                                                 </div>
                                             </div>
                                             <div ref={ref2} class={`col-lg-6 ${inView2 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.5s' }}>
                                                 <div class="form-clt">
-                                                    <span>Your Email*</span>
-                                                    <input type="text" name="email2" id="email2" placeholder="Your Email" />
+                                                    <span>Your Email* {formData.email} </span>
+                                                    <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
                                                 </div>
                                             </div>
                                             <div ref={ref3} class={`col-lg-12 ${inView3 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.7s' }}>
                                                 <div class="form-clt">
-                                                    <span>Write Message*</span>
+                                                    <span>Write Message*{formData.message} </span>
                                                     <textarea name="message" id="message"
-                                                        placeholder="Write Message"></textarea>
+                                                        value={formData.message}
+                                                        onChange={handleChange}
+                                                        placeholder="Write Message" required></textarea>
                                                 </div>
                                             </div>
                                             <div ref={ref4} class={`col-lg-7 ${inView4 ? 'fadeInUp' : ''}`} style={{ animationDelay: '0.9s' }}>

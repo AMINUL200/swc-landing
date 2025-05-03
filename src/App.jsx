@@ -34,6 +34,9 @@ const App = () => {
   const [faqQAData, setFaqQAData] = useState(null)
   const [testimonialData, setTestimonialData] = useState([])
   const [ctaData, setCtaData] = useState(null)
+  const [featureData, setFeatureData] = useState([])
+  const [blogData, setBlogData] = useState([])
+  const [contactData, setContactData] = useState(null)
 
 
   // useEffect(() => {
@@ -126,6 +129,26 @@ const App = () => {
         }
 
 
+        const featureRes = await fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/features.php');
+        const featureJson = await featureRes.json();
+        if (featureJson.flag === 1 && featureJson.status === 200) {
+          setFeatureData(featureJson.data)
+        }
+
+        const blogRes = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/blog.php');
+        const blogJson = await blogRes.json();
+        if (blogJson.flag === 1 && blogJson.status === 200) {
+          setBlogData(blogJson.data)
+        }
+
+        const contactRes = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/contact.php');
+        const contactJson = await contactRes.json();
+        if (contactJson.flag === 1 && contactJson.status === 200) {
+          setContactData(contactJson.data[0])
+        }
+
+
+
 
       } catch (error) {
         console.error('API fetch error:', error);
@@ -140,10 +163,13 @@ const App = () => {
 
   return (
     <>
-      {loading ? (
-        <Preloader />
-      ) : (
+      
+
+      
+        
         <>
+         <Preloader loading={loading}/>
+
           <BackToTop />
           <Header setIsSidebarOpen={setIsSidebarOpen} />
           <Sidebar isSideBarOpen={isSideBarOpen} setIsSidebarOpen={setIsSidebarOpen} />
@@ -154,19 +180,19 @@ const App = () => {
           <AdvantageSection advantageData={advantageData} />
           <WcuSection wcuData={wcuData} />
           <CounterSection countData={countData} />
-          <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData}/>
-          <TestimonialSection  testimonialData={testimonialData} />
-          <FeatureSection  />
+          <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
+          <TestimonialSection testimonialData={testimonialData} />
+          <FeatureSection featureData={featureData} />
           <PricingSection pricingData={pricingData} />
-          <CtaSection  ctaData={ctaData}/>
-          <BlogSection />
-          <ContactSection />
+          <CtaSection ctaData={ctaData} />
+          <BlogSection  blogData={blogData}/>
+          <ContactSection contactData={contactData}/>
 
 
           <Footer />
 
         </>
-      )}
+     
     </>
   )
 }

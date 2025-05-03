@@ -53,24 +53,7 @@ const HeroSection = ({ bannerData }) => {
                                                     </svg>
 
                                                 </a>
-                                                <a className={`theme-btn style2 ${inView1 ? 'fadeInUp delay-1' : ''} `}
-                                                    href={bannerData?.button2_url}
-                                                >
-                                                    {bannerData?.button2_name ?? 'Learn More'}
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        viewBox="0 0 16 16" fill="none">
-                                                        <g clip-path="url(#clip0_11_27)">
-                                                            <path
-                                                                d="M11.6118 3.61182L10.8991 4.32454L14.0706 7.49603H0V8.50398H14.0706L10.8991 11.6754L11.6118 12.3882L16 7.99997L11.6118 3.61182Z"
-                                                                fill="#282C32" />
-                                                        </g>
-                                                        <defs>
-                                                            <clipPath id="clip0_11_27">
-                                                                <rect width="16" height="16" fill="white" />
-                                                            </clipPath>
-                                                        </defs>
-                                                    </svg>
-                                                </a>
+                                            
                                             </div>
                                             <div className="fancy-box-wrapper style1">
                                                 <div className={`fancy-box style1 ${inView1 ? 'fadeInUp delay-1' : ''} `}>
