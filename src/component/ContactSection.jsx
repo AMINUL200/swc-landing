@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { useInView } from 'react-intersection-observer';
+import Loader from './Loader';
+import { toast } from 'react-toastify';
 
 const ContactSection = ({ contactData }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -24,21 +26,30 @@ const ContactSection = ({ contactData }) => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true)
+        setLoading(true);
         try {
-            const {data} = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/form.php', {
+            console.log(JSON.stringify(formData));
+            console.log(formData);
+
+
+            const response = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/form.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData)
-            })
-           
-            if(data.success){
-                console.log(data.message);
-            }else{
-                console.log(data.message);
-                
+            });
+            console.log(response);
+            
+            const result = await response.json();
+            console.log(result);
+            
+            if (result.flag === 1 && result.status === 200) {
+                console.log(result.data.message);
+                toast.success(result.data.message)
+            } else {
+                console.log(result.data.message);
+                toast.error(result.data.message)
             }
 
             setFormData({
@@ -47,16 +58,14 @@ const ContactSection = ({ contactData }) => {
                 message: ''
             });
 
-           
-            
-
         } catch (error) {
             console.log(error.message);
-            
-        } finally{
-            setLoading(false)
+            toast.error(error.message)
+        } finally {
+            setLoading(false);
         }
-    }
+    };
+
 
     return (
         <>
@@ -170,23 +179,23 @@ const ContactSection = ({ contactData }) => {
                                     </h2>
                                     <p class="desc">{contactData?.paragraph1}</p>
 
-                                    <form onSubmit={handleSubmit} method="POST" >
+                                    <form onSubmit={handleSubmit}  >
                                         <div class="row g-4">
                                             <div ref={ref1} class={`col-lg-6 ${inView1 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.3s' }}>
                                                 <div class="form-clt">
-                                                    <span>Your name*  {formData.name}</span>
+                                                    <span>Your name* </span>
                                                     <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
                                                 </div>
                                             </div>
                                             <div ref={ref2} class={`col-lg-6 ${inView2 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.5s' }}>
                                                 <div class="form-clt">
-                                                    <span>Your Email* {formData.email} </span>
+                                                    <span>Your Email*  </span>
                                                     <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
                                                 </div>
                                             </div>
                                             <div ref={ref3} class={`col-lg-12 ${inView3 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.7s' }}>
                                                 <div class="form-clt">
-                                                    <span>Write Message*{formData.message} </span>
+                                                    <span>Write Message* </span>
                                                     <textarea name="message" id="message"
                                                         value={formData.message}
                                                         onChange={handleChange}
@@ -194,8 +203,8 @@ const ContactSection = ({ contactData }) => {
                                                 </div>
                                             </div>
                                             <div ref={ref4} class={`col-lg-7 ${inView4 ? 'fadeInUp' : ''}`} style={{ animationDelay: '0.9s' }}>
-                                                <button type="submit" class="theme-btn">
-                                                    Send Message <i class="fa-solid fa-arrow-right-long ms-1"></i>
+                                                <button type="submit" class={`theme-btn ${loading ? 'btn-disable':''}`} disabled={loading}>
+                                                    {loading ? <Loader /> : 'Send Message'} <i class="fa-solid fa-arrow-right-long ms-1"></i>
                                                 </button>
                                             </div>
                                         </div>

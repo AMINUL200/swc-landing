@@ -19,6 +19,8 @@ import CtaSection from './component/CtaSection';
 import BlogSection from './component/BlogSection';
 import ContactSection from './component/ContactSection';
 
+import { ToastContainer } from 'react-toastify';
+
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
@@ -168,6 +170,7 @@ const App = () => {
       
         
         <>
+          <ToastContainer/>
          <Preloader loading={loading}/>
 
           <BackToTop />
