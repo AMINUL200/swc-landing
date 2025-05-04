@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { useInView } from 'react-intersection-observer';
 import Loader from './Loader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const ContactSection = ({ contactData }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -204,7 +206,7 @@ const ContactSection = ({ contactData }) => {
                                             </div>
                                             <div ref={ref4} class={`col-lg-7 ${inView4 ? 'fadeInUp' : ''}`} style={{ animationDelay: '0.9s' }}>
                                                 <button type="submit" class={`theme-btn ${loading ? 'btn-disable':''}`} disabled={loading}>
-                                                    {loading ? <Loader /> : 'Send Message'} <i class="fa-solid fa-arrow-right-long ms-1"></i>
+                                                    {loading ? <Loader /> : 'Send Message'} <FontAwesomeIcon icon={faArrowRight}/>
                                                 </button>
                                             </div>
                                         </div>

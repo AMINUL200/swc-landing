@@ -11806,7 +11806,7 @@ textarea.is-invalid {
   left: 0;
   transform: scale(0);
   z-index: 1000;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 .modal-overlay.one {
@@ -11915,6 +11915,7 @@ textarea.is-invalid {
   align-items: center;
   padding: 40px;
   color: white;
+  height: 552px;
 }
 
 @media(max-width: 993px){
@@ -11961,10 +11962,10 @@ textarea.is-invalid {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
   width: 100%;
   height: auto;
-  padding: 10px 25px;
+  padding: 0 25px;
 }
 
 .form-control {
@@ -12093,7 +12094,7 @@ textarea.is-invalid {
 /* For select elements */
 .form-input[value=""]:not(:focus) + .form-label {
   font-size: 1rem;
-  top: 0.75rem;
+  top: 1rem;
   color: hsl(220, 3%, 50%);
 }
 

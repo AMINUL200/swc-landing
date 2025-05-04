@@ -84,7 +84,7 @@ const App = () => {
           fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/blog.php'),
           fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/contact.php')
         ]);
-  
+
         const [
           bannerJson,
           brandJson,
@@ -118,7 +118,7 @@ const App = () => {
           blogRes.json(),
           contactRes.json()
         ]);
-  
+
         if (bannerJson.flag === 1 && bannerJson.status === 200) setBannerData(bannerJson.data[0]);
         if (brandJson.flag === 1 && brandJson.status === 200) setBrandData(brandJson.data);
         if (aboutJson.flag === 1 && aboutJson.status === 200) setAboutData(aboutJson.data[0]);
@@ -134,7 +134,7 @@ const App = () => {
         if (featureJson.flag === 1 && featureJson.status === 200) setFeatureData(featureJson.data);
         if (blogJson.flag === 1 && blogJson.status === 200) setBlogData(blogJson.data);
         if (contactJson.flag === 1 && contactJson.status === 200) setContactData(contactJson.data[0]);
-  
+
       } catch (error) {
         console.error('API fetch error:', error);
       } finally {
@@ -142,52 +142,45 @@ const App = () => {
         const timer = setTimeout(() => {
           setShowPopup(true);
         }, 10000);
-  
+
         return () => clearTimeout(timer);
       }
     };
-  
+
     fetchData();
   }, []);
-  
+
 
 
 
   return (
     <>
-
-
-
-
-      <>
-        <ToastContainer />
-        <Preloader loading={loading} />
-
-        <BackToTop />
-        <Header setIsSidebarOpen={setIsSidebarOpen} showPopupModel={() => setShowPopup(true)} />
-        <Sidebar isSideBarOpen={isSideBarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-        <HeroSection bannerData={bannerData} showPopupModel={() => setShowPopup(true)} />
-        <BrandSlider brandData={brandData} />
-        <AboutSection ClassAdd='' aboutData={aboutData} />
-        <WorkProcessSection workData={workData} />
-        <AdvantageSection advantageData={advantageData} />
-        <WcuSection wcuData={wcuData} />
-        <CounterSection countData={countData} />
-        <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
-        <TestimonialSection testimonialData={testimonialData} />
-        <FeatureSection featureData={featureData} />
-        <PricingSection pricingData={pricingData} />
-        <CtaSection ctaData={ctaData} />
-        <BlogSection blogData={blogData} />
-        <ContactSection contactData={contactData} />
-
-
-        <PopupModel show={showPopup} onClose={() => setShowPopup(false)} />
-
-        <Footer />
-
-      </>
-
+      {loading ? (
+        <Preloader />
+      ) : (
+        <>
+          <ToastContainer />
+          <BackToTop />
+          <Header setIsSidebarOpen={setIsSidebarOpen} showPopupModel={() => setShowPopup(true)} />
+          <Sidebar isSideBarOpen={isSideBarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+          <HeroSection bannerData={bannerData} showPopupModel={() => setShowPopup(true)} />
+          <BrandSlider brandData={brandData} />
+          <AboutSection ClassAdd='' aboutData={aboutData} />
+          <WorkProcessSection workData={workData} />
+          <AdvantageSection advantageData={advantageData} />
+          <WcuSection wcuData={wcuData} />
+          <CounterSection countData={countData} />
+          <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
+          <TestimonialSection testimonialData={testimonialData} />
+          <FeatureSection featureData={featureData} />
+          <PricingSection pricingData={pricingData} />
+          <CtaSection ctaData={ctaData} />
+          <BlogSection blogData={blogData} />
+          <ContactSection contactData={contactData} />
+          <PopupModel show={showPopup} onClose={() => setShowPopup(false)} />
+          <Footer />
+        </>
+      )}
     </>
   )
 }

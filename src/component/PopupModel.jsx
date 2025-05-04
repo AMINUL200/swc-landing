@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import Loader from './Loader';
 
 const initialFormState = {
     firstName: '',
@@ -9,7 +11,6 @@ const initialFormState = {
     company: '',
     employees: '',
     phone: '',
-    message: '',
     hearAbout: '',
     terms: false,
 };
@@ -19,6 +20,7 @@ const PopupModel = ({ show, onClose }) => {
     const [errors, setErrors] = useState({});
     const [isClosing, setIsClosing] = useState(false);
     const [animationClass, setAnimationClass] = useState('');
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         if (show) {
@@ -85,12 +87,43 @@ const PopupModel = ({ show, onClose }) => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true)
         if (validateForm()) {
-            console.log('✅ Form submitted:', formData);
-            setFormData(initialFormState);
-            onClose();
+            const { terms, ...submitData } = formData;
+
+            try {
+
+                const response = await fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/booking.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submitData),
+                });
+
+                const result = await response.json();
+                if (result.flag === 1 && result.status === 200) {
+                    setFormData(initialFormState);
+                    onClose();
+                    console.log(result.data.message);
+                    toast.success(result.data.message)
+                } else {
+                    console.log(result.data.message);
+                    toast.error(result.data.message)
+                }
+
+
+            } catch (error) {
+                console.error('❌ Network error:', error);
+                toast.error(`Network error. Please try again later. : ${error.message}`);
+            } finally {
+                setLoading(false)
+            }
+
+        }else{
+            setLoading(false)
         }
     };
 
@@ -100,7 +133,6 @@ const PopupModel = ({ show, onClose }) => {
         return 'form-control';
     };
 
-    console.log(errors.terms);
 
 
     return (
@@ -116,7 +148,7 @@ const PopupModel = ({ show, onClose }) => {
                     <div className="modal-body">
                         <div className="row">
                             <div className='col-md-12 col-lg-6 modal-left' >
-                               
+
 
                             </div>
                             <div className='col-md-12 col-lg-6'>
@@ -252,21 +284,7 @@ const PopupModel = ({ show, onClose }) => {
                                     </div>
 
                                     {/* Row 5: Your Message */}
-                                    <div className="row mb-2">
-                                        <div className="col-12">
-                                            <div className="form-control textarea">
-                                                <textarea
-                                                    className="form-input"
-                                                    id="message"
-                                                    name="message"
-                                                    rows="3"
-                                                    value={formData.message}
-                                                    onChange={handleChange}
-                                                ></textarea>
-                                                <label htmlFor="message" className="form-label">Your Message</label>
-                                            </div>
-                                        </div>
-                                    </div>
+
 
                                     {/* Row 6: How did you hear about us */}
                                     <div className="row mb-2">
@@ -323,8 +341,8 @@ const PopupModel = ({ show, onClose }) => {
                                     {/* Submit Button */}
                                     <div className="row">
                                         <div className="col-12 text-center">
-                                            <button type="submit" className="theme-btn">
-                                                Submit Now
+                                            <button type="submit" className={`theme-btn ${loading ? 'btn-disable' : ''}`} disabled={loading}>
+                                                {loading ? <Loader /> : 'Submit Now'}
                                             </button>
                                         </div>
                                     </div>
