@@ -344,18 +344,20 @@ input[type=checkbox]~label:before {
   height: 20px;
   width: 20px;
   text-align: center;
+  border-radius: 50%;
   z-index: 9;
 }
 
 input[type=checkbox]~label:after {
   content: "";
   position: absolute;
-  left: 6px;
-  top: 9px;
+  left: 3px;
+  top: 7px;
   background: var(--theme);
-  height: 8px;
-  width: 8px;
+  height: 14px;
+  width: 14px;
   opacity: 0;
+  border-radius: 50%;
   -webkit-transition: 0.4s;
   -o-transition: 0.4s;
   -moz-transition: 0.4s;
@@ -11497,7 +11499,7 @@ input[type=checkbox]~label:after {
   position: absolute;
   left: 6px;
   top: 9px;
-  background: var(--theme);
+  background:  hsl(131, 53%, 45%);
   height: 8px;
   width: 8px;
   opacity: 0;
@@ -11753,9 +11755,8 @@ textarea.is-invalid {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  padding: 7px 20px;
+  padding: 5px 45px;
 }
-
 .dot {
   width: 10px;
   height: 10px;
@@ -11781,4 +11782,391 @@ textarea.is-invalid {
     transform: scale(1.2);
     opacity: 1;
   }
+}
+
+
+/* model */
+@keyframes modalFadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Modal Animation Styles */
+.modal-overlay {
+  position: fixed;
+  display: table;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+  z-index: 1000;
+  overflow: auto;
+}
+
+.modal-overlay.one {
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.modal-overlay.one .modal-background .modal-content {
+  transform: scale(0);
+  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.modal-overlay.one.out {
+  transform: scale(1);
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.modal-overlay.one.out .modal-background .modal-content {
+  animation: zoomOut 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+.modal-background {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+  width: 90%;
+  max-width: 1180px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Keyframe Animations */
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+/* Rest of your existing modal styles remain the same */
+/* ... */
+
+
+
+
+
+
+
+
+
+
+.modal-body .modal-left{
+  background-image: url('./assets/images/modal-left.avif') !important;
+  background-size: cover !important;        /* Ensures the image covers the entire area */
+  background-position: center !important;   /* Centers the image */
+  background-repeat: no-repeat !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: white;
+}
+
+@media(max-width: 993px){
+  .modal-body .modal-left{
+    margin-bottom: 30px;
+  }
+}
+
+
+.modal-body .modal-left h3{
+  color: white;
+  text-align: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 1180px;
+  max-height: 90vh; /* Limit height */
+  overflow-y: auto;  /* Enable vertical scrolling */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Optional: smoother background fade */
+.modal-overlay {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* FadeIn for overlay */
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+/* Add these to your existing CSS */
+
+/* Form Styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  height: auto;
+  padding: 10px 25px;
+}
+
+.form-control {
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 0.5rem;
+  border: none;
+}
+.form-control.textarea{
+  height: 6.2rem;
+}
+.form-input {
+  position: absolute;
+  display: block;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: inherit;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem 1rem;
+  z-index: 1;
+  outline: none;
+  border-radius: 1.25rem;
+  border: 1.75px solid hsl(210, 3%, 73%);
+  color: hsl(0, 0%, 10%);
+  background-clip: padding-box;
+  background-color: transparent;
+  transition: all 0.35s ease-in-out;
+}
+
+.form-input:focus {
+  border-color: var(--theme);
+}
+
+.form-input::placeholder {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form-label {
+  position: absolute;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  left: 0.75rem;
+  top: 0.65rem;
+  padding: 0 0.35rem;
+  color: hsl(220, 3%, 50%);
+  background: white;
+  transition: all 0.35s ease;
+  z-index: 2;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label,
+.form-input:valid  .form-label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  top: -0.65rem;
+  left: 0.75rem;
+  z-index: 5;
+  color: var(--theme);
+}
+
+.form-alert {
+  position: absolute;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  left: 0;
+  bottom: -1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  color: hsl(0, 90%, 60%);
+}
+
+.form-check {
+  position: absolute;
+  display: block;
+  top: 0.65rem;
+  right: 0.75rem;
+  z-index: 3;
+}
+
+.form-check svg {
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.form-control.invalid .form-input {
+  border-color: hsl(0, 90%, 60%);
+}
+
+.form-control.invalid .form-alert {
+  opacity: 1;
+  visibility: visible;
+}
+.form-checkbox.invalid .form-alert{
+  opacity: 1;
+  visibility: visible;
+}
+
+.form-control.invalid .form-check svg.ion-invalid {
+  opacity: 1;
+  visibility: visible;
+  color: hsl(0, 90%, 60%);
+}
+
+.form-control.success .form-input {
+  border-color: hsl(131, 53%, 45%);
+}
+
+.form-control.success .form-check svg.ion-success {
+  opacity: 1;
+  visibility: visible;
+  color: hsl(131, 53%, 45%);
+}
+
+/* For select elements */
+.form-input[value=""]:not(:focus) + .form-label {
+  font-size: 1rem;
+  top: 0.75rem;
+  color: hsl(220, 3%, 50%);
+}
+
+/* Textarea specific styles */
+textarea.form-input {
+  min-height: 100px;
+  resize: vertical;
+  padding-top: 1rem;
+}
+
+/* Checkbox styles */
+.form-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-checkbox-input {
+  width: 1rem;
+  height: 1rem;
+}
+
+.form-checkbox-label {
+  font-size: 0.875rem;
+  color: hsl(0, 0%, 10%);
+}
+
+
+
+/* Modal adjustments for the new form */
+.modal-content {
+  padding: 2rem;
+}
+
+.modal-header {
+  margin-bottom: 1.5rem;
+  justify-content: space-between !important;
+}
+.modal-header .close-btn{
+  font-size: 1.5rem;
+  transition: all 0.4s ease-in-out;
+}
+.modal-header .close-btn:hover{
+  color: var(--theme);
+  font-size: 1.7rem;
+  
+}
+
+.modal-body {
+  margin-bottom: 0;
+}
+/* Select element specific styles */
+select.form-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1em;
+  padding-right: 2rem;
+}
+
+select.form-input:invalid {
+  color: hsl(220, 3%, 50%);
+}
+
+select.form-input option {
+  color: hsl(0, 0%, 10%);
+}
+
+select.form-input option[value=""][disabled] {
+  display: none;
 }

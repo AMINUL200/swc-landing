@@ -2,7 +2,7 @@ import React from 'react'
 import { advanceThumbShape1, advantageThumb1, advantageThumb2, blogThumb1_1, blogThumb1_2, calendar, checkMarkIcon, ctaAppleStore1, ctaplayStore1, ctaShape1, ctaShape2, ctaShape3, ctaShape4, ctaThumb1, faqThumb1, faqThumb2, featureProfileShape1, fireIcon, FolderIcon, introProfileThumb1, introShape1, introShape2, introShape3, introShape4, introShape5, introThumbShape1, introThumbShape2, introThumbShape3, userIcon, wcuIcon1, wcuIcon2, wcuIcon3, wcuIcon4, wcuIcon5, wcuIcon6, wcuThumb1, wcuThumbShape1 } from '../assets';
 import { Link } from 'react-scroll';
 import { useInView } from 'react-intersection-observer';
-const HeroSection = ({ bannerData }) => {
+const HeroSection = ({ bannerData, showPopupModel }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
 
     return (
@@ -35,7 +35,7 @@ const HeroSection = ({ bannerData }) => {
                                                 </p>
                                             </div>
                                             <div className={`btn-wrapper style1 ${inView1 ? 'fadeInUp delay-4' : ''} `} >
-                                                <a className="theme-btn" href={bannerData?.button1_url}>
+                                                <a className="theme-btn" onClick={showPopupModel}>
                                                     {bannerData?.button1_name ?? 'Get Started Now'}
 
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

@@ -16,6 +16,8 @@ const BlogSection = ({ blogData }) => {
         const delays = ['delay-1', 'delay-2', 'delay-3'];
         return delays[index % delays.length];
     };
+   
+    
 
     return (
         <section className="blog-section section-padding fix" id='blog'>
@@ -40,7 +42,7 @@ const BlogSection = ({ blogData }) => {
                                             <img src={FolderIcon} alt="icon" />
                                             {blog.title}
                                         </div>
-                                        <h3><Link to='/blog-details' >{blog.heading}</Link></h3>
+                                        <h3><a href={blog.url} >{blog.heading}</a></h3>
                                         <div className="blog-meta">
                                             <div className="item child1">
                                                 <span className="icon">

@@ -3,7 +3,8 @@ import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { logo, logo3 } from '../assets';
-const Header = ({ setIsSidebarOpen }) => {
+
+const Header = ({ setIsSidebarOpen, showPopupModel }) => {
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,7 +85,7 @@ const Header = ({ setIsSidebarOpen }) => {
                 {/* <a href="#0" className="search-trigger search-icon"><FontAwesomeIcon icon={faSearch} /></a> */}
 
                 <div className="header-button ms-4">
-                  <a href="contact.html" className="theme-btn">
+                  <a  className="theme-btn" onClick={showPopupModel}>
                     <span>
                       Get Started
                       <FontAwesomeIcon className='ml-3' icon={faArrowRightLong} />
