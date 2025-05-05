@@ -11055,6 +11055,7 @@ input.main-search-input::placeholder {
 
 /* 34.Contact */
 .contact-info-box.style1 {
+  height: 100%;
   padding: 12px;
   background-color: #FAF8FF;
   border-radius: 10px;
@@ -11066,6 +11067,7 @@ input.main-search-input::placeholder {
 }
 
 .contact-info-box.style1 .contact-content {
+  height: 100%;
   padding: 50px 30px 30px;
   text-align: center;
   border-radius: 10px;
@@ -11077,6 +11079,7 @@ input.main-search-input::placeholder {
   -ms-transition: all 0.4s;
   -o-transition: all 0.4s;
 }
+
 
 .contact-info-box.style1 .contact-content .icon {
   margin-bottom: 40px;
