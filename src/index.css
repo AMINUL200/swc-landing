@@ -12312,6 +12312,7 @@ select.form-input option[value=""][disabled] {
 }
 
 .blog-detail-title {
+  color: black;
   font-size: 42px;
   line-height: 52px;
   margin-bottom: 10px;

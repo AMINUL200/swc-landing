@@ -3,8 +3,10 @@ import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { logo, logo3 } from '../assets';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ setIsSidebarOpen, showPopupModel }) => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +34,7 @@ const Header = ({ setIsSidebarOpen, showPopupModel }) => {
             <div className="header-main">
               <div className="header-left">
                 <div className="logo">
-                  <Link to="home"  smooth={true} duration={500}>
+                  <Link  onClick={()=> navigate('/')} smooth={true} duration={500}>
                     <img src={logo3} alt="logo-img" height={70} />
                   </Link>
                 </div>
