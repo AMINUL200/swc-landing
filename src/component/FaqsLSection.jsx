@@ -3,7 +3,7 @@ import { faqThumb1, faqThumb2, fireIcon } from '../assets'
 import { useInView } from 'react-intersection-observer';
 import { div } from 'framer-motion/client';
 
-const FaqsSection = ({ faqHeadData, faqQAData }) => {
+const FaqsLSection = ({ faqHeadData, faqQAData }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -13,7 +13,7 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
     return (
         <section className="faq-section section-padding fix">
             <div className="container">
-                <div className="faq-wrapper style1">
+                <div className="faq-wrapper style1 faq-left">
                     <div className="row gy-5 gy-xl-0 gx-60 d-flex align-items-start">
                         <div className="col-xl-6">
                             <div className="faq-content style1">
@@ -60,7 +60,7 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
                                                 </div>
                                             </div>
                                         ))}
-                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -81,4 +81,4 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
     )
 }
 
-export default FaqsSection
+export default FaqsLSection

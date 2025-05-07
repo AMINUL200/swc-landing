@@ -1,6 +1,5 @@
 import React from 'react'
 import { aboutThumb1, aboutThumb2, aboutThumbShape1, aboutThumbShape2, aboutThumbShape3, aboutThumbShape4, checkMarkIcon, fireIcon } from '../assets'
-import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-scroll';
 import { motion } from "motion/react"
 
@@ -57,7 +56,7 @@ const AboutSection = ({ ClassAdd, aboutData }) => {
                                             className="title"
                                             initial={{ y: 80, opacity: 0 }}
                                             whileInView={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 0.4, delay: 0.1 }}
+                                            transition={{ duration: 0.4, delay: 0.2 }}
                                             viewport={{ once: true }}
                                         >
                                             {aboutData?.heading1 ?? ' Simple Reports & Analytics Backdown As it'}
@@ -66,7 +65,7 @@ const AboutSection = ({ ClassAdd, aboutData }) => {
                                             className="section-desc"
                                             initial={{ y: 80, opacity: 0 }}
                                             whileInView={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 0.4, delay: 0.1 }}
+                                            transition={{ duration: 0.4, delay: 0.2 }}
                                             viewport={{ once: true }}
                                         >
                                             {aboutData?.heading2 ?? "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use"}

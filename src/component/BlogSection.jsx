@@ -1,6 +1,6 @@
 import React from 'react'
 import { blogThumb1_1, blogThumb1_2, calendar, fireIcon, FolderIcon, userIcon } from '../assets'
-import { Link } from 'react-scroll'
+import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer';
 
 const BlogSection = ({ blogData }) => {
@@ -16,8 +16,8 @@ const BlogSection = ({ blogData }) => {
         const delays = ['delay-1', 'delay-2', 'delay-3'];
         return delays[index % delays.length];
     };
-   
-    
+
+
 
     return (
         <section className="blog-section section-padding fix" id='blog'>
@@ -40,9 +40,11 @@ const BlogSection = ({ blogData }) => {
                                     <div className="body">
                                         <div className="tag-meta">
                                             <img src={FolderIcon} alt="icon" />
-                                            {blog.title}
+                                            {blog.catagory}
                                         </div>
-                                        <h3><a href={blog.url} >{blog.heading}</a></h3>
+                                        <h3>
+                                            <Link to={`/blog/${blog.catagory}`}>{blog.heading}</Link>
+                                        </h3>
                                         <div className="blog-meta">
                                             <div className="item child1">
                                                 <span className="icon">
@@ -63,7 +65,7 @@ const BlogSection = ({ blogData }) => {
 
                         ))}
 
-                       
+
 
 
                     </div>
