@@ -1,13 +1,33 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import { blogThumb3_6, teamThumb1_2 } from '../assets'
+import React, { useContext } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { blogThumb1_1, blogThumb1_2, blogThumb3_1, blogThumb3_2, blogThumb3_3, blogThumb3_6, calendar, fireIcon, FolderIcon, teamThumb1_2, userIcon } from '../assets'
 import BreadCumbSection from '../component/BreadCumbSection'
+import { AppContext } from '../context/AppContext'
+import { useInView } from 'react-intersection-observer'
 
 const BlogDetails = () => {
+  const { blogData } = useContext(AppContext);
   const { id } = useParams()
+
+
+  const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref9, inView9] = useInView({ threshold: 0.1, triggerOnce: true });
+
+  // Format date function
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  };
+  // Animation delays for each blog card
+  const getDelayClass = (index) => {
+    const delays = ['delay-1', 'delay-2', 'delay-3'];
+    return delays[index % delays.length];
+  };
+
+
   return (
     <>
-      <BreadCumbSection />
+      {/* <BreadCumbSection /> */}
 
       <div className='blog-details-section'>
         <div className="w-layout-block-container container w-container">
@@ -29,8 +49,8 @@ const BlogDetails = () => {
                 </p>
               </div>
               <div className="blog-details-thumbnail-box">
-                <div className="blog-single-image-box">
-                  <img className='blog-single-image' src={blogThumb3_6} alt="" />
+                <div ref={ref1} className="blog-single-image-box">
+                  <img className={`blog-single-image ${inView1 ? 'img-custom-anim-right delay-2':''}`}src={blogThumb3_6} alt="" />
                 </div>
               </div>
             </div>
@@ -52,6 +72,8 @@ const BlogDetails = () => {
                         <blockquote>
                           “Lorem ipsum dolor sit amet consectetur. Odio tortor arcu urna nullam. Tellus duis ut quisque et nisi in faucibus. Ante ante amet nunc sed tellus eros amet facilisis.”
                         </blockquote>
+                        <h2>Why Businesses Are Making the Shift</h2>
+                        <p>Corporate environments are rapidly evolving, and remote/hybrid work models demand flexible tech infrastructure. Cross-platform apps serve as a bridge to connect systems, people, and workflows — regardless of location or device. This agility not only increases productivity but also enhances employee satisfaction and customer service quality</p>
                         <h2>Driving sustainable innovation</h2>
                         <p>Sed nunc ac cras praesent varius at felis mauris. Enim dignissim pulvinar laoreet nibh elementum ultricies. Dignissim arcu molestie dui a. Libero ultrices est amet sed elit aliquam. Morbi viverra vitae volutpat rutrum. Vel vitae adipiscing tempor sed eu sit.</p>
                         <h2>Conclusion</h2>
@@ -60,17 +82,89 @@ const BlogDetails = () => {
                     </div>
                   </div>
                   <div className="blog-sidebar">
-                    <div className="blog-sidebar-contnent-block">
+                    <div className="blog-sidebar-contnent-block recnt-post">
                       <div className="blog-author-detail-box">
                         <div className="blog-author-thumbnail">
-                          <img src={teamThumb1_2} className='blog-author-image' alt="" />
+                          {/* <img src={teamThumb1_2} className='blog-author-image' alt="" /> */}
+                          <h2 className='title text-start'>Recent Post</h2>
                         </div>
-                        <div className="blog-author-box">
-                          <h2 className="blog-author-name"> &nbsp; Jhon Doe</h2>
-                          <p className="author-desc">Ornare et sem imperdiet dui quis viverra id.</p>
+                        <div className="blog-author-box text-start">
+                          {/* <h2 className="blog-author-name"> &nbsp; Jhon Doe</h2>
+                          <p className="author-desc">Ornare et sem imperdiet dui quis viverra id.</p> */}
+                          <Link to='#'>
+                            <img src={blogThumb1_1} alt="" />
+                            <p> Future-Focused Performance Mangement: Shaping the Workforec of Tomorrow.</p>
+
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb1_2} alt="" he />
+                            Software Ecosystem Revamp for a Retail Chain
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_1} alt="" />
+                            Essential Employment Law Updates for Small Business in the UK
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_2} alt="" />
+                            Save Time, Reduce Errors, Stay Comliant with Our HRMS
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_3} alt="" />
+                            Employ Mangement: The Key to a Successful Workforce
+                          </Link>
+
                         </div>
                       </div>
                     </div>
+
+                    <div className="blog-sidebar-contnent-block our-service">
+                      <div className="blog-author-detail-box">
+                        <div className="blog-author-thumbnail">
+                          {/* <img src={teamThumb1_2} className='blog-author-image' alt="" /> */}
+                          <h2 className='title text-start'>Our Services</h2>
+                        </div>
+                        <div className="blog-author-box text-start">
+                          {/* <h2 className="blog-author-name"> &nbsp; Jhon Doe</h2>
+                          <p className="author-desc">Ornare et sem imperdiet dui quis viverra id.</p> */}
+                          <Link to='#'>
+                            <img src={blogThumb1_1} alt="" />
+                            <p> HRMS Software</p>
+
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb1_2} alt="" he />
+                            HR File Prepareation
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_1} alt="" />
+                            File Manager
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_2} alt="" />
+                            Software Devlopment
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_3} alt="" />
+                            Business Consultancy
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_3} alt="" />
+                           Web/ Profile Development
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_3} alt="" />
+                            Skilled Workers Industry
+                          </Link>
+                          <Link to='#'>
+                            <img src={blogThumb3_3} alt="" />
+                            Recruitment
+                          </Link>
+
+                        </div>
+                      </div>
+                    </div>
+
+
                   </div>
                 </div>
 
@@ -80,6 +174,58 @@ const BlogDetails = () => {
 
         </div>
       </div>
+
+      <section className="blog-section section-padding fix" id='blog'>
+        <div className="container">
+          <div ref={ref9} className="blog-wrapper style1">
+            <div className="section-title text-center mxw-685 mx-auto">
+
+              <h2 className={`title ${inView9 ? 'fadeInUp delay-2' : ''}`} >Related Blog</h2>
+            </div>
+            <div className="row gy-5">
+
+              {blogData?.map((blog, index) => (
+                <div className="col-xl-4 col-md-6" key={blog.id}>
+                  <div className={`blog-card style1 img-srinck ${inView9 ? `fadeInUp ${getDelayClass(index)}` : ''}`}>
+                    <div className="thumb">
+                      <img src={blog.image} alt={blog.title} />
+                    </div>
+                    <div className="body">
+                      <div className="tag-meta">
+                        <img src={FolderIcon} alt="icon" />
+                        {blog.catagory}
+                      </div>
+                      <h3>
+                        <Link to={`/blog/${blog.catagory}`}>{blog.heading}</Link>
+                      </h3>
+                      <div className="blog-meta">
+                        <div className="item child1">
+                          <span className="icon">
+                            <img src={userIcon} alt="icon" />
+                          </span>
+                          <span className="text">{blog.paragraph1}</span>
+                        </div>
+                        <div className="item">
+                          <span className="icon">
+                            <img src={calendar} alt="icon" />
+                          </span>
+                          <span className="text">{formatDate(blog.published_date)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              ))}
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+
     </>
 
   )

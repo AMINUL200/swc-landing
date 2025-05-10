@@ -4,8 +4,11 @@ import { faAngleDown, faClock, faEnvelope, faMapMarkedAlt, faMapMarkerAlt, faPho
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { logo2 } from '../assets';
 import { Link } from 'react-scroll';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
+    const navigate = useNavigate();
+
 
  
 
@@ -18,9 +21,9 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                         <div className="offcanvas__content">
                             <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                                 <div className="offcanvas__logo">
-                                    <a href="index.html">
+                                    <Link onClick={()=> navigate('/')} smooth={true}>
                                         <img src={logo2} alt="logo-img" />
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div className="offcanvas__close">
                                     <button onClick={() => setIsSidebarOpen(false)}>
@@ -34,10 +37,10 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                                     <nav className="mean-nav">
                                         <ul>
                                             <li>
-                                                <Link to="/">Home</Link>
+                                                <Link to="home">Home</Link>
                                             </li>
                                             <li>
-                                                <Link to="/about">About Us</Link>
+                                                <Link to="about">About Us</Link>
                                             </li>
                                             <li>
                                                 <Link  to="features" smooth={true} duration={500}>
