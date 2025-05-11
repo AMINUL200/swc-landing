@@ -22,6 +22,7 @@ const AppContextProvider = (props) => {
     const [contactData, setContactData] = useState(null)
 
       const [showPopup, setShowPopup] = useState(false)
+      const [blogDetailsLoading, setBlogDetailsLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -129,7 +130,23 @@ const AppContextProvider = (props) => {
 
 
 
+const blogDataInfo = async (id) => {
+  setBlogDetailsLoading(true);  // Use separate loading state for blog details
+  try {
+    const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk/website-api/api/controller/blog_details.php?blog=${id}`);
+    const blogDetailsJson = await blogDetailsRes.json();
 
+    if (blogDetailsJson.flag === 1 && blogDetailsJson.status === 200) {
+      return blogDetailsJson.data;
+    }
+    return null;
+  } catch (error) {
+    console.error("blog Details error", error);
+    return null;
+  } finally {
+    setBlogDetailsLoading(false);
+  }
+}
 
 
 
@@ -139,7 +156,7 @@ const AppContextProvider = (props) => {
 
     const value = {
         // your state and methods here
-        loading,
+        loading, setLoading,
         isSideBarOpen, setIsSidebarOpen,
         bannerData,
         brandData,
@@ -156,7 +173,9 @@ const AppContextProvider = (props) => {
         featureData,
         blogData,
         contactData,
-        showPopup, setShowPopup
+        showPopup, setShowPopup,
+        blogDetailsLoading,
+        blogDataInfo,
 
     };
 

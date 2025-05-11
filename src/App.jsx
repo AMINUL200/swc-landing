@@ -7,9 +7,9 @@ import BackToTop from './component/BackToTop';
 
 import { ToastContainer } from 'react-toastify';
 import PopupModel from './component/PopupModel';
-import { Route,  Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import BlogDetails from './pages/BlogDetails';
+import BlogDetails, { blogdataInfo } from './pages/BlogDetails';
 import { AppContext } from './context/AppContext';
 
 const App = () => {
@@ -27,10 +27,12 @@ const App = () => {
       <Header setIsSidebarOpen={setIsSidebarOpen} showPopupModel={() => setShowPopup(true)} />
       <Sidebar isSideBarOpen={isSideBarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/blog/:id' element={<BlogDetails />} />
-      </Routes>
+        <Route path='/blog/:id' loader={blogdataInfo} element={<BlogDetails />} />
+      </Routes> */}
+
+      <Outlet />
 
       <PopupModel show={showPopup} onClose={() => setShowPopup(false)} />
       <Footer />

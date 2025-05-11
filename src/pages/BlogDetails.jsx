@@ -1,14 +1,21 @@
-import React, { useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useLoaderData, useParams } from 'react-router-dom'
 import { blogThumb1_1, blogThumb1_2, blogThumb3_1, blogThumb3_2, blogThumb3_3, blogThumb3_6, calendar, fireIcon, FolderIcon, teamThumb1_2, userIcon } from '../assets'
-import BreadCumbSection from '../component/BreadCumbSection'
 import { AppContext } from '../context/AppContext'
 import { useInView } from 'react-intersection-observer'
 import { motion } from "motion/react"
+import { tr } from 'framer-motion/m'
+import Loader from '../component/Loader'
+import Preloader from '../component/Preloader'
 
+// const {id} = useParams()
 const BlogDetails = () => {
-  const { blogData } = useContext(AppContext);
+  const { blogData, blogDataInfo, blogDetailsLoading } = useContext(AppContext);
   const { id } = useParams()
+  // const [blogInfo, setBlogInfo] = useState(null);
+  const [blogDetailsData, setBlogDetailsData] = useState()
+  const [recentPost, setRecentPost] = useState([]);
+
 
 
   const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -24,6 +31,40 @@ const BlogDetails = () => {
     const delays = ['delay-1', 'delay-2', 'delay-3'];
     return delays[index % delays.length];
   };
+
+  // const blogInfo = blogDataInfo(id);
+
+  // // const blogInfo = useLoaderData();
+  // const blogDetailsData = blogInfo.blogs[0]
+  // // console.log('blogdetails:',blogDetailsData);
+
+  // // console.log(blogDetailsData?.heading2);
+
+  // const recentPost = blogInfo.recent_posts;
+  // console.log(recentPost);
+
+
+  useEffect(() => {
+    const fetchBlogDetails = async () => {
+      try {
+        const data = await blogDataInfo(id);
+        if (data) {
+          setBlogDetailsData(data.blogs[0]);
+          setRecentPost(data.recent_posts || []);
+        } else {
+          setError("Failed to load blog details");
+        }
+      } catch (err) {
+        setError("An error occurred while loading the blog");
+      }
+    };
+
+    fetchBlogDetails();
+  }, [id]);
+
+  if (blogDetailsLoading) {
+    return <Preloader/>
+  }
 
 
   return (
@@ -42,7 +83,7 @@ const BlogDetails = () => {
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    className="blog-category">{id}
+                    className="blog-category">{blogDetailsData?.catagory_name}
                   </motion.div>
                 </div>
                 <motion.div
@@ -61,7 +102,7 @@ const BlogDetails = () => {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   viewport={{ once: true, margin: "-100px" }}
                   className="blog-detail-title">
-                  Future trends, today's insights
+                  {blogDetailsData?.heading1}
                 </motion.div>
               </div>
               <div className="blog-details-desc-box">
@@ -71,7 +112,7 @@ const BlogDetails = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   viewport={{ once: true, margin: "-100px" }}
                   className="blog-desc">
-                  Tellus nibh sed est accumsan blandit. Aliquam sapien sed in tellus porta augue in tincidunt. Pulvinar morbi maecenas sed est feugiat eget nullam malesuada risus.
+                  {blogDetailsData?.paragraph1}
                 </motion.p>
               </div>
               <div className="blog-details-thumbnail-box">
@@ -92,7 +133,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Faucibus pharetra phasellus morbi duis tortor nunc. Suscipit morbi condimentum tellus lacus congue sit cum. Odio odio lorem nunc amet blandit velit habitant lectus lectus. Senectus ultrices laoreet felis pulvinar ipsum iaculis. Magna fringilla neque condimentum lorem. Lacus sit egestas aliquam pellentesque tortor et quis. Neque tellus egestas placerat et sem vitae mi.
+                          {blogDetailsData?.paragraph}
                         </motion.p>
                         <motion.h2
                           initial={{ y: 80, opacity: 0 }}
@@ -100,7 +141,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          the mindful tech consumer
+                          {blogDetailsData?.heading2}
                         </motion.h2>
                         <motion.p
                           initial={{ y: 80, opacity: 0 }}
@@ -108,7 +149,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Diam dui eget egestas dapibus mi condimentum lacus amet tempor. Eu tempus est nullam malesuada risus ullamcorper risus. Nulla orci adipiscing tincidunt tellus in. Turpis ipsum ipsum montes vivamus amet volutpat sed magnis fames. Viverra hac lorem sed scelerisque cras in nibh ac sapien.
+                          {blogDetailsData?.paragraph2}
                         </motion.p>
                         <motion.h2
                           initial={{ y: 80, opacity: 0 }}
@@ -116,7 +157,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Integrating mindfulness in tech
+                          {blogDetailsData?.heading3}
                         </motion.h2>
                         <motion.p
                           initial={{ y: 80, opacity: 0 }}
@@ -124,7 +165,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Aliquet donec vehicula leo augue volutpat donec sed vel. Cras mi ut pharetra sit leo sed augue. Viverra eu enim aliquam semper. Odio id nec odio ultricies purus. Faucibus nisi ut vitae tortor cras
+                          {blogDetailsData?.paragraph3}
                         </motion.p>
                         <motion.h2
                           initial={{ y: 80, opacity: 0 }}
@@ -132,7 +173,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Tech CSR and ethical standards
+                          {blogDetailsData?.heading4}
                         </motion.h2>
                         <motion.p
                           initial={{ y: 80, opacity: 0 }}
@@ -140,7 +181,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Diam dui eget egestas dapibus mi condimentum lacus amet tempor. Eu tempus est nullam malesuada risus ullamcorper risus. Nulla orci adipiscing tincidunt tellus in. Turpis ipsum ipsum montes vivamus amet volutpat sed magnis fames. Viverra hac lorem sed scelerisque cras in nibh ac sapien.
+                          {blogDetailsData?.paragraph4}
                         </motion.p>
                         <motion.blockquote
                           initial={{ y: 80, opacity: 0 }}
@@ -148,7 +189,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          “Lorem ipsum dolor sit amet consectetur. Odio tortor arcu urna nullam. Tellus duis ut quisque et nisi in faucibus. Ante ante amet nunc sed tellus eros amet facilisis.”
+                          {blogDetailsData?.block_quote}
                         </motion.blockquote>
                         <motion.h2
                           initial={{ y: 80, opacity: 0 }}
@@ -156,7 +197,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Why Businesses Are Making the Shift
+                          {blogDetailsData?.heading5}
                         </motion.h2>
                         <motion.p
                           initial={{ y: 80, opacity: 0 }}
@@ -164,7 +205,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Corporate environments are rapidly evolving, and remote/hybrid work models demand flexible tech infrastructure. Cross-platform apps serve as a bridge to connect systems, people, and workflows — regardless of location or device. This agility not only increases productivity but also enhances employee satisfaction and customer service quality
+                          {blogDetailsData?.paragraph5}
                         </motion.p>
                         <motion.h2
                           initial={{ y: 80, opacity: 0 }}
@@ -172,7 +213,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Driving sustainable innovation
+                          {blogDetailsData?.heading6}
                         </motion.h2>
                         <motion.p
                           initial={{ y: 80, opacity: 0 }}
@@ -180,7 +221,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Sed nunc ac cras praesent varius at felis mauris. Enim dignissim pulvinar laoreet nibh elementum ultricies. Dignissim arcu molestie dui a. Libero ultrices est amet sed elit aliquam. Morbi viverra vitae volutpat rutrum. Vel vitae adipiscing tempor sed eu sit.
+                          {blogDetailsData?.paragraph6}
                         </motion.p>
                         <motion.h2
                           initial={{ y: 80, opacity: 0 }}
@@ -188,7 +229,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.2 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Conclusion
+                          {blogDetailsData?.heading7}
                         </motion.h2>
                         <motion.p
                           initial={{ y: 80, opacity: 0 }}
@@ -196,7 +237,7 @@ const BlogDetails = () => {
                           transition={{ duration: 0.5, delay: 0.3 }}
                           viewport={{ once: true, margin: "-100px" }}
                         >
-                          Tristique ultricies vitae suscipit aliquet vitae. Mauris egestas mattis tortor massa elementum eu. Scelerisque ultrices fusce elit fusce tincidunt duis sit cum eros. Ultrices nisl aenean in vel aliquam tellus tempus. Rhoncus magna aenean purus urna turpis rutrum non vestibulum pharetra. Arcu lobortis imperdiet diam velit fermentum libero. In ante viverra eu pellentesque commodo risus facilisi.
+                          {blogDetailsData?.paragraph7}
                         </motion.p>
                       </div>
                     </div>
@@ -205,68 +246,25 @@ const BlogDetails = () => {
                     <div className="blog-sidebar-contnent-block recnt-post">
                       <div className="blog-author-detail-box">
                         <div className="blog-author-thumbnail">
-                          {/* <img src={teamThumb1_2} className='blog-author-image' alt="" /> */}
                           <h2 className='title text-start'>Recent Post</h2>
                         </div>
                         <div className="blog-author-box text-start">
-                          {/* <h2 className="blog-author-name"> &nbsp; Jhon Doe</h2>
-                          <p className="author-desc">Ornare et sem imperdiet dui quis viverra id.</p> */}
-                          <Link to='#'>
-                            <img src={blogThumb1_1} alt="" />
-                            <motion.p
-                              initial={{ y: 80, opacity: 0 }}
-                              whileInView={{ y: 0, opacity: 1 }}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                              viewport={{ once: true, margin: "-40px" }}
-                            >
-                              Future-Focused Performance Mangement: Shaping the Workforec of Tomorrow.
-                            </motion.p>
 
-                          </Link>
-                          <Link to='#'>
-                            <img src={blogThumb1_2} alt="" he />
-                            <motion.p
-                              initial={{ y: 80, opacity: 0 }}
-                              whileInView={{ y: 0, opacity: 1 }}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                              viewport={{ once: true, margin: "-40px" }}
-                            >
-                              Software Ecosystem Revamp for a Retail Chain
-                            </motion.p>
-                          </Link>
-                          <Link to='#'>
-                            <img src={blogThumb3_1} alt="" />
-                            <motion.p
-                              initial={{ y: 80, opacity: 0 }}
-                              whileInView={{ y: 0, opacity: 1 }}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                              viewport={{ once: true, margin: "-40px" }}
-                            >
-                              Essential Employment Law Updates for Small Business in the UK
-                            </motion.p>
-                          </Link>
-                          <Link to='#'>
-                            <img src={blogThumb3_2} alt="" />
-                            <motion.p
-                              initial={{ y: 80, opacity: 0 }}
-                              whileInView={{ y: 0, opacity: 1 }}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                              viewport={{ once: true, margin: "-40px" }}
-                            >
-                              Save Time, Reduce Errors, Stay Comliant with Our HRMS
-                            </motion.p>
-                          </Link>
-                          <Link to='#'>
-                            <img src={blogThumb3_3} alt="" />
-                            <motion.p
-                              initial={{ y: 80, opacity: 0 }}
-                              whileInView={{ y: 0, opacity: 1 }}
-                              transition={{ duration: 0.5, delay: 0.2 }}
-                              viewport={{ once: true, margin: "-40px" }}
-                            >
-                              Employ Mangement: The Key to a Successful Workforce
-                            </motion.p>
-                          </Link>
+                          {recentPost?.map((post, index) => (
+                            <Link key={index} to={`/blog/${post.catagory}`}>
+                              <img src={post.image} alt="" />
+                              <motion.p
+                                initial={{ y: 80, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                                viewport={{ once: true, margin: "-20px" }}
+                              >
+                                {post.heading}
+                              </motion.p>
+                            </Link>
+                          ))}
+
+
 
                         </div>
                       </div>
@@ -387,7 +385,7 @@ const BlogDetails = () => {
         </div>
       </div>
 
-      <section className="blog-section section-padding fix" id='blog'>
+      <section className="blog-section section-padding fix">
         <div className="container">
           <div ref={ref9} className="blog-wrapper style1">
             <div className="section-title text-center mxw-685 mx-auto">
@@ -444,3 +442,22 @@ const BlogDetails = () => {
 }
 
 export default BlogDetails
+
+
+export const blogdataInfo = async ({ params }) => {
+  const { id } = params;
+  try {
+    const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk/website-api/api/controller/blog_details.php?blog=${id}`);
+    const blogDetailsJson = await blogDetailsRes.json(); // <-- ADD await here
+
+    if (blogDetailsJson.flag === 1 && blogDetailsJson.status === 200) {
+      return blogDetailsJson.data; // Assuming you want the first (and only) blog
+    } else {
+      return null;
+    }
+
+  } catch (error) {
+    console.error("blog Details error", error);
+    return null;
+  }
+}
