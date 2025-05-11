@@ -4,6 +4,7 @@ import { blogThumb1_1, blogThumb1_2, blogThumb3_1, blogThumb3_2, blogThumb3_3, b
 import BreadCumbSection from '../component/BreadCumbSection'
 import { AppContext } from '../context/AppContext'
 import { useInView } from 'react-intersection-observer'
+import { motion } from "motion/react"
 
 const BlogDetails = () => {
   const { blogData } = useContext(AppContext);
@@ -36,21 +37,46 @@ const BlogDetails = () => {
             <div className="blog-post-content-box">
               <div className="meta-text-block text-center">
                 <div className="blog-category-box">
-                  <div className="blog-category">{id}</div>
+                  <motion.div
+                    initial={{ x: -80, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="blog-category">{id}
+                  </motion.div>
                 </div>
-                <div className="blog-date text-dark">February 28, 2025</div>
+                <motion.div
+                  initial={{ x: 80, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="blog-date text-dark">
+                  February 28, 2025
+                </motion.div>
               </div>
               <div className="blog-post-title-block text-center">
-                <div className="blog-detail-title">Future trends, today's insights</div>
+                <motion.div
+                  initial={{ y: 80, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="blog-detail-title">
+                  Future trends, today's insights
+                </motion.div>
               </div>
               <div className="blog-details-desc-box">
-                <p className="blog-desc">
+                <motion.p
+                  initial={{ y: 80, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="blog-desc">
                   Tellus nibh sed est accumsan blandit. Aliquam sapien sed in tellus porta augue in tincidunt. Pulvinar morbi maecenas sed est feugiat eget nullam malesuada risus.
-                </p>
+                </motion.p>
               </div>
               <div className="blog-details-thumbnail-box">
                 <div ref={ref1} className="blog-single-image-box">
-                  <img className={`blog-single-image ${inView1 ? 'img-custom-anim-right delay-2':''}`}src={blogThumb3_6} alt="" />
+                  <img className={`blog-single-image ${inView1 ? 'img-custom-anim-right delay-2' : ''}`} src={blogThumb3_6} alt="" />
                 </div>
               </div>
             </div>
@@ -60,24 +86,118 @@ const BlogDetails = () => {
                   <div className="blog-detail-content-block">
                     <div className="blog-rich-text-block-1">
                       <div className="blog-rich-text w-richtext">
-                        <p>
+                        <motion.p
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
                           Faucibus pharetra phasellus morbi duis tortor nunc. Suscipit morbi condimentum tellus lacus congue sit cum. Odio odio lorem nunc amet blandit velit habitant lectus lectus. Senectus ultrices laoreet felis pulvinar ipsum iaculis. Magna fringilla neque condimentum lorem. Lacus sit egestas aliquam pellentesque tortor et quis. Neque tellus egestas placerat et sem vitae mi.
-                        </p>
-                        <h2>the mindful tech consumer</h2>
-                        <p>Diam dui eget egestas dapibus mi condimentum lacus amet tempor. Eu tempus est nullam malesuada risus ullamcorper risus. Nulla orci adipiscing tincidunt tellus in. Turpis ipsum ipsum montes vivamus amet volutpat sed magnis fames. Viverra hac lorem sed scelerisque cras in nibh ac sapien.</p>
-                        <h2>Integrating mindfulness in tech</h2>
-                        <p>Aliquet donec vehicula leo augue volutpat donec sed vel. Cras mi ut pharetra sit leo sed augue. Viverra eu enim aliquam semper. Odio id nec odio ultricies purus. Faucibus nisi ut vitae tortor cras</p>
-                        <h2>Tech CSR and ethical standards</h2>
-                        <p>Diam dui eget egestas dapibus mi condimentum lacus amet tempor. Eu tempus est nullam malesuada risus ullamcorper risus. Nulla orci adipiscing tincidunt tellus in. Turpis ipsum ipsum montes vivamus amet volutpat sed magnis fames. Viverra hac lorem sed scelerisque cras in nibh ac sapien.</p>
-                        <blockquote>
+                        </motion.p>
+                        <motion.h2
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          the mindful tech consumer
+                        </motion.h2>
+                        <motion.p
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Diam dui eget egestas dapibus mi condimentum lacus amet tempor. Eu tempus est nullam malesuada risus ullamcorper risus. Nulla orci adipiscing tincidunt tellus in. Turpis ipsum ipsum montes vivamus amet volutpat sed magnis fames. Viverra hac lorem sed scelerisque cras in nibh ac sapien.
+                        </motion.p>
+                        <motion.h2
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Integrating mindfulness in tech
+                        </motion.h2>
+                        <motion.p
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Aliquet donec vehicula leo augue volutpat donec sed vel. Cras mi ut pharetra sit leo sed augue. Viverra eu enim aliquam semper. Odio id nec odio ultricies purus. Faucibus nisi ut vitae tortor cras
+                        </motion.p>
+                        <motion.h2
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Tech CSR and ethical standards
+                        </motion.h2>
+                        <motion.p
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Diam dui eget egestas dapibus mi condimentum lacus amet tempor. Eu tempus est nullam malesuada risus ullamcorper risus. Nulla orci adipiscing tincidunt tellus in. Turpis ipsum ipsum montes vivamus amet volutpat sed magnis fames. Viverra hac lorem sed scelerisque cras in nibh ac sapien.
+                        </motion.p>
+                        <motion.blockquote
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
                           “Lorem ipsum dolor sit amet consectetur. Odio tortor arcu urna nullam. Tellus duis ut quisque et nisi in faucibus. Ante ante amet nunc sed tellus eros amet facilisis.”
-                        </blockquote>
-                        <h2>Why Businesses Are Making the Shift</h2>
-                        <p>Corporate environments are rapidly evolving, and remote/hybrid work models demand flexible tech infrastructure. Cross-platform apps serve as a bridge to connect systems, people, and workflows — regardless of location or device. This agility not only increases productivity but also enhances employee satisfaction and customer service quality</p>
-                        <h2>Driving sustainable innovation</h2>
-                        <p>Sed nunc ac cras praesent varius at felis mauris. Enim dignissim pulvinar laoreet nibh elementum ultricies. Dignissim arcu molestie dui a. Libero ultrices est amet sed elit aliquam. Morbi viverra vitae volutpat rutrum. Vel vitae adipiscing tempor sed eu sit.</p>
-                        <h2>Conclusion</h2>
-                        <p>Tristique ultricies vitae suscipit aliquet vitae. Mauris egestas mattis tortor massa elementum eu. Scelerisque ultrices fusce elit fusce tincidunt duis sit cum eros. Ultrices nisl aenean in vel aliquam tellus tempus. Rhoncus magna aenean purus urna turpis rutrum non vestibulum pharetra. Arcu lobortis imperdiet diam velit fermentum libero. In ante viverra eu pellentesque commodo risus facilisi.</p>
+                        </motion.blockquote>
+                        <motion.h2
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Why Businesses Are Making the Shift
+                        </motion.h2>
+                        <motion.p
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Corporate environments are rapidly evolving, and remote/hybrid work models demand flexible tech infrastructure. Cross-platform apps serve as a bridge to connect systems, people, and workflows — regardless of location or device. This agility not only increases productivity but also enhances employee satisfaction and customer service quality
+                        </motion.p>
+                        <motion.h2
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Driving sustainable innovation
+                        </motion.h2>
+                        <motion.p
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Sed nunc ac cras praesent varius at felis mauris. Enim dignissim pulvinar laoreet nibh elementum ultricies. Dignissim arcu molestie dui a. Libero ultrices est amet sed elit aliquam. Morbi viverra vitae volutpat rutrum. Vel vitae adipiscing tempor sed eu sit.
+                        </motion.p>
+                        <motion.h2
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Conclusion
+                        </motion.h2>
+                        <motion.p
+                          initial={{ y: 80, opacity: 0 }}
+                          whileInView={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                        >
+                          Tristique ultricies vitae suscipit aliquet vitae. Mauris egestas mattis tortor massa elementum eu. Scelerisque ultrices fusce elit fusce tincidunt duis sit cum eros. Ultrices nisl aenean in vel aliquam tellus tempus. Rhoncus magna aenean purus urna turpis rutrum non vestibulum pharetra. Arcu lobortis imperdiet diam velit fermentum libero. In ante viverra eu pellentesque commodo risus facilisi.
+                        </motion.p>
                       </div>
                     </div>
                   </div>
@@ -93,24 +213,59 @@ const BlogDetails = () => {
                           <p className="author-desc">Ornare et sem imperdiet dui quis viverra id.</p> */}
                           <Link to='#'>
                             <img src={blogThumb1_1} alt="" />
-                            <p> Future-Focused Performance Mangement: Shaping the Workforec of Tomorrow.</p>
+                            <motion.p
+                              initial={{ y: 80, opacity: 0 }}
+                              whileInView={{ y: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Future-Focused Performance Mangement: Shaping the Workforec of Tomorrow.
+                            </motion.p>
 
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb1_2} alt="" he />
-                            Software Ecosystem Revamp for a Retail Chain
+                            <motion.p
+                              initial={{ y: 80, opacity: 0 }}
+                              whileInView={{ y: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Software Ecosystem Revamp for a Retail Chain
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_1} alt="" />
-                            Essential Employment Law Updates for Small Business in the UK
+                            <motion.p
+                              initial={{ y: 80, opacity: 0 }}
+                              whileInView={{ y: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Essential Employment Law Updates for Small Business in the UK
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_2} alt="" />
-                            Save Time, Reduce Errors, Stay Comliant with Our HRMS
+                            <motion.p
+                              initial={{ y: 80, opacity: 0 }}
+                              whileInView={{ y: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Save Time, Reduce Errors, Stay Comliant with Our HRMS
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_3} alt="" />
-                            Employ Mangement: The Key to a Successful Workforce
+                            <motion.p
+                              initial={{ y: 80, opacity: 0 }}
+                              whileInView={{ y: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Employ Mangement: The Key to a Successful Workforce
+                            </motion.p>
                           </Link>
 
                         </div>
@@ -128,36 +283,93 @@ const BlogDetails = () => {
                           <p className="author-desc">Ornare et sem imperdiet dui quis viverra id.</p> */}
                           <Link to='#'>
                             <img src={blogThumb1_1} alt="" />
-                            <p> HRMS Software</p>
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              HRMS Software
+                            </motion.p>
 
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb1_2} alt="" he />
-                            HR File Prepareation
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              HR File Prepareation
+                            </motion.p>
                           </Link>
+
                           <Link to='#'>
                             <img src={blogThumb3_1} alt="" />
-                            File Manager
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              File Manager
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_2} alt="" />
-                            Software Devlopment
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Software Devlopment
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_3} alt="" />
-                            Business Consultancy
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Business Consultancy
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_3} alt="" />
-                           Web/ Profile Development
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Web/ Profile Development
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_3} alt="" />
-                            Skilled Workers Industry
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Skilled Workers Industry
+                            </motion.p>
                           </Link>
                           <Link to='#'>
                             <img src={blogThumb3_3} alt="" />
-                            Recruitment
+                            <motion.p
+                              initial={{ x: 80, opacity: 0 }}
+                              whileInView={{ x: 0, opacity: 1 }}
+                              transition={{ duration: 0.5, delay: 0.2 }}
+                              viewport={{ once: true, margin: "-40px" }}
+                            >
+                              Recruitment
+                            </motion.p>
                           </Link>
 
                         </div>

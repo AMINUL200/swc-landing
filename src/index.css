@@ -12491,12 +12491,17 @@ blockquote {
 .blog-author-box a img {
   width: 40px;
   height: 40px;
+  transition: margin-right 0.3s ease-in; /* Apply transition here */
+}
+.blog-author-box a:hover img{
+  margin-right: 10px;
 }
 
 .recnt-post .blog-author-box a img {
   border-radius: 50%;
-box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
+
 .our-service .blog-author-box a img {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
