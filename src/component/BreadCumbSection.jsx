@@ -2,7 +2,7 @@ import React from 'react'
 import { breadCumbShape1, breadCumbShape2 } from '../assets'
 import { Link } from 'react-router-dom'
 
-const BreadCumbSection = () => {
+const BreadCumbSection = ({page}) => {
     return (
         <div className="breadcumb-section fix">
             <div className="breadcumb-container-wrapper" data-bg-src="assets/images/bg/breadcumgBg.png">
@@ -11,9 +11,9 @@ const BreadCumbSection = () => {
                     <div className="shape2"><img src={breadCumbShape2} alt="shape" /></div>
                     <div className="breadcumb-wrapper">
                         <div className="page-heading">
-                            <h1>Blog Details</h1>
+                            <h1>{page}</h1>
                             <div className="links">
-                                <Link to='/' >Home<span className="slash">/</span></Link>Blog Details
+                                <Link to='/' >Home<span className="slash">/</span></Link>{page}
                             </div>
                         </div>
                     </div>

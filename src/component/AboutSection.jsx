@@ -10,7 +10,7 @@ const AboutSection = ({ ClassAdd, aboutData }) => {
 
 
     return (
-        <section className={`about-section ${ClassAdd} fix`} id='about'>
+        <section className={`about-section section-padding ${ClassAdd} fix`} id='about'>
             <div className="about-container-wrapper style1">
                 <div className="container">
                     <div className="about-wrapper style1">

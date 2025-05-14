@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { logo, logo3 } from '../assets';
@@ -46,34 +46,34 @@ const Header = ({ setIsSidebarOpen, showPopupModel }) => {
                     <nav id="mobile-menu">
                       <ul>
                         <li>
-                          <Link className='a-tag' to="home"  smooth={true} duration={200}>Home</Link>
+                          <Link className='a-tag' to="/"  smooth={true} duration={200}>Home</Link>
                         </li>
                         <li>
-                          <Link className='a-tag' to="about"  smooth={true} duration={200}>About</Link>
+                          <Link className='a-tag' to="/about"  smooth={true} duration={200}>About</Link>
                         </li>
                         
                         <li>
-                          <Link className='a-tag' to="features"  smooth={true} duration={200}>
-                            Features
+                          <Link className='a-tag' to="/services"  smooth={true} duration={200}>
+                            Services
                           </Link>
                         </li>
                         <li>
-                          <Link className='a-tag' to="pricing"  smooth={true} duration={200}>
+                          <Link className='a-tag' to="#"  smooth={true} duration={200}>
                             Pricing
                           </Link>
                         </li>
                         <li>
-                          <Link className='a-tag' to="blog"  smooth={true} duration={200}>
+                          <Link className='a-tag' to="#"  smooth={true} duration={200}>
                             Blog
                           </Link>
                         </li>
                         <li>
-                          <Link className='a-tag' to="our-app"  smooth={true} duration={200}>
+                          <Link className='a-tag' to="#"  smooth={true} duration={200}>
                             Our App
                           </Link>
                         </li>
                         <li>
-                          <Link className='a-tag' to="contact"  smooth={true} duration={200}>
+                          <Link className='a-tag' to="#"  smooth={true} duration={200}>
                             Contact Us
                           </Link>
                         </li>

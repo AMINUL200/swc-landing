@@ -11,6 +11,8 @@ import AppContextProvider, { AppContext } from './context/AppContext.jsx';
 import HomePage from './pages/HomePage.jsx';
 import { path } from 'framer-motion/client';
 import BlogDetails, { blogdataInfo } from './pages/BlogDetails.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import ServicesPage from './pages/ServicesPage.jsx';
 
 // const {blogDataInfo} = useContext(AppContext)
 const router = createBrowserRouter([
@@ -24,6 +26,8 @@ const router = createBrowserRouter([
         element:<BlogDetails/>,
         // loader: blogdataInfo,
       },
+      { path:'about', element:<AboutPage/>},
+      { path:'services', element:<ServicesPage/>},
     ]
   }
 ])
