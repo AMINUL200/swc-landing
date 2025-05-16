@@ -58,7 +58,7 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
                                             <div className="fancy-box-wrapper style1">
                                                 <div className={`fancy-box style1 ${inView1 ? 'fadeInUp delay-1' : ''} `}>
                                                     <div className="item">
-                                                        <img src={bannerData?.image2 ?? introProfileThumb1} alt="thumb" />
+                                                        <img src={`https://skilledworkerscloud.co.uk/api-admin/${bannerData?.image2}`  } alt="thumb" />
                                                     </div>
                                                     <div className="item">
                                                         <h6>
@@ -114,7 +114,7 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
                                                 <img src={introThumbShape2} alt="thumbShape" />
                                             </div>
                                             <img className={`main-thumb  ${inView1 ? 'img-custom-anim-right fadeInUp delay-2' : ''} `}
-                                                src={bannerData?.image1 ?? introThumbShape3} alt="thumb" />
+                                                src={`https://skilledworkerscloud.co.uk/api-admin/${bannerData?.image1}`  } alt="thumb" />
                                         </div>
                                     </div>
                                 </div>
