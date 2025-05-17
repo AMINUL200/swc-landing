@@ -79,14 +79,14 @@ const AdvantageSection = ({ advantageData }) => {
 
                                             data-tilt data-tilt-max="10">
                                             {/* <img src={advantageData?.image } alt="thumb" /> */}
-                                            <img src={`https://skilledworkerscloud.co.uk/api-admin/${advantageData?.image}`} alt="thumb" />
+                                            <img src={advantageData?.image} alt="thumb" />
                                         </div>
                                         <div
                                             className={`thumb2  ${inView ? "img-custom-anim-right fadeInUp delay-2" : ''}`}
 
                                             data-tilt data-tilt-max="15">
                                             {/* <img src={advantageData?.image2 } alt="thumb" /> */}
-                                            <img src={`https://skilledworkerscloud.co.uk/api-admin/${advantageData?.image2}`} alt="thumb" />
+                                            <img src={advantageData?.image2} alt="thumb" />
                                         </div>
                                         <div className="shape1">
                                             <img src={advanceThumbShape1} alt="shape" />

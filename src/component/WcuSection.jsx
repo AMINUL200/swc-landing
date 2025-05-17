@@ -105,9 +105,9 @@ const WcuSection = ({ wcuData }) => {
                                         viewport={{ once: true, margin: "-50px" }}
                                         variants={bounceInUpVariants}
                                         className={`main-thumb`}
+                                        style={{width:'445px'}}
                                     >
-                                        {/* <img src={wcuData?.main_image} alt="thumb" /> */}
-                                        <img src={`https://skilledworkerscloud.co.uk/api-admin/${wcuData?.main_image}`} alt="thumb" />
+                                        <img src={wcuData?.main_image} alt="thumb"  />
                                     </motion.div>
                                     <div className="shape">
                                         <img src={wcuThumbShape1} alt="shape" />

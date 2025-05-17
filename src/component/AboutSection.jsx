@@ -1,6 +1,6 @@
 import React from 'react'
 import { aboutThumb1, aboutThumb2, aboutThumbShape1, aboutThumbShape2, aboutThumbShape3, aboutThumbShape4, checkMarkIcon, fireIcon } from '../assets'
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 import { motion } from "motion/react"
 
 
@@ -31,10 +31,10 @@ const AboutSection = ({ ClassAdd, aboutData }) => {
                                         <img src={aboutThumbShape4} alt="shape" />
                                     </div>
                                     <div className="main-thumb">
-                                        <img src={`https://skilledworkerscloud.co.uk/api-admin/${aboutData?.image1}` } alt="thumb" width={600}/>
+                                        <img src={aboutData?.image1} alt="thumb" width={600} />
                                     </div>
                                     <div className="absolute-thumb float-bob-x">
-                                        <img src={`https://skilledworkerscloud.co.uk/api-admin/${aboutData?.image2 }`} alt="thumb" width={200}/>
+                                        <img src={aboutData?.image2} alt="thumb" width={200} />
                                     </div>
 
                                 </div>
@@ -95,14 +95,19 @@ const AboutSection = ({ ClassAdd, aboutData }) => {
                                         transition={{ duration: 0.4, delay: 0.1 }}
                                         viewport={{ once: true, margin: "-100px" }}
                                     >
-                                        <Link className="theme-btn" to="contact" smooth={true} duration={500}>
-                                            {aboutData?.button_name ?? 'Discover More'}
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                                fill="none">
-                                                <g clip-path="url(#clip0_18_41)">
+                                        <a
+                                            className="theme-btn"
+                                            href="https://skilledworkerscloud.co.uk/about-us"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {aboutData?.button_name }
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                <g clipPath="url(#clip0_18_41)">
                                                     <path
                                                         d="M11.6118 3.61182L10.8991 4.32454L14.0706 7.49603H0V8.50398H14.0706L10.8991 11.6754L11.6118 12.3882L16 7.99997L11.6118 3.61182Z"
-                                                        fill="white" />
+                                                        fill="white"
+                                                    />
                                                 </g>
                                                 <defs>
                                                     <clipPath id="clip0_18_41">
@@ -110,7 +115,8 @@ const AboutSection = ({ ClassAdd, aboutData }) => {
                                                     </clipPath>
                                                 </defs>
                                             </svg>
-                                        </Link>
+                                        </a>
+
                                     </motion.div>
 
                                 </div>

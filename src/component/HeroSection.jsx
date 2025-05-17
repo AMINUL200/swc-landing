@@ -114,7 +114,7 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
                                                 <img src={introThumbShape2} alt="thumbShape" />
                                             </div>
                                             <img className={`main-thumb  ${inView1 ? 'img-custom-anim-right fadeInUp delay-2' : ''} `}
-                                                src={`https://skilledworkerscloud.co.uk/api-admin/${bannerData?.image1}`} alt="thumb" />
+                                                src={bannerData?.image1} alt="thumb" />
                                         </div>
                                     </div>
                                 </div>
