@@ -53,6 +53,9 @@ import wcuIcon3 from './images/icon/wcuIcon1_3.svg'
 import wcuIcon4 from './images/icon/wcuIcon1_4.svg'
 import wcuIcon5 from './images/icon/wcuIcon1_5.svg'
 import wcuIcon6 from './images/icon/wcuIcon1_6.svg'
+import wcuIcon7 from './images/icon/leaveicon.png'
+import wcuIcon8 from './images/icon/payslipicon.png'
+import wcuIcon9 from './images/icon/employee-directory.png'
 
 
 import wcuThumb1 from './images/wcu/wcuThumb1_1.png'
@@ -211,6 +214,9 @@ export {
     wcuIcon4,
     wcuIcon5,
     wcuIcon6,
+    wcuIcon7,
+    wcuIcon8,
+    wcuIcon9,
     wcuThumb1,
     wcuThumbShape1,
     faqThumb2,

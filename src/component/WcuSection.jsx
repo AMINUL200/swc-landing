@@ -1,5 +1,5 @@
 import React from 'react'
-import { fireIcon, wcuIcon1, wcuIcon2, wcuIcon3, wcuIcon4, wcuIcon5, wcuIcon6, wcuThumb1, wcuThumbShape1 } from '../assets'
+import { fireIcon, wcuIcon1, wcuIcon2, wcuIcon3, wcuIcon4, wcuIcon5, wcuIcon6, wcuIcon7, wcuIcon8, wcuIcon9, wcuThumb1, wcuThumbShape1 } from '../assets'
 import { useInView } from 'react-intersection-observer';
 import { motion } from "motion/react"
 
@@ -78,7 +78,7 @@ const WcuSection = ({ wcuData }) => {
                                     </div>
                                     <div className={`fancy-box style2`} >
                                         <div className="icon">
-                                            <img src={wcuIcon3} alt="icon" />
+                                            <img src={wcuIcon5} alt="icon" />
                                         </div>
                                         <motion.div
                                             initial={{ y: 80, opacity: 0 }}
@@ -118,7 +118,7 @@ const WcuSection = ({ wcuData }) => {
                                 <div className="wcu-content">
                                     <div className={`fancy-box style2 `} >
                                         <div className="icon">
-                                            <img src={wcuIcon4} alt="icon" />
+                                            <img src={wcuIcon8} alt="icon" />
                                         </div>
                                         <motion.div
                                             initial={{ y: 80, opacity: 0 }}
@@ -132,7 +132,7 @@ const WcuSection = ({ wcuData }) => {
                                     </div>
                                     <div className={`fancy-box style2 `}  >
                                         <div className="icon">
-                                            <img src={wcuIcon5} alt="icon" />
+                                            <img src={wcuIcon9} alt="icon" />
                                         </div>
                                         <motion.div
                                             initial={{ y: 80, opacity: 0 }}
@@ -146,7 +146,7 @@ const WcuSection = ({ wcuData }) => {
                                     </div>
                                     <div className={`fancy-box style2 `}  >
                                         <div className="icon">
-                                            <img src={wcuIcon6} alt="icon" />
+                                            <img src={wcuIcon7} alt="icon" />
                                         </div>
                                         <motion.div
                                             initial={{ y: 80, opacity: 0 }}

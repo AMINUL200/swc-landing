@@ -6756,7 +6756,7 @@ input.main-search-input::placeholder {
 .intro-wrapper.style1 .intro-thumb .main-thumb {
   position: relative;
   z-index: 3;
-      right: 66px;
+  right: 66px;
 }
 
 @media (max-width: 767px) {
@@ -7972,6 +7972,13 @@ input.main-search-input::placeholder {
   left: -77px;
 }
 
+@media (max-width: 1200px) {
+  .faq-wrapper.style1 .faq-thumb {
+    bottom: -187px;
+
+  }
+}
+
 .faq-wrapper.style1.faq-left .row {
   flex-direction: row-reverse;
 }
@@ -7990,15 +7997,36 @@ input.main-search-input::placeholder {
 }
 
 .faq-wrapper.style1.faq-left .faq-thumb .main-thumb {
-  margin-left: -524px;
+  margin-left: -197px;
   margin-right: 150px;
+  width: 862px;
+  top: -271px;
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .faq-wrapper.style1 .faq-thumb .main-thumb {
     max-width: 100%;
     margin-left: 0;
+     top: -250px;
   }
+} */
+
+@media (max-width: 1200px) {
+
+  .faq-wrapper.style1 .faq-thumb .main-thumb {
+    max-width: 100%;
+    margin-left: 0;
+    top: -250px;
+    width: 862px;
+  }
+
+  .faq-wrapper.style1.faq-left .faq-thumb .main-thumb {
+    margin-left: 0;
+    margin-right: 0;
+    /* width: 100%; */
+    top: -250px;
+  }
+
 }
 
 .faq-wrapper.style1 .faq-thumb .absolute-thumb {
@@ -8015,7 +8043,21 @@ input.main-search-input::placeholder {
 }
 
 .faq-wrapper.style1.faq-left .faq-thumb .absolute-thumb {
-  left: 254px;
+  left: 389px;
+}
+
+@media (max-width: 1200px) {
+  .faq-wrapper.style1.faq-left .faq-thumb .absolute-thumb {
+    left: 619px;
+    top: -45px;
+  }
+}
+
+@media (max-width: 831px) {
+  .faq-wrapper.style1.faq-left .faq-thumb .absolute-thumb {
+    left: 194px;
+    /* top: -45px; */
+  }
 }
 
 .faq-wrapper.style1 .faq-thumb .absolute-thumb img {
@@ -8028,14 +8070,17 @@ input.main-search-input::placeholder {
 }
 
 @media (max-width: 991px) {
+
+
+
   .faq-wrapper.style1 .faq-thumb .absolute-thumb {
     max-width: 100%;
-    top: 0;
+    top: -103px;
     right: 0;
   }
 
-  .faq-wrapper.style1 .faq-thumb .absolute-thumb img {
-    max-width: 100%;
+  .faq-wrapper.style1 .faq-thumb .absolute-thumb .img-ph {
+    max-width: 34%;
   }
 }
 

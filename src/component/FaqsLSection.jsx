@@ -70,7 +70,7 @@ const FaqsLSection = ({ faqHeadData, faqQAData }) => {
                                 <img className={`main-thumb  ${inView3 ? 'fadeInUp delay-2' : ''} `}
                                     src={faqHeadData?.image2} alt="thumb" />
                                 <div className={`absolute-thumb   ${inView3 ? 'float-bob-x' : ''}`}>
-                                    <img src={faqHeadData?.image1} alt="thumb" />
+                                    <img src={faqHeadData?.image1} alt="thumb" height='450'/>
                                 </div>
                             </div>
                         </div>
