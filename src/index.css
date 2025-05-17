@@ -7652,9 +7652,19 @@ input.main-search-input::placeholder {
   }
 }
 
+.advantage-wrapper.style1 .advantage-thumb .thumb1 img {
+  transform: rotate(-8deg);
+}
+
+.advantage-wrapper.style1 .advantage-thumb .thumb2 img {
+  transform: rotate(9deg);
+}
+
+
 @media (max-width: 767px) {
   .advantage-wrapper.style1 .advantage-thumb .thumb1 img {
     max-width: 100%;
+    transform: rotate(-8deg);
   }
 }
 
@@ -7665,6 +7675,7 @@ input.main-search-input::placeholder {
 
 .advantage-wrapper.style1 .advantage-thumb .thumb2 img {
   max-width: 100%;
+  transform: rotate(9deg);
 }
 
 /* 21.Wcu */
@@ -12491,9 +12502,11 @@ blockquote {
 .blog-author-box a img {
   width: 40px;
   height: 40px;
-  transition: margin-right 0.3s ease-in; /* Apply transition here */
+  transition: margin-right 0.3s ease-in;
+  /* Apply transition here */
 }
-.blog-author-box a:hover img{
+
+.blog-author-box a:hover img {
   margin-right: 10px;
 }
 

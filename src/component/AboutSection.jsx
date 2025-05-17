@@ -31,10 +31,10 @@ const AboutSection = ({ ClassAdd, aboutData }) => {
                                         <img src={aboutThumbShape4} alt="shape" />
                                     </div>
                                     <div className="main-thumb">
-                                        <img src={aboutData?.image1 ?? aboutThumb1} alt="thumb" />
+                                        <img src={`https://skilledworkerscloud.co.uk/api-admin/${aboutData?.image1}` } alt="thumb" width={600}/>
                                     </div>
                                     <div className="absolute-thumb float-bob-x">
-                                        <img src={aboutData?.image2 ?? aboutThumb2} alt="thumb" />
+                                        <img src={`https://skilledworkerscloud.co.uk/api-admin/${aboutData?.image2 }`} alt="thumb" width={200}/>
                                     </div>
 
                                 </div>

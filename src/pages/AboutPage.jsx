@@ -8,7 +8,7 @@ import WorkProcessSection from '../component/WorkProcessSection';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
-    const { workData } = useContext(AppContext);
+    const { workData, aboutData } = useContext(AppContext);
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -16,7 +16,7 @@ const AboutPage = () => {
     return (
         <>
             <BreadCumbSection page='About Us' />
-            <AboutSection />
+            <AboutSection aboutData={aboutData}/>
 
             {/* <!-- Why Choose Us Section S T A R T --> */}
             <section className="wcu-section">
