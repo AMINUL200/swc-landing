@@ -9,36 +9,6 @@ const TestimonialSection = ({ testimonialData }) => {
 
 
 
-    // const testimonials = [
-    //     {
-    //         id: 1,
-    //         name: "Jacob Jones",
-    //         role: "Team Leader",
-    //         thumb: testimonialProfileThumb1,
-    //         desc: "There are many variations of passages of Lorem Ipsum available, a but chiropractor like majority have a suffered alteration in some form, by injected humour,"
-    //     },
-    //     {
-    //         id: 2,
-    //         name: "Masirul Jones",
-    //         role: "Team Leader",
-    //         thumb: testimonialProfileThumb2,
-    //         desc: "There are many variations of passages of Lorem Ipsum available, a but chiropractor like majority have a suffered alteration in some form, by injected humour,"
-    //     },
-    //     {
-    //         id: 3,
-    //         name: "Adam Jones",
-    //         role: "Team Leader",
-    //         thumb: testimonialProfileThumb3,
-    //         desc: "There are many variations of passages of Lorem Ipsum available, a but chiropractor like majority have a suffered alteration in some form, by injected humour,"
-    //     },
-    //     {
-    //         id: 4,
-    //         name: "Wade Warren",
-    //         role: "Team Leader",
-    //         thumb: testimonialProfileThumb1,
-    //         desc: "There are many variations of passages of Lorem Ipsum available, a but chiropractor like majority have a suffered alteration in some form, by injected humour,"
-    //     },
-    // ];
 
     return (
         <section className="testimonial-section">
@@ -112,30 +82,6 @@ const TestimonialSection = ({ testimonialData }) => {
                                     ))}
 
 
-                                    {/* {testimonials.map((testimonial) => (
-                                        <SwiperSlide key={testimonial.id}>
-                                            <div className="testimonial-card style1">
-                                                <div className="testimonial-header">
-                                                    <div className="profile-thumb">
-                                                        <img src={testimonial.thumb} alt="thumb" />
-                                                    </div>
-                                                    <div className="content">
-                                                        <h5>{testimonial.name}</h5>
-                                                        <p className="text">{testimonial.role}</p>
-                                                    </div>
-                                                </div>
-                                                <div className="testimonial-body">
-                                                    <ul className="star-wrapper style1">
-                                                        {[...Array(5)].map((_, i) => (
-                                                            <li key={i}><img src={starIcon1} alt="icon" /></li>
-                                                        ))}
-                                                    </ul>
-                                                    <p className="desc">{testimonial.desc}</p>
-                                                </div>
-                                                <div className="quote-icon"><img src={quoteIcon} alt="icon" /></div>
-                                            </div>
-                                        </SwiperSlide>
-                                    ))} */}
 
 
                                 </Swiper>
