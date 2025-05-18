@@ -58,7 +58,7 @@ const FeatureSection = ({ featureData }) => {
                                         <div className={`feature-box-header ${getDelayClass(index, 1)}`}>
                                             <div className="content">
                                                 <h5>{feature.paragraph1} </h5>
-                                                <p className="text"> {feature.paragraph2} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, nulla? lorem20 </p>
+                                                <p className="text"> {feature.paragraph2} </p>
                                             </div>
                                             <div className="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="35"

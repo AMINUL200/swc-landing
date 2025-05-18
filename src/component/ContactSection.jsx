@@ -169,7 +169,7 @@ const ContactSection = ({ contactData }) => {
                             <div class="col-xl-6">
                                 <div class="contact-map">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57559.095682562875!2d88.60522403504652!3d25.6234028155105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fb529bc7fc909b%3A0xd8f861ed9baf24de!2sDinajpur!5e0!3m2!1sen!2sbd!4v1729067103339!5m2!1sen!2sbd"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.1996618517865!2d-0.35328432337979576!3d51.50955287181381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x800e1c53346b1bd3%3A0x78d8dbf45f8e8287!2sSkilled%20Workers%20Cloud%20Ltd!5e0!3m2!1sen!2sin!4v1747583793830!5m2!1sen!2sin"
                                         style={{ border: '0' }} allowfullscreen="" loading="lazy"
                                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
