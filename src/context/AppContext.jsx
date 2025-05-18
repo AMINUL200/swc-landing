@@ -14,7 +14,9 @@ const AppContextProvider = (props) => {
     const [wcuData, setWcuData] = useState(null)
     const [countData, setCountData] = useState(null)
     const [faqHeadData, setFaqHeadData] = useState(null)
+    const [faqLeftHeadData, setFaqLeftHeadData] = useState(null)
     const [faqQAData, setFaqQAData] = useState(null)
+    const [faqLeftQAData, setFaqLeftQAData] = useState(null)
     const [testimonialData, setTestimonialData] = useState([])
     const [ctaData, setCtaData] = useState(null)
     const [featureData, setFeatureData] = useState([])
@@ -38,7 +40,9 @@ const AppContextProvider = (props) => {
                     wcuRes,
                     countRes,
                     faqHRes,
+                    faqLeftHRes,
                     faqQARes,
+                    faqLeftQARes,
                     testimonialRes,
                     ctaRes,
                     featureRes,
@@ -54,7 +58,9 @@ const AppContextProvider = (props) => {
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/why-using-app.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/counter.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/faq.php'),
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/faq2.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/faq-details.php'),
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/faq-details2.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/testimonial.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/app.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/features.php'),
@@ -72,7 +78,9 @@ const AppContextProvider = (props) => {
                     wcuJson,
                     countJson,
                     faqHJson,
+                    faqLeftHJson,
                     faqQAJson,
+                    faqLeftQAJson,
                     testimonialJson,
                     ctaJson,
                     featureJson,
@@ -88,7 +96,9 @@ const AppContextProvider = (props) => {
                     wcuRes.json(),
                     countRes.json(),
                     faqHRes.json(),
+                    faqLeftHRes.json(),
                     faqQARes.json(),
+                    faqLeftQARes.json(),
                     testimonialRes.json(),
                     ctaRes.json(),
                     featureRes.json(),
@@ -105,7 +115,9 @@ const AppContextProvider = (props) => {
                 if (wcuJson.flag === 1 && wcuJson.status === 200) setWcuData(wcuJson.data[0]);
                 if (countJson.flag === 1 && countJson.status === 200) setCountData(countJson.data[0]);
                 if (faqHJson.flag === 1 && faqHJson.status === 200) setFaqHeadData(faqHJson.data[0]);
+                if (faqLeftHJson.flag === 1 && faqLeftHJson.status === 200) setFaqLeftHeadData(faqLeftHJson.data[0]);
                 if (faqQAJson.flag === 1 && faqQAJson.status === 200) setFaqQAData(faqQAJson.data);
+                if (faqLeftQAJson.flag === 1 && faqLeftQAJson.status === 200) setFaqLeftQAData(faqLeftQAJson.data);
                 if (testimonialJson.flag === 1 && testimonialJson.status === 200) setTestimonialData(testimonialJson.data);
                 if (ctaJson.flag === 1 && ctaJson.status === 200) setCtaData(ctaJson.data[0]);
                 if (featureJson.flag === 1 && featureJson.status === 200) setFeatureData(featureJson.data);
@@ -167,7 +179,9 @@ const blogDataInfo = async (id) => {
         wcuData,
         countData,
         faqHeadData,
+        faqLeftHeadData,
         faqQAData,
+        faqLeftQAData,
         testimonialData,
         ctaData,
         featureData,

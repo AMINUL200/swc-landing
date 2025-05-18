@@ -28,7 +28,9 @@ const HomePage = () => {
         wcuData,
         countData,
         faqHeadData,
+        faqLeftHeadData,
         faqQAData,
+        faqLeftQAData,
         testimonialData,
         featureData,
         pricingData,
@@ -51,7 +53,7 @@ const HomePage = () => {
             <WcuSection wcuData={wcuData} />
             <CounterSection countData={countData} />
             <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
-            <FaqsLSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
+            <FaqsLSection faqHeadData={faqLeftHeadData} faqQAData={faqLeftQAData} />
             <TestimonialSection testimonialData={testimonialData} />
             <FeatureSection featureData={featureData} />
             <PricingSection pricingData={pricingData} />
