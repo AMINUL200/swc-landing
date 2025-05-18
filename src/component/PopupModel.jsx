@@ -140,7 +140,7 @@ const PopupModel = ({ show, onClose }) => {
             <div className="modal-background">
                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                     <div className="modal-header">
-                        <h3>Get Started</h3>
+                        <h3>Explore Our HRMS – Get a Demo Now!</h3>
                         <button className="close-btn" onClick={handleClose}>
                             <FontAwesomeIcon icon={faTimes} />
                         </button>

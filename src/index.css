@@ -9115,6 +9115,12 @@ input.main-search-input::placeholder {
 .cta-wrapper.style1 .cta-thumb {
   position: relative;
   z-index: 3;
+  right: 200px;
+}
+@media (max-width: 1200px) {
+  .cta-wrapper.style1 .cta-thumb {
+    right: 0;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -12034,8 +12040,9 @@ textarea.is-invalid {
 
 
 .modal-body .modal-left {
-  background-image: url('./assets/images/modal-left.avif') !important;
+  background-image: url('./assets/images/model-left-img2.jpg') !important;
   background-size: cover !important;
+  /* background-size: contain; */
   /* Ensures the image covers the entire area */
   background-position: center !important;
   /* Centers the image */

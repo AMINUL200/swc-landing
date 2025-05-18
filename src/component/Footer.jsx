@@ -28,8 +28,7 @@ const Footer = () => {
                                 </div>
                                 <div className="footer-content">
                                     <p>
-                                        It is a long established fact that from will be distracted by the readable from when
-                                        looking.
+                                        SKILLED WORKERS CLOUD – Smart, Simple & Secure HR Management.
                                     </p>
                                     <div className="store-links">
                                         <div className="apple">
@@ -135,7 +134,8 @@ const Footer = () => {
                                 <div className="contact-box">
                                     <div className="subtitle">Address</div>
                                     <div className="widget-head">Ready to get started?</div>
-                                    <div className="text">It is a long established fact that a reader will be distracted layout.
+                                    <div className="text">
+                                        G21, Unit 3 Triangle Centre, 399 Uxbridge Road, UB1 3EJ, United Kingdom
                                     </div>
                                     <div className="info">
                                         <div className="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="23"
@@ -149,8 +149,8 @@ const Footer = () => {
                                         </svg>
                                         </div>
                                         <div className="link">
-                                            <a href="mailto:contact.tech@gmail.com">contact.tech@gmail.com</a> <br />
-                                            <a href="mailto:info@Niotech.com">info@Niotech.com</a>
+                                            <a href="info@skilledworkerscloud.co.uk">info@skilledworkerscloud.co.uk</a> <br />
+                                            <a href="support@skilledworkerscloud.co.uk">support@skilledworkerscloud.co.uk</a>
                                         </div>
                                     </div>
                                     <div className="info">
@@ -172,8 +172,8 @@ const Footer = () => {
                                             </svg>
                                         </div>
                                         <div className="link">
-                                            <a href="tel:21314234323543">+880 123 654 789 00</a> <br />
-                                            <a href="tel:35234523452345">+001 6520 698 00</a>
+                                            <a href="tel:+44 0208 129 1655">+44 0208 129 1655</a> <br />
+                                            <a href="tel:+44 074 6728 4718">+44 074 6728 4718</a>
                                         </div>
                                     </div>
                                 </div>
