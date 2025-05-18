@@ -385,7 +385,7 @@ const BlogDetails = () => {
         </div>
       </div>
 
-      <section className="blog-section section-padding fix">
+      {/* <section className="blog-section section-padding fix">
         <div className="container">
           <div ref={ref9} className="blog-wrapper style1">
             <div className="section-title text-center mxw-685 mx-auto">
@@ -434,7 +434,7 @@ const BlogDetails = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </>
 

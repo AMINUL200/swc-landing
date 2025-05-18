@@ -58,7 +58,7 @@ const FeatureSection = ({ featureData }) => {
                                         <div className={`feature-box-header ${getDelayClass(index, 1)}`}>
                                             <div className="content">
                                                 <h5>{feature.paragraph1} </h5>
-                                                <p className="text"> {feature.paragraph2} </p>
+                                                <p className="text"> {feature.paragraph2} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, nulla? lorem20 </p>
                                             </div>
                                             <div className="icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="35"
@@ -67,7 +67,7 @@ const FeatureSection = ({ featureData }) => {
                                                 </svg>
                                             </div>
                                         </div>
-                                        <div className={`feature-box-footer ${getDelayClass(index, 2)}`}>
+                                        {/* <div className={`feature-box-footer ${getDelayClass(index, 2)}`}>
                                             <div className="content">
                                                 <span className="day"> {feature.paragraph3} </span>
                                                 <span className="time"> {feature.paragraph4} </span>
@@ -75,79 +75,13 @@ const FeatureSection = ({ featureData }) => {
                                             <div className="shape">
                                                 <img src={featureProfileShape1} alt="shape" />
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                     </div>
                                 ))}
 
 
-                                {/* <div className="feature-box style1 child1">
-                                    <div className={`feature-box-header ${inView7 ? 'fadeInRightToLeft delay-1' : ''} `} >
-                                        <div className="content">
-                                            <h5>Software development</h5>
-                                            <p className="text">UX Research</p>
-                                        </div>
-                                        <div className="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="35"
-                                                viewBox="0 0 34 35" fill="none">
-                                                <circle cx="17" cy="17.5" r="16" stroke="#F1F1F1" stroke-width="2" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div className={`feature-box-footer  ${inView7 ? 'fadeInRightToLeft delay-2' : ''}`} >
-                                        <div className="content">
-                                            <span className="day">Today</span>
-                                            <span className="time">07:02 AM</span>
-                                        </div>
-                                        <div className="shape"><img src={featureProfileShape1}
-                                            alt="shape" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="feature-box style1 child2">
-                                    <div className={`feature-box-header ${inView7 ? 'fadeInRightToLeft delay-4' : ''} `} >
-                                        <div className="content">
-                                            <h5>Design data & analytics</h5>
-                                            <p className="text">UX Research</p>
-                                        </div>
-                                        <div className="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="35"
-                                                viewBox="0 0 34 35" fill="none">
-                                                <circle cx="17" cy="17.5" r="16" stroke="#F1F1F1" stroke-width="2" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div className={`feature-box-footer  ${inView7 ? 'fadeInRightToLeft delay-3' : ''}`} >
-                                        <div className="content">
-                                            <span className="day">Today</span>
-                                            <span className="time">07:02 AM</span>
-                                        </div>
-                                        <div className="shape"><img src={featureProfileShape1}
-                                            alt="shape" /></div>
-                                    </div>
-                                </div>
-                                <div className="feature-box style1 child3" >
-                                    <div className={`feature-box-header ${inView7 ? 'fadeInRightToLeft delay-4' : ''} `}>
-                                        <div className="content">
-                                            <h5>Dedicated Support</h5>
-                                            <p className="text">UX Research</p>
-                                        </div>
-                                        <div className="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="35"
-                                                viewBox="0 0 34 35" fill="none">
-                                                <circle cx="17" cy="17.5" r="16" stroke="#F1F1F1" stroke-width="2" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <div className={`feature-box-footer  ${inView7 ? 'fadeInRightToLeft delay-4' : ''}`}>
-                                        <div className="content">
-                                            <span className="day">Today</span>
-                                            <span className="time">07:02 AM</span>
-                                        </div>
-                                        <div className="shape"><img src={featureProfileShape1}
-                                            alt="shape" /></div>
-                                    </div>
-                                </div> */}
+                               
 
 
                             </div>
