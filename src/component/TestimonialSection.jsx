@@ -61,7 +61,7 @@ const TestimonialSection = ({ testimonialData }) => {
                                             <div className="testimonial-card style1">
                                                 <div className="testimonial-header">
                                                     <div className="profile-thumb">
-                                                        <img src={testimonial.image} alt="thumb" />
+                                                        <img src={testimonial.image} alt="thumb" style={{width:'100px', height:'100px', borderRadius:'50%'}}/>
                                                     </div>
                                                     <div className="content">
                                                         <h5>{testimonial.name}</h5>

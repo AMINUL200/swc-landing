@@ -93,7 +93,7 @@ const CtaSection = ({ ctaData }) => {
                                         transition={{ duration: 0.5, delay: 0.3 }}
                                         viewport={{ once: true, margin: "-20px" }}
                                         className={`cta-thumb `} >
-                                        <img src={ctaData?.image1} alt="thumb" width={1000}/>
+                                        <img src={ctaData?.image1} alt="thumb" />
                                     </motion.div>
                                 </div>
                             </div>

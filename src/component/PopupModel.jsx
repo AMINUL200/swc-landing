@@ -200,7 +200,7 @@ const PopupModel = ({ show, onClose }) => {
                                                 <input
                                                     type="email"
                                                     name="email"
-                                                    id="email"
+                                                    // id="email"
                                                     className="form-input"
                                                     value={formData.email}
                                                     onChange={handleChange}
