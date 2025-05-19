@@ -3,7 +3,7 @@ import { blogThumb1_1, blogThumb1_2, calendar, fireIcon, FolderIcon, userIcon } 
 import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer';
 
-const BlogSection = ({ blogData }) => {
+const BlogSection = ({ blogData, addGap }) => {
     const [ref9, inView9] = useInView({ threshold: 0.1, triggerOnce: true });
 
     // Format date function
@@ -20,13 +20,17 @@ const BlogSection = ({ blogData }) => {
 
 
     return (
-        <section className="blog-section section-padding fix" id='blog'>
+        <section className={`blog-section ${addGap ? 'section-padding-3' : 'section-padding'} fix`} id='blog'>
             <div className="container">
                 <div ref={ref9} className="blog-wrapper style1">
+
                     <div className="section-title text-center mxw-685 mx-auto">
-                        <div className={`subtitle ${inView9 ? 'fadeInUp delay-1' : ''} `} >
-                            Our Blog <img src={fireIcon} alt="icon" />
-                        </div>
+                        {!addGap &&
+                            <div className={`subtitle ${inView9 ? 'fadeInUp delay-1' : ''} `} >
+                                Our Blog <img src={fireIcon} alt="icon" />
+                            </div>
+                        }
+
                         <h2 className={`title ${inView9 ? 'fadeInUp delay-2' : ''}`} >Recent Articles And Latest Blog</h2>
                     </div>
                     <div className="row gy-5">

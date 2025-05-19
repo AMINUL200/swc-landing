@@ -4167,6 +4167,9 @@ input.main-search-input::placeholder {
   /* padding: 120px 0; */
   padding: 80px 0;
 }
+.section-padding-3{
+  padding: 160px 0 ;
+}
 
 @media (max-width: 1199px) {
   .section-padding {

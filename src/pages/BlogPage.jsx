@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import BreadCumbSection from '../component/BreadCumbSection'
 import { Link } from 'react-router-dom'
 import { blogThumb3_1, blogThumb3_2, blogThumb3_3, blogThumb3_4, blogThumb3_5, blogThumb3_6, blogThumb3_7, blogThumb3_8, blogThumb3_9, tagIcon, userIcon } from '../assets'
 import { useInView } from 'react-intersection-observer'
+import { AppContext } from '../context/AppContext'
+import BlogSection from '../component/BlogSection'
 
 const BlogPage = () => {
+  const {blogData} = useContext(AppContext)
   const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
   const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
   const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -17,10 +20,10 @@ const BlogPage = () => {
 
   return (
     <>
-      <BreadCumbSection page='Blog' />
+      {/* <BreadCumbSection page='Blog' /> */}
 
       {/* <!-- Blog Grid Section S T A R T --> */}
-      <section className="blog-area section-padding fix">
+      {/* <section className="blog-area section-padding fix">
         <div className="container">
           <div className="blog-card-wrap style1 mb-30">
             <div ref={ref1} className={`blog-card style2 ${inView1 ? 'fadeInUp delay-1' : ''} `} >
@@ -297,7 +300,10 @@ const BlogPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+      <BlogSection blogData={blogData} addGap={true}/>
     </>
   )
 }
