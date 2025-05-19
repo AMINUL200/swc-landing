@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { motion } from "motion/react"
 
 
-const AboutSection = ({ ClassAdd, aboutData }) => {
+const AboutSection = ({  aboutData , addGap}) => {
 
 
 
 
     return (
-        <section className={`about-section section-padding ${ClassAdd} fix`} id='about'>
+        <section className={`about-section ${addGap ? "section-padding-3 pb-4":"section-padding"}   fix`} id='about'>
             <div className="about-container-wrapper style1">
                 <div className="container">
                     <div className="about-wrapper style1">

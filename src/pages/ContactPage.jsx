@@ -7,8 +7,8 @@ const ContactPage = () => {
     const {contactData} = useContext(AppContext)
   return (
     <>
-    <BreadCumbSection page='Contact' />
-    <ContactSection contactData={contactData} />
+    {/* <BreadCumbSection page='Contact' /> */}
+    <ContactSection contactData={contactData} addGap={true} />
     </>
   )
 }

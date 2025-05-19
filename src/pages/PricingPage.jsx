@@ -7,8 +7,8 @@ const PricingPage = () => {
     const {pricingData} = useContext(AppContext)
   return (
    <>
-   <BreadCumbSection page='Pricing' />
-   <PricingSection pricingData={pricingData} />
+   {/* <BreadCumbSection page='Pricing' /> */}
+   <PricingSection pricingData={pricingData} addGap={true} />
 
    </>
   )

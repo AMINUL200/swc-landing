@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-const ContactSection = ({ contactData }) => {
+const ContactSection = ({ contactData , addGap}) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -72,7 +72,7 @@ const ContactSection = ({ contactData }) => {
     return (
         <>
             {/* <!--Contact Section S T A R T --> */}
-            <section className="contact-section section-padding fix" id='contact'>
+            <section className={`contact-section ${addGap ? 'section-padding-3 padding-bottom': 'section-padding'} fix`} id='contact'>
                 <div className="container">
                     <div className="contact-wrapper style1">
                         <div className="row gy-5">

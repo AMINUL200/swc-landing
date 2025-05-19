@@ -15,8 +15,8 @@ const AboutPage = () => {
     const [ref4, inView4] = useInView({ threshold: 0.1, triggerOnce: true });
     return (
         <>
-            <BreadCumbSection page='About Us' />
-            <AboutSection aboutData={aboutData}/>
+            {/* <BreadCumbSection page='About Us' /> */}
+            <AboutSection aboutData={aboutData} addGap={true}/>
 
             {/* <!-- Why Choose Us Section S T A R T --> */}
             <section className="wcu-section">

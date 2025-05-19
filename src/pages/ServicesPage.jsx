@@ -48,12 +48,12 @@ const ServicesPage = () => {
 
     return (
         <>
-            <BreadCumbSection page='Services' />
+            {/* <BreadCumbSection page='Services' /> */}
 
             {/* <!-- Service Section S T A R T --> */}
             <section className="service-section-3">
                 <div className="container">
-                    <div ref={ref1} className={`service-thumb section-padding pb-0 ${inView1 ? 'img-custom-anim-left  fadeInLeft' : ''} `} style={{ animationDelay: '0.3s' }}>
+                    <div ref={ref1} className={`service-thumb section-padding-3 pb-0 ${inView1 ? 'img-custom-anim-left  fadeInLeft' : ''} `} style={{ animationDelay: '0.3s' }}>
                         <img src={servicesThumb1_1} alt="thumb" />
                     </div>
                 </div>

@@ -3,27 +3,30 @@ import { fireIcon } from '../assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
-const PricingSection = ({ pricingData }) => {
+const PricingSection = ({ pricingData, addGap }) => {
 
     const monthlyPlans = pricingData?.monthly_plans || [];
     const yearlyPlans = pricingData?.yearly_plans || [];
 
-    
+
 
 
     return (
-        <section class="pricing-section section-padding  fix" id='pricing'>
+        <section class={`pricing-section ${addGap ? "section-padding-3 pb-4" : "section-padding"}  fix`} id='pricing'>
             <div class="container">
                 <div class="section-title text-center mxw-685 mx-auto">
-                    <div class="subtitle">
-                        {pricingData?.title ?? 'Our Pricing'}
-                        <img src={fireIcon} alt="icon" />
-                    </div>
+                    {!addGap &&
+                        <div class="subtitle">
+                            {pricingData?.title}
+                            <img src={fireIcon} alt="icon" />
+                        </div>
+                    }
+
                     <h2 class="title">
-                        {pricingData?.heading1 ?? ' Choose The Plans That Suits You!'}
+                        {pricingData?.heading1 }
                     </h2>
                     <p class="text">
-                        {pricingData?.heading2 ?? 'There are many variations of passages of Lorem Ipsum available, but the majority have'}
+                        {pricingData?.heading2 }
 
                     </p>
                 </div>
@@ -85,7 +88,7 @@ const PricingSection = ({ pricingData }) => {
                             <div class="row gy-5" style={{ justifyContent: 'space-around' }}>
 
 
-                            {yearlyPlans.map((plan) => (
+                                {yearlyPlans.map((plan) => (
                                     <div key={plan.id} className="col-xl-4 col-md-6">
                                         <div className="pricing-card style1">
                                             <div className="pricing-card-header">
