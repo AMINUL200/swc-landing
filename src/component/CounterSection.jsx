@@ -13,7 +13,7 @@ const CounterSection = ({ countData }) => {
         <div className="counter-section fix">
             <div className="counter-container-wrapper style1">
                 <div className="container">
-                    <div className="counter-wrapper style1 section-padding"
+                    <div className="counter-wrapper style1 section-padding-2"
                         data-bg-src="assets/images/shape/counterShape1_1.png">
                         <div className="shape"></div>
                         <div ref={ref} className="container">

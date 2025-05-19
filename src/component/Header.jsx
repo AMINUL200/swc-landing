@@ -58,22 +58,22 @@ const Header = ({ setIsSidebarOpen, showPopupModel }) => {
                           </Link>
                         </li>
                         <li>
-                          <Link className='a-tag' to="#"  smooth={true} duration={200}>
+                          <Link className='a-tag' to="/pricing"  smooth={true} duration={200}>
                             Pricing
                           </Link>
                         </li>
                         <li>
-                          <Link className='a-tag' to="#"  smooth={true} duration={200}>
+                          <Link className='a-tag' to="/blog"  smooth={true} duration={200}>
                             Blog
                           </Link>
                         </li>
-                        <li>
+                        {/* <li>
                           <Link className='a-tag' to="#"  smooth={true} duration={200}>
                             Our App
                           </Link>
-                        </li>
+                        </li> */}
                         <li>
-                          <Link className='a-tag' to="#"  smooth={true} duration={200}>
+                          <Link className='a-tag' to="/contact"  smooth={true} duration={200}>
                             Contact Us
                           </Link>
                         </li>

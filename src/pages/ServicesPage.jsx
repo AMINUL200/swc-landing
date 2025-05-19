@@ -196,7 +196,7 @@ const ServicesPage = () => {
             </section>
 
             {/* <!-- Team Section S T A R T --> */}
-            <section className="team-section-3 section-padding pt-0 fix">
+            <section className="team-section-3 section-padding fix">
                 <div className="container">
                     <div className="section-title text-center mxw-685 mx-auto">
                         <motion.h2

@@ -33,7 +33,7 @@ const BlogSection = ({ blogData }) => {
 
                         {blogData?.map((blog, index) => (
                             <div className="col-xl-4 col-md-6" key={blog.id}>
-                                <div className={`blog-card style1 ${inView9 ? `fadeInUp ${getDelayClass(index)}` : ''}`}>
+                                <div className={`blog-card style1 img-srinck ${inView9 ? `fadeInUp ${getDelayClass(index)}` : ''}`}>
                                     <div className="thumb">
                                         <img src={blog.image} alt={blog.title} />
                                     </div>

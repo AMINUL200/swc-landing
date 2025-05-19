@@ -12,7 +12,7 @@ const PricingSection = ({ pricingData }) => {
 
 
     return (
-        <section class="pricing-section section-padding pt-0 fix" id='pricing'>
+        <section class="pricing-section section-padding  fix" id='pricing'>
             <div class="container">
                 <div class="section-title text-center mxw-685 mx-auto">
                     <div class="subtitle">

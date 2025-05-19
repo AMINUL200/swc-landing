@@ -82,7 +82,7 @@ const AboutPage = () => {
             <WorkProcessSection workData={workData} />
 
             {/* <!-- Why Choose Us Section S T A R T --> */}
-            <section className="wcu-section section-padding pt-0 fix">
+            <section className="wcu-section section-padding-2  fix">
                 <div className="wcu-container-wrapper style3">
                     <div className="container">
                         <div className="wcu-wrapper style3">

@@ -13,31 +13,37 @@ import { path } from 'framer-motion/client';
 import BlogDetails, { blogdataInfo } from './pages/BlogDetails.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import ServicesPage from './pages/ServicesPage.jsx';
+import PricingPage from './pages/PricingPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
+import BlogPage from './pages/BlogPage.jsx';
 
 // const {blogDataInfo} = useContext(AppContext)
 const router = createBrowserRouter([
   {
-    path :'/',
-    element :<App/>,
-    children:[
-      {index: true , element:<HomePage/>},
+    path: '/',
+    element: <App />,
+    children: [
+      { index: true, element: <HomePage /> },
       {
-        path:'blog/:id',
-        element:<BlogDetails/>,
+        path: 'blog/:id',
+        element: <BlogDetails />,
         // loader: blogdataInfo,
       },
-      { path:'about', element:<AboutPage/>},
-      { path:'services', element:<ServicesPage/>},
+      { path: 'about', element: <AboutPage /> },
+      { path: 'services', element: <ServicesPage /> },
+      { path: 'pricing', element: <PricingPage /> },
+      { path: 'contact', element: <ContactPage /> },
+      {path:'blog', element: <BlogPage />},
     ]
   }
 ])
 
 
 createRoot(document.getElementById('root')).render(
-    <StrictMode>
-      <AppContextProvider>
-        <RouterProvider router={router}/>
-      </AppContextProvider>
-    </StrictMode>
+  <StrictMode>
+    <AppContextProvider>
+      <RouterProvider router={router} />
+    </AppContextProvider>
+  </StrictMode>
 
 )
