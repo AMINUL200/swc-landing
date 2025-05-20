@@ -3,8 +3,10 @@ import { fireIcon, wpShape2_1, wpThumb2_1 } from '../assets'
 import { motion } from "motion/react"
 import { useInView } from 'react-intersection-observer';
 
-const WorkProcessing = () => {
+const WorkProcessing = ({workPrecessingData}) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
+    console.log(workPrecessingData);
+    
     return (
         <section class="wp-section section-padding fix">
             <div class="container">
@@ -22,7 +24,7 @@ const WorkProcessing = () => {
                                         whileInView={{ y: 0, opacity: 1 }}
                                         transition={{ duration: 0.5, delay: 0.2 }}
                                         viewport={{ once: true, margin: "-50px" }}>
-                                        How It Works
+                                         {workPrecessingData?.title}
                                         <img src={fireIcon} alt="icon" />
                                     </motion.div>
                                     <motion.h2
@@ -31,7 +33,7 @@ const WorkProcessing = () => {
                                         whileInView={{ y: 0, opacity: 1 }}
                                         transition={{ duration: 0.5, delay: 0.4 }}
                                         viewport={{ once: true, margin: "-50px" }}>
-                                        Work smarter with easy access for user..
+                                        {workPrecessingData?.heading}
                                     </motion.h2>
                                 </div>
                                 <div class="wp-accordion">
@@ -46,13 +48,13 @@ const WorkProcessing = () => {
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
-                                                    01.Create account
+                                                    {workPrecessingData?.button_name1}
                                                 </button>
                                             </h5>
                                             <div id="faq1" class="accordion-collapse show" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    There are many variations of passages of Lorem Ipsum available, but the
-                                                    majority have suffered alteration in some form,
+                                                    {workPrecessingData?.paragraph1}
+                                                   
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -67,13 +69,13 @@ const WorkProcessing = () => {
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false"
                                                     aria-controls="faq2">
-                                                    02. Install tracking
+                                                     {workPrecessingData?.button_name2}
                                                 </button>
                                             </h5>
                                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    There are many variations of passages of Lorem Ipsum available, but the
-                                                    majority have suffered alteration in some form,
+                                                    {workPrecessingData?.paragraph2}
+                                                  
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -88,13 +90,13 @@ const WorkProcessing = () => {
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                                     aria-controls="faq3">
-                                                    03. Track analytics
+                                                    {workPrecessingData?.button_name3}
                                                 </button>
                                             </h5>
                                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    There are many variations of passages of Lorem Ipsum available, but the
-                                                    majority have suffered alteration in some form,
+                                                    {workPrecessingData?.paragraph3}
+                                                    
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -109,13 +111,13 @@ const WorkProcessing = () => {
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="true"
                                                     aria-controls="faq4">
-                                                    04. Integrate
+                                                    {workPrecessingData?.button_name4}
                                                 </button>
                                             </h5>
                                             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                    There are many variations of passages of Lorem Ipsum available, but the
-                                                    majority have suffered alteration in some form,
+                                                    {workPrecessingData?.paragraph4}
+                                                    
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -132,7 +134,7 @@ const WorkProcessing = () => {
                                 viewport={{ once: true, margin: "-50px" }}
                             >
                                 <div ref={ref1} class={`main-thumb  ${inView1 ? 'img-custom-anim-right' : ''}`}>
-                                    <img src={wpThumb2_1} alt="thumb" />
+                                    <img src={workPrecessingData?.image} alt="thumb" />
                                 </div>
                             </motion.div>
                         </div>

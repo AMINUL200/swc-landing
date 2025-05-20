@@ -23,6 +23,7 @@ const AppContextProvider = (props) => {
     const [blogData, setBlogData] = useState([])
     const [contactData, setContactData] = useState(null)
     const [sponserData, setSponserData] = useState(null)
+    const [workPrecessingData, setWorkProcessingData] = useState(null)
 
     const [showPopup, setShowPopup] = useState(false)
     const [blogDetailsLoading, setBlogDetailsLoading] = useState(false);
@@ -51,7 +52,8 @@ const AppContextProvider = (props) => {
                     featureRes,
                     blogRes,
                     contactRes,
-                    sponserRes
+                    sponserRes,
+                    workPrecessingRes
                 ] = await Promise.all([
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/banner.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/clients.php'),
@@ -70,7 +72,8 @@ const AppContextProvider = (props) => {
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/features.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/blog.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/contact.php'),
-                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/sponsor-compliances.php')
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/sponsor-compliances.php'),
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/sponser_complience.php')
                 ]);
 
                 const [
@@ -91,7 +94,8 @@ const AppContextProvider = (props) => {
                     featureJson,
                     blogJson,
                     contactJson,
-                    sponserJson
+                    sponserJson,
+                    workPrecessingJson
                 ] = await Promise.all([
                     bannerRes.json(),
                     brandRes.json(),
@@ -110,7 +114,8 @@ const AppContextProvider = (props) => {
                     featureRes.json(),
                     blogRes.json(),
                     contactRes.json(),
-                    sponserRes.json()
+                    sponserRes.json(),
+                    workPrecessingRes.json()
                 ]);
 
                 if (bannerJson.flag === 1 && bannerJson.status === 200) setBannerData(bannerJson.data[0]);
@@ -131,6 +136,7 @@ const AppContextProvider = (props) => {
                 if (blogJson.flag === 1 && blogJson.status === 200) setBlogData(blogJson.data);
                 if (contactJson.flag === 1 && contactJson.status === 200) setContactData(contactJson.data[0]);
                 if (sponserJson.flag === 1 && sponserJson.status === 200) setSponserData(sponserJson.data[0]);
+                if (workPrecessingJson.flag === 1 && workPrecessingJson.status === 200) setWorkProcessingData(workPrecessingJson.data[0]);
 
             } catch (error) {
                 console.error('API fetch error:', error);
@@ -236,7 +242,8 @@ const AppContextProvider = (props) => {
         servicesLoading,
         aboutPageDataInfo,
         aboutPageLoading,
-        sponserData
+        sponserData,
+        workPrecessingData,
 
     };
 

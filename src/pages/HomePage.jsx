@@ -42,7 +42,8 @@ const HomePage = () => {
         ctaData,
         blogData,
         contactData,
-        sponserData
+        sponserData,
+        workPrecessingData
 
 
     } = useContext(AppContext);
@@ -75,7 +76,7 @@ const HomePage = () => {
             <FeatureSection featureData={featureData} />
             <PricingSection pricingData={pricingData} />
             <CtaSection ctaData={ctaData} />
-            <WorkProcessing />
+            <WorkProcessing workPrecessingData={workPrecessingData}/>
             <BlogSection blogData={blogData} />
             <ContactSection contactData={contactData} />
         </>
