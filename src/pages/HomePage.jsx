@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { AppContext } from '../context/AppContext'
 import HeroSection from '../component/HeroSection';
 import BrandSlider from '../component/BrandSlider';
@@ -17,8 +17,11 @@ import BlogSection from '../component/BlogSection';
 import ContactSection from '../component/ContactSection';
 import SponsorCompliances from '../component/SponsorCompliances';
 import WorkProcessing from '../component/WorkProcessing';
+import { useLocation } from 'react-router-dom';
+import { scroller } from 'react-scroll';
 
 const HomePage = () => {
+    const location = useLocation();
 
     const {
         setShowPopup,
@@ -43,7 +46,17 @@ const HomePage = () => {
 
     } = useContext(AppContext);
 
-
+    useEffect(() => {
+        const scrollTarget = location.state?.scrollToId;
+        if (scrollTarget) {
+            const el = document.getElementById(scrollTarget);
+            if (el) {
+                setTimeout(() => {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 50); // slight delay ensures DOM is ready
+            }
+        }
+    }, [location]);
 
     return (
         <>
@@ -56,12 +69,12 @@ const HomePage = () => {
             <CounterSection countData={countData} />
             <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
             <FaqsLSection faqHeadData={faqLeftHeadData} faqQAData={faqLeftQAData} />
-            <SponsorCompliances/>
+            <SponsorCompliances />
             <TestimonialSection testimonialData={testimonialData} />
             <FeatureSection featureData={featureData} />
             <PricingSection pricingData={pricingData} />
             <CtaSection ctaData={ctaData} />
-            <WorkProcessing/>
+            <WorkProcessing />
             <BlogSection blogData={blogData} />
             <ContactSection contactData={contactData} />
         </>

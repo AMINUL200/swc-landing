@@ -3,10 +3,23 @@ import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { logo, logo3 } from '../assets';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = ({ setIsSidebarOpen, showPopupModel }) => {
   const navigate = useNavigate();
+
+  const handleScrollLinkClick = (sectionId) => {
+    if (location.pathname === '/') {
+      // already on home page – scroll immediately
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // go to homepage and scroll after mount
+      navigate('/', { state: { scrollToId: sectionId } });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +47,7 @@ const Header = ({ setIsSidebarOpen, showPopupModel }) => {
             <div className="header-main">
               <div className="header-left">
                 <div className="logo">
-                  <Link  to='home' smooth={true} duration={500}>
+                  <Link to='home' smooth={true} duration={500}>
                     <img src={logo3} alt="logo-img" height={70} />
                   </Link>
                 </div>
@@ -45,40 +58,15 @@ const Header = ({ setIsSidebarOpen, showPopupModel }) => {
                   <div className="main-menu">
                     <nav id="mobile-menu">
                       <ul>
-                        <li>
-                          <Link className='a-tag' to="home"  smooth={true} duration={200}>Home</Link>
-                        </li>
-                        <li>
-                          <Link className='a-tag' to="about"  smooth={true} duration={200}>About</Link>
-                        </li>
-                        
-                        <li>
-                          <Link className='a-tag' to="features"  smooth={true} duration={200}>
-                            Features
-                          </Link>
-                        </li>
-                        <li>
-                          <Link className='a-tag' to="pricing"  smooth={true} duration={200}>
-                            Pricing
-                          </Link>
-                        </li>
-                        <li>
-                          <Link className='a-tag' to="blog"  smooth={true} duration={200}>
-                            Blog
-                          </Link>
-                        </li>
-                        <li>
-                          <Link className='a-tag' to="our-app"  smooth={true} duration={200}>
-                            Our App
-                          </Link>
-                        </li>
-                        <li>
-                          <Link className='a-tag' to="contact"  smooth={true} duration={200}>
-                            Contact Us
-                          </Link>
-                        </li>
-                        
-                        
+                        <li><a className="a-tag" onClick={() => handleScrollLinkClick('home')}>Home</a></li>
+                        <li><a className="a-tag" onClick={() => handleScrollLinkClick('about')}>About</a></li>
+                        <li><a className="a-tag" onClick={() => handleScrollLinkClick('features')}>Features</a></li>
+                        <li><a className="a-tag" onClick={() => handleScrollLinkClick('pricing')}>Pricing</a></li>
+                        <li><a className="a-tag" onClick={() => handleScrollLinkClick('blog')}>Blog</a></li>
+                        <li><a className="a-tag" onClick={() => handleScrollLinkClick('our-app')}>Our App</a></li>
+                        <li><a className="a-tag" onClick={() => handleScrollLinkClick('contact')}>Contact Us</a></li>
+
+
                       </ul>
                     </nav>
                   </div>
@@ -87,7 +75,7 @@ const Header = ({ setIsSidebarOpen, showPopupModel }) => {
                 {/* <a href="#0" className="search-trigger search-icon"><FontAwesomeIcon icon={faSearch} /></a> */}
 
                 <div className="header-button ms-4">
-                  <a  className="theme-btn" onClick={showPopupModel}>
+                  <a className="theme-btn" onClick={showPopupModel}>
                     <span>
                       Get Started
                       <FontAwesomeIcon className='ml-3' icon={faArrowRightLong} />

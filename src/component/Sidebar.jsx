@@ -4,13 +4,27 @@ import { faAngleDown, faClock, faEnvelope, faMapMarkedAlt, faMapMarkerAlt, faPho
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { logo2 } from '../assets';
 import { Link } from 'react-scroll';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleScrollLinkClick = (sectionId) => {
+        setIsSidebarOpen(false); // Close sidebar on click
+        if (location.pathname === '/') {
+            const el = document.getElementById(sectionId);
+            if (el) {
+                setTimeout(() => {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        } else {
+            navigate('/', { state: { scrollToId: sectionId } });
+        }
+    };
 
 
- 
 
 
     return (
@@ -21,7 +35,7 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                         <div className="offcanvas__content">
                             <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                                 <div className="offcanvas__logo">
-                                    <Link onClick={()=> navigate('/')} smooth={true}>
+                                    <Link onClick={() => navigate('/')} smooth={true}>
                                         <img src={logo2} alt="logo-img" />
                                     </Link>
                                 </div>
@@ -36,37 +50,13 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                                 <div className="mean-bar">
                                     <nav className="mean-nav">
                                         <ul>
-                                            <li>
-                                                <Link to="home">Home</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="about">About Us</Link>
-                                            </li>
-                                            <li>
-                                                <Link  to="features" smooth={true} duration={500}>
-                                                    Features
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link  to="pricing" smooth={true} duration={500}>
-                                                    Pricing
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link  to="blog" smooth={true} duration={500}>
-                                                    Blog
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link  to="our-app" smooth={true} duration={500}>
-                                                    Our App
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link  to="contact" smooth={true} duration={500}>
-                                                    Contact Us
-                                                </Link>
-                                            </li>
+                                            <li><a onClick={() => handleScrollLinkClick('home')}>Home</a></li>
+                                            <li><a onClick={() => handleScrollLinkClick('about')}>About Us</a></li>
+                                            <li><a onClick={() => handleScrollLinkClick('features')}>Features</a></li>
+                                            <li><a onClick={() => handleScrollLinkClick('pricing')}>Pricing</a></li>
+                                            <li><a onClick={() => handleScrollLinkClick('blog')}>Blog</a></li>
+                                            <li><a onClick={() => handleScrollLinkClick('our-app')}>Our App</a></li>
+                                            <li><a onClick={() => handleScrollLinkClick('contact')}>Contact Us</a></li>
                                         </ul>
                                     </nav>
                                 </div>

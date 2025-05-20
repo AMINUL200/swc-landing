@@ -8,8 +8,6 @@ import BackToTop from './component/BackToTop';
 import { ToastContainer } from 'react-toastify';
 import PopupModel from './component/PopupModel';
 import { Outlet, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import BlogDetails, { blogdataInfo } from './pages/BlogDetails';
 import { AppContext } from './context/AppContext';
 
 const App = () => {
