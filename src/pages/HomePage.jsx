@@ -41,7 +41,8 @@ const HomePage = () => {
         pricingData,
         ctaData,
         blogData,
-        contactData
+        contactData,
+        sponserData
 
 
     } = useContext(AppContext);
@@ -69,7 +70,7 @@ const HomePage = () => {
             <CounterSection countData={countData} />
             <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
             <FaqsLSection faqHeadData={faqLeftHeadData} faqQAData={faqLeftQAData} />
-            <SponsorCompliances />
+            <SponsorCompliances sponserData={sponserData}/>
             <TestimonialSection testimonialData={testimonialData} />
             <FeatureSection featureData={featureData} />
             <PricingSection pricingData={pricingData} />

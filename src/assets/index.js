@@ -103,6 +103,8 @@ import calendar from './images/icon/calendar.svg'
 import breadCumbShape1 from './images/shape/breadCumbShape1_1.png'
 import breadCumbShape2 from './images/shape/breadCumbShape1_2.png'
 
+import wpShape2_1 from './images/shape/wpShape2_1.png'
+
 import wcuThumb2_1 from './images/wcu/wcuThumb2_1.png'
 import wcuThumb2_2 from './images/wcu/wcuThumb2_2.png'
 import wcuThumb2_3 from './images/wcu/wcuThumb2_3.png'
@@ -310,6 +312,7 @@ export {
     projectThumb1_9,
     projectThumb1_10,
 
+    wpShape2_1,
 
 
 };

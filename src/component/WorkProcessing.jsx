@@ -1,27 +1,48 @@
 import React from 'react'
-import { fireIcon, wpThumb2_1 } from '../assets'
+import { fireIcon, wpShape2_1, wpThumb2_1 } from '../assets'
+import { motion } from "motion/react"
+import { useInView } from 'react-intersection-observer';
 
 const WorkProcessing = () => {
+    const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
     return (
         <section class="wp-section section-padding fix">
             <div class="container">
                 <div class="wp-wrapper style2">
-                    <div class="shape"> <img src="assets/images/shape/wpShape2_1.png" alt="shape" />
+                    <div class="shape">
+                        <img src={wpShape2_1} alt="shape" />
                     </div>
                     <div class="row gy-5 gy-md-0 gx-60 d-flex align-items-center">
                         <div class="col-xl-4 order-2 order-xl-1">
                             <div class="wp-content style2">
                                 <div class="section-title">
-                                    <div class="subtitle wow fadeInUp" data-wow-delay=".2s">
-                                        How It Works <img src={fireIcon} alt="icon" />
-                                    </div>
-                                    <h2 class="title wow fadeInUp" data-wow-delay=".4s">
+                                    <motion.div
+                                        class="subtitle "
+                                        initial={{ y: 80, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.5, delay: 0.2 }}
+                                        viewport={{ once: true, margin: "-50px" }}>
+                                        How It Works
+                                        <img src={fireIcon} alt="icon" />
+                                    </motion.div>
+                                    <motion.h2
+                                        class="title "
+                                        initial={{ y: 80, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.5, delay: 0.4 }}
+                                        viewport={{ once: true, margin: "-50px" }}>
                                         Work smarter with easy access for user..
-                                        </h2>
+                                    </motion.h2>
                                 </div>
                                 <div class="wp-accordion">
                                     <div class="accordion" id="accordion">
-                                        <div class="accordion-item mb-3 wow fadeInUp" data-wow-delay=".3s">
+                                        <motion.div
+                                            class="accordion-item mb-3 "
+                                            initial={{ y: 80, opacity: 0 }}
+                                            whileInView={{ y: 0, opacity: 1 }}
+                                            transition={{ duration: 0.5, delay: 0.3 }}
+                                            viewport={{ once: true, margin: "-50px" }}
+                                        >
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
@@ -34,8 +55,14 @@ const WorkProcessing = () => {
                                                     majority have suffered alteration in some form,
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="accordion-item mb-3 wow fadeInUp" data-wow-delay=".5s">
+                                        </motion.div>
+                                        <motion.div
+                                            class="accordion-item mb-3 "
+                                            initial={{ y: 80, opacity: 0 }}
+                                            whileInView={{ y: 0, opacity: 1 }}
+                                            transition={{ duration: 0.5, delay: 0.5 }}
+                                            viewport={{ once: true, margin: "-50px" }}
+                                        >
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false"
@@ -49,8 +76,14 @@ const WorkProcessing = () => {
                                                     majority have suffered alteration in some form,
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="accordion-item mb-3 wow fadeInUp" data-wow-delay=".7s">
+                                        </motion.div>
+                                        <motion.div
+                                            class="accordion-item mb-3 "
+                                            initial={{ y: 80, opacity: 0 }}
+                                            whileInView={{ y: 0, opacity: 1 }}
+                                            transition={{ duration: 0.5, delay: 0.7 }}
+                                            viewport={{ once: true, margin: "-50px" }}
+                                        >
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
@@ -64,8 +97,14 @@ const WorkProcessing = () => {
                                                     majority have suffered alteration in some form,
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="accordion-item wow fadeInUp" data-wow-delay=".3s">
+                                        </motion.div>
+                                        <motion.div
+                                            class="accordion-item wow fadeInUp" data-wow-delay=".3s"
+                                            initial={{ y: 80, opacity: 0 }}
+                                            whileInView={{ y: 0, opacity: 1 }}
+                                            transition={{ duration: 0.5, delay: 0.3 }}
+                                            viewport={{ once: true, margin: "-50px" }}
+                                        >
                                             <h5 class="accordion-header">
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="true"
@@ -79,17 +118,23 @@ const WorkProcessing = () => {
                                                     majority have suffered alteration in some form,
                                                 </div>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-8 order-1 order-xl-2">
-                            <div class="wp-thumb wow fadeInUp" data-wow-delay=".4s">
-                                <div class="main-thumb img-custom-anim-right wow">
+                            <motion.div
+                                class="wp-thumb wow fadeInUp" data-wow-delay=".4s"
+                                initial={{ y: 80, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                            >
+                                <div ref={ref1} class={`main-thumb  ${inView1 ? 'img-custom-anim-right' : ''}`}>
                                     <img src={wpThumb2_1} alt="thumb" />
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
