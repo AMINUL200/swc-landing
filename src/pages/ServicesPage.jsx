@@ -1,25 +1,25 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import BreadCumbSection from '../component/BreadCumbSection'
 import { csharf, css, html, js, laravel, mongodb, nextjs, nodejs, python, react, sass, serviceIcon3_1, serviceIcon3_2, serviceIcon3_3, serviceIcon3_5, serviceIcon3_6, servicesThumb1_1, teamThumb1_1, teamThumb1_2, teamThumb1_3, testimonialShape2_1, testimonialShape2_2, typescript, wordpress } from '../assets'
 import { Link } from 'react-router-dom';
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useInView } from 'react-intersection-observer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faLinkedinIn, faPinterestP, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { AppContext } from '../context/AppContext';
+import { toast } from 'react-toastify';
+import Preloader from '../component/Preloader';
 
 const ServicesPage = () => {
+    const { servicesDataInfo, servicesLoading } = useContext(AppContext);
+    const [heroSData, setHeroSData] = useState(null)
+    const [servicesData, setServicesData] = useState([])
+    const [ourTeamData, setOurTeamData] = useState([])
+    const [useTechnology, setUseTechnology] = useState(null)
 
     const [ref1, inView1] = useInView({ threshold: 0.2, triggerOnce: true });
     const [ref2, inView2] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref3, inView3] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref4, inView4] = useInView({ threshold: 0.4, triggerOnce: true });
-    const [ref5, inView5] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref6, inView6] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref7, inView7] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref8, inView8] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref9, inView9] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref10, inView10] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref11, inView11] = useInView({ threshold: 0.2, triggerOnce: true });
+
 
     const fadeInUp = {
         hidden: { opacity: 0, y: 50 },
@@ -46,6 +46,33 @@ const ServicesPage = () => {
         }),
     };
 
+
+    useEffect(() => {
+        const fetchServicesData = async () => {
+            try {
+                const data = await servicesDataInfo();
+                if (data) {
+                    setHeroSData(data.hero_section)
+                    setServicesData(data.all_services);
+                    setOurTeamData(data.team)
+                    setUseTechnology(data.technology[0])
+                    console.log("Services Data:", data);
+                } else {
+                    toast.error("No data found");
+                }
+            } catch (error) {
+                toast.error("Error fetching services data");
+            }
+        };
+
+        fetchServicesData();
+    }, []);
+
+    if (servicesLoading) return <Preloader />
+
+
+
+
     return (
         <>
             {/* <BreadCumbSection page='Services' /> */}
@@ -62,7 +89,8 @@ const ServicesPage = () => {
                     <div className="shape2 fix"><img src={testimonialShape2_2} alt="shape" /></div>
                     <div className="container">
                         <div className="service-wrapper style3">
-                            <h2 ref={ref2} className={`${inView2 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.3s' }} >Join our team to create the best digital solutions.
+                            <h2 ref={ref2} className={`${inView2 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.3s' }} >
+                                {heroSData?.heading}
                             </h2>
                             <motion.p className={`text`}
                                 variants={fadeInUp}
@@ -71,15 +99,11 @@ const ServicesPage = () => {
                                 viewport={{ once: true, amount: 0.1 }}
                                 custom={0.5}
                             >
-                                There are many variations of passages of Lorem
-                                Ipsum available, but the majority
-                                have suffered alteration in some form, by injected humour, or randomised words which don't look
-                                even slightly believable. If you are going to use There are many variations of passages of Lorem
-                                Ipsum available, but the majority have suffered alteration in some form, by injected humour, or
-                                randomised words which don't look even slightly believable. If you are going to use
+                                {heroSData?.paragraph}
+
                             </motion.p>
 
-                            <Link to='/contact' >
+                            <a href={heroSData?.button_url} target='_blank' >
                                 <motion.span
                                     className="theme-btn"
                                     variants={fadeInUp}
@@ -88,7 +112,7 @@ const ServicesPage = () => {
                                     whileHover={{ y: -2 }}
                                     viewport={{ once: true, amount: 0.1, margin: "0px 0px -50px 0px" }}
                                     custom={0.2}
-                                > Join Our Team
+                                >  {heroSData?.button_name}
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
                                         fill="none">
                                         <g clip-path="url(#clip0_199_944)">
@@ -104,7 +128,7 @@ const ServicesPage = () => {
                                         </defs>
                                     </svg>
                                 </motion.span>
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -117,78 +141,31 @@ const ServicesPage = () => {
                     <div className="container">
                         <div className="service-wrapper style1">
                             <div className="row gy-5">
-                                <div className="col-xl-4 col-md-6">
-                                    <div ref={ref5} className={`service-box style3 ${inView5 ? 'fadeInLeft' : ''} `} style={{ animationDelay: '.3s' }}>
-                                        <div className="icon-box style3">
-                                            <img src={serviceIcon3_1} alt="icon" />
-                                        </div>
-                                        <div className="content">
-                                            <h3><a href="service-details.html"> Software Features </a></h3>
-                                            <p className="text">There are many variations of passages of Lorem Ipsum available, but
-                                                the majority have suffered alteration in some form,</p>
-                                        </div>
+
+                                {servicesData?.map((service, index) => (
+                                    <div className="col-xl-4 col-md-6" key={service.id}>
+                                        <motion.div
+                                            className="service-box style3"
+                                            style={{ animationDelay: [index] }}
+                                            variants={fadeInLeft}
+                                            initial="hidden"
+                                            whileInView="visible"
+                                            viewport={{ once: true, amount: 0.2 }}
+                                            custom={0.2 + index * 0.2} // Stagger delay based on index
+                                        >
+                                            <div className="icon-box style3">
+                                                <img src={service.image} alt="icon" />
+                                            </div>
+                                            <div className="content">
+                                                <h3><Link to={`#`}>{service.heading}</Link></h3>
+                                                <p className="text">{service.paragraph}</p>
+                                            </div>
+                                        </motion.div>
                                     </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div ref={ref6} className={`service-box style3 active ${inView6 ? 'fadeInLeft' : ''} `} style={{ animationDelay: '0.4s' }}>
-                                        <div className="icon-box style3">
-                                            <img src={serviceIcon3_2} alt="icon" />
-                                        </div>
-                                        <div className="content">
-                                            <h3><a href="service-details.html"> Subscription Plans </a></h3>
-                                            <p className="text">There are many variations of passages of Lorem Ipsum available, but
-                                                the majority have suffered alteration in some form,</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-xl-4 col-md-6">
-                                    <div ref={ref7} className={`service-box style3 ${inView7 ? 'fadeInLeft' : ''} `} style={{ animationDelay: '0.6s' }}>
-                                        <div className="icon-box style3">
-                                            <img src={serviceIcon3_3} alt="icon" />
-                                        </div>
-                                        <div className="content">
-                                            <h3><a href="service-details.html"> Customization Option </a></h3>
-                                            <p className="text">There are many variations of passages of Lorem Ipsum available, but
-                                                the majority have suffered alteration in some form,</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div ref={ref8} className="col-xl-4 col-md-6">
-                                    <div className={`service-box style3 ${inView8 ? 'fadeInLeft' : ''} `} style={{ animationDelay: '0.3s' }}>
-                                        <div className="icon-box style3">
-                                            <img src={serviceIcon3_5} alt="icon" />
-                                        </div>
-                                        <div className="content">
-                                            <h3><a href="service-details.html"> Choose a App </a></h3>
-                                            <p className="text">There are many variations of passages of Lorem Ipsum available, but
-                                                the majority have suffered alteration in some form,</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div ref={ref9} className="col-xl-4 col-md-6">
-                                    <div className={`service-box style3 ${inView9 ? 'fadeInLeft' : ''} `} style={{ animationDelay: '0.4s' }}>
-                                        <div className="icon-box style3">
-                                            <img src={serviceIcon3_5} alt="icon" />
-                                        </div>
-                                        <div className="content">
-                                            <h3><a href="service-details.html"> Clean Modern Code </a></h3>
-                                            <p className="text">There are many variations of passages of Lorem Ipsum available, but
-                                                the majority have suffered alteration in some form,</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div ref={ref10} className="col-xl-4 col-md-6">
-                                    <div className={`service-box style3 ${inView10 ? 'fadeInLeft' : ''} `} style={{ animationDelay: '0.6s' }}>
-                                        <div className="icon-box style3">
-                                            <img src={serviceIcon3_6} alt="icon" />
-                                        </div>
-                                        <div className="content">
-                                            <h3><a href="service-details.html"> User Interactive </a></h3>
-                                            <p className="text">There are many variations of passages of Lorem Ipsum available, but
-                                                the majority have suffered alteration in some form,</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
+
+
+
                             </div>
                         </div>
                     </div>
@@ -207,11 +184,60 @@ const ServicesPage = () => {
                             viewport={{ once: true, amount: 0.3 }}
                             custom={0.3}
                         >
-                            We Provide the Best Quality
+                            {ourTeamData[0]?.heading}
                         </motion.h2>
                     </div>
                     <div className="row">
-                        <div ref={ref3} className="col-xl-4 col-md-6">
+
+                        {ourTeamData?.map((team, index) => (
+                            <div className="col-xl-4 col-md-6" key={team.id}>
+                                <motion.div
+                                    className="team-card style1"
+                                    style={{ animationDelay: [index] }}
+                                    variants={fadeInLeft}
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    custom={index * 0.2}
+                                >
+                                    <div className="team-thumb">
+                                        <img src={teamThumb1_1} alt="thumb" />
+                                    </div>
+                                    <div className="team-card-content">
+                                        <h3>
+                                            <a href="#">{team.name}</a>
+                                        </h3>
+                                        <p className="designation">{team.designation}</p>
+                                        <ul className="social-links">
+                                            <li>
+                                                <a href={team.social_media1} target="_blank" rel="noopener noreferrer">
+                                                    <FontAwesomeIcon icon={faFacebookF} />
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href={team.social_media2} target="_blank" rel="noopener noreferrer">
+                                                    <FontAwesomeIcon icon={faTwitter} />
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href={team.social_media3} target="_blank" rel="noopener noreferrer">
+                                                    <FontAwesomeIcon icon={faLinkedinIn} />
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href={team.social_media4} target="_blank" rel="noopener noreferrer">
+                                                    <FontAwesomeIcon icon={faPinterestP} />
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                </motion.div>
+                            </div>
+                        ))}
+
+                        {/* <div ref={ref3} className="col-xl-4 col-md-6">
                             <motion.div
                                 className="team-card style1"
                                 variants={fadeInLeft}
@@ -288,10 +314,12 @@ const ServicesPage = () => {
                                     </ul>
                                 </div>
                             </motion.div>
-                        </div>
+                        </div> */}
+
                     </div>
                 </div>
             </section>
+
             {/* <!-- Used Technology Section Start --> */}
             <section className="used-technology-section section-padding pt-0 fix">
                 <div className="container">
@@ -303,7 +331,8 @@ const ServicesPage = () => {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             custom={0.4}
-                        >Technologies Behind Our Solutions.
+                        >
+                            {useTechnology?.heading}
                         </motion.h2>
                     </div>
                     <ul className="nav">
@@ -316,7 +345,7 @@ const ServicesPage = () => {
                             custom={0.2}
                         >
                             <a href="#End" data-bs-toggle="tab" className="nav-link active">
-                                Front End
+                                {useTechnology?.button_name1}
                             </a>
                         </motion.li>
                         <motion.li
@@ -328,60 +357,38 @@ const ServicesPage = () => {
                             custom={0.4}
                         >
                             <a href="#Back" data-bs-toggle="tab" className="nav-link">
-                                Back End
+                                {useTechnology?.button_name2}
                             </a>
                         </motion.li>
                     </ul>
                     <div className="tab-content">
                         <div id="End" className="tab-pane fade show active">
                             <div className="technology-box-items-wrapper style-4 mt-0">
-                                <div className="technology-box-items style-4">
-                                    <div className="logo">
-                                        <img src={html} alt="logo" />
+
+                                {useTechnology?.front_end_technology?.map((item, index) => (
+                                    <div className="technology-box-items style-4" key={item.id}>
+                                        <div className="logo">
+                                            <img src={item.image ?? html} alt="logo" />
+                                        </div>
+                                        <div className="title">{item.name ?? 'HTML5'}</div>
                                     </div>
-                                    <div className="title">HTML5</div>
-                                </div>
-                                <div className="technology-box-items style-4">
-                                    <div className="logo">
-                                        <img src={css} alt="logo" />
-                                    </div>
-                                    <div className="title">CSS3</div>
-                                </div>
-                                <div className="technology-box-items style-4">
-                                    <div className="logo">
-                                        <img src={sass} alt="logo" />
-                                    </div>
-                                    <div className="title">Sass</div>
-                                </div>
-                                <div className="technology-box-items style-4">
-                                    <div className="logo">
-                                        <img src={js} alt="logo" />
-                                    </div>
-                                    <div className="title">JavaScript</div>
-                                </div>
-                                <div className="technology-box-items style-4">
-                                    <div className="logo">
-                                        <img src={react } alt="logo" />
-                                    </div>
-                                    <div className="title">React</div>
-                                </div>
-                                <div className="technology-box-items style-4">
-                                    <div className="logo">
-                                        <img src={typescript} alt="logo" />
-                                    </div>
-                                    <div className="title">TypeScript</div>
-                                </div>
-                                <div className="technology-box-items style-4">
-                                    <div className="logo">
-                                        <img src={nextjs} alt="logo" />
-                                    </div>
-                                    <div className="title">Next.js</div>
-                                </div>
+                                ))}
+
                             </div>
                         </div>
                         <div id="Back" className="tab-pane fade">
                             <div className="technology-box-items-wrapper style-4 mt-0">
-                                <div className="technology-box-items style-4">
+                                {useTechnology?.back_end_technology?.map((item, index) => (
+                                    <div className="technology-box-items style-4" key={item.id}>
+                                        <div className="logo">
+                                            <img src={item.image ?? laravel} alt="logo" />
+                                        </div>
+                                        <div className="title"> {item?.name ?? 'LARAVEL'} </div>
+                                    </div>
+                                ))}
+
+
+                                {/* <div className="technology-box-items style-4">
                                     <div className="logo">
                                         <img src={laravel} alt="logo" />
                                     </div>
@@ -422,7 +429,9 @@ const ServicesPage = () => {
                                         <img src={nextjs} alt="logo" />
                                     </div>
                                     <div className="title">Next.js</div>
-                                </div>
+                                </div> */}
+
+
                             </div>
                         </div>
                     </div>

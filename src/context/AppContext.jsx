@@ -23,8 +23,10 @@ const AppContextProvider = (props) => {
     const [blogData, setBlogData] = useState([])
     const [contactData, setContactData] = useState(null)
 
-      const [showPopup, setShowPopup] = useState(false)
-      const [blogDetailsLoading, setBlogDetailsLoading] = useState(false);
+    const [showPopup, setShowPopup] = useState(false)
+    const [blogDetailsLoading, setBlogDetailsLoading] = useState(false);
+    const [servicesLoading, setServicesLoading] = useState(false);
+    const [aboutPageLoading, setAboutPageLoading] = useState(false)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -142,24 +144,58 @@ const AppContextProvider = (props) => {
 
 
 
-const blogDataInfo = async (id) => {
-  setBlogDetailsLoading(true);  // Use separate loading state for blog details
-  try {
-    const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk/website-api/api/controller/blog_details.php?blog=${id}`);
-    const blogDetailsJson = await blogDetailsRes.json();
+    const blogDataInfo = async (id) => {
+        setBlogDetailsLoading(true);  // Use separate loading state for blog details
+        try {
+            const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk/website-api/api/controller/blog_details.php?blog=${id}`);
+            const blogDetailsJson = await blogDetailsRes.json();
 
-    if (blogDetailsJson.flag === 1 && blogDetailsJson.status === 200) {
-      return blogDetailsJson.data;
+            if (blogDetailsJson.flag === 1 && blogDetailsJson.status === 200) {
+                return blogDetailsJson.data;
+            }
+            return null;
+        } catch (error) {
+            console.error("blog Details error", error);
+            return null;
+        } finally {
+            setBlogDetailsLoading(false);
+        }
     }
-    return null;
-  } catch (error) {
-    console.error("blog Details error", error);
-    return null;
-  } finally {
-    setBlogDetailsLoading(false);
-  }
-}
 
+    const servicesDataInfo = async () => {
+        setServicesLoading(true);
+        try {
+            const servicesRes = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/services.php');
+            const servicesJson = await servicesRes.json();
+
+            if (servicesJson.flag === 1 && servicesJson.status === 200) {
+                return servicesJson.data[0];
+            }
+            return null;
+        } catch (error) {
+            console.error("Services Data error", error);
+            return null;
+        } finally {
+            setServicesLoading(false);
+        }
+    }
+
+    const aboutPageDataInfo = async () => {
+        setAboutPageLoading(true)
+        try {
+            const aboutPageRes = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/about_page.php');
+            const aboutPageJson = await aboutPageRes.json();
+             if (aboutPageJson.flag === 1 && aboutPageJson.status === 200) {
+                return aboutPageJson.data[0];
+            }
+            return null;
+        } catch (error) {
+            console.error("About page Data error:", error)
+            return null;
+        }finally{
+            setAboutPageLoading(false);
+        }
+    }
 
 
 
@@ -190,6 +226,10 @@ const blogDataInfo = async (id) => {
         showPopup, setShowPopup,
         blogDetailsLoading,
         blogDataInfo,
+        servicesDataInfo,
+        servicesLoading,
+        aboutPageDataInfo,
+        aboutPageLoading
 
     };
 
