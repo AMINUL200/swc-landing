@@ -115,6 +115,8 @@ import wcuThumb3_1 from './images/wcu/wcuThumb3_1.png'
 import wcuThumb3_2 from './images/wcu/wcuThumb3_2.png'
 import wcuThumbShape3_1 from './images/shape/wcuThumbShape3_1.png'
 
+import wpThumb2_1 from './images/wp/wpThumb2_1.jpg'
+
 import servicesThumb1_1 from './images/services/servicesThumb1_1.jpg'
 import testimonialShape2_1 from './images/shape/testimonialShape2_1.png'
 import testimonialShape2_2 from './images/shape/testimonialShape2_2.png'
@@ -255,6 +257,8 @@ export {
     wcuThumb3_1,
     wcuThumb3_2,
     wcuThumbShape3_1,
+
+    wpThumb2_1,
 
     servicesThumb1_1,
     testimonialShape2_1,

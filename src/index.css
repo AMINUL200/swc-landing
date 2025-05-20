@@ -7560,13 +7560,15 @@ input.main-search-input::placeholder {
   font-size: 12px;
   font-weight: 500;
   transition: all 0.3s ease-in-out !important;
-  background-image: url(../images/icon/chevron-right.svg);
+  /* background-image: url(../images/icon/chevron-right.svg); */
+  background-image: url(../src/assets/images/icon/chevron-right.svg);
   color: var(--theme2);
 }
 
 .wp-content .accordion-item .accordion-header .accordion-button:not(.collapsed):after {
   font-size: 12px;
-  background-image: url(../images/icon/chevron-down.svg);
+  /* background-image: url(../images/icon/chevron-down.svg); */
+  background-image: url(../src/assets/images/icon/chevron-down.svg);
   font-weight: 500;
   color: var(--theme2);
   transform: rotate(0);

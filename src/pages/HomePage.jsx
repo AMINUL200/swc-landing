@@ -15,6 +15,8 @@ import PricingSection from '../component/PricingSection';
 import CtaSection from '../component/CtaSection';
 import BlogSection from '../component/BlogSection';
 import ContactSection from '../component/ContactSection';
+import SponsorCompliances from '../component/SponsorCompliances';
+import WorkProcessing from '../component/WorkProcessing';
 
 const HomePage = () => {
 
@@ -54,10 +56,12 @@ const HomePage = () => {
             <CounterSection countData={countData} />
             <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
             <FaqsLSection faqHeadData={faqLeftHeadData} faqQAData={faqLeftQAData} />
+            <SponsorCompliances/>
             <TestimonialSection testimonialData={testimonialData} />
             <FeatureSection featureData={featureData} />
             <PricingSection pricingData={pricingData} />
             <CtaSection ctaData={ctaData} />
+            <WorkProcessing/>
             <BlogSection blogData={blogData} />
             <ContactSection contactData={contactData} />
         </>

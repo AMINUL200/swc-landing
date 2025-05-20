@@ -29,11 +29,11 @@ const router = createBrowserRouter([
         element: <BlogDetails />,
         // loader: blogdataInfo,
       },
-      { path: 'about', element: <AboutPage /> },
-      { path: 'services', element: <ServicesPage /> },
-      { path: 'pricing', element: <PricingPage /> },
-      { path: 'contact', element: <ContactPage /> },
-      {path:'blog', element: <BlogPage />},
+      // { path: 'about', element: <AboutPage /> },
+      // { path: 'services', element: <ServicesPage /> },
+      // { path: 'pricing', element: <PricingPage /> },
+      // { path: 'contact', element: <ContactPage /> },
+      // {path:'blog', element: <BlogPage />},
     ]
   }
 ])
