@@ -1,6 +1,5 @@
 import React from 'react'
 import { aboutThumb1, aboutThumb2, aboutThumbShape1, aboutThumbShape2, aboutThumbShape3, aboutThumbShape4, checkMarkIcon, fireIcon } from '../assets'
-import { Link } from 'react-router-dom';
 import { motion } from "motion/react"
 
 

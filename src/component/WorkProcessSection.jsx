@@ -1,6 +1,7 @@
 import React from 'react'
 import { fireIcon, workProcessShape1 } from '../assets'
 import { motion } from "motion/react"
+import FadeInUp from './AnimationCom/FadeInUp'
 
 
 const WorkProcessSection = ({ workData }) => {
@@ -13,73 +14,72 @@ const WorkProcessSection = ({ workData }) => {
             <div className="work-process-container-wrapper style1">
                 <div className="container">
                     <div className="section-title text-center mxw-565 mx-auto">
-                        <motion.div
-                            className='subtitle'
-                            initial={{ y: 80, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            viewport={{ once: true }}
+                        <FadeInUp
+                            as="div"
+                            delay={0.2}
+                            margin="-50px"
+                            className="subtitle"
                         >
-                            {workData?.title ?? ' How It Work'}
+                            {workData?.title}
                             <img src={fireIcon} alt="icon" />
-                        </motion.div>
-                        <motion.h2
-                            className='title'
-                            initial={{ y: 80, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.3, delay: 0.1 }}
-                            viewport={{ once: true }}
+                        </FadeInUp>
+                        <FadeInUp
+                            as="h2"
+                            delay={0.3}
+                            margin="-50px"
+                            className="title"
                         >
-                            {workData?.heading1 ?? 'Make Your Device Manage Everything For You!'}
-                        </motion.h2>
+                            {workData?.heading ?? 'Make Your Device Manage Everything For You!'}
+                        </FadeInUp>
+
                     </div>
                     <div className="work-process-wrapper style1">
                         <div className="shape"><img src={workProcessShape1} alt="shape" /></div>
                         <div className="row">
                             <div className="col-xl-4">
-                                <motion.div
-                                    initial={{ y: 80, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    transition={{ duration: 0.5, delay: 0.2 }}
-                                    viewport={{ once: true }}
-                                    className={`work-process-box style1 `}
+                                <FadeInUp
+                                    as="div"
+                                    delay={0.2}
+                                    margin='-50px'
+                                    className='work-process-box style1 '
                                 >
-                                    <div className="step">{workData?.paragrapg ?? 'STEP - 01'}</div>
-                                    <div className="title">{workData?.paragraph1 ?? 'Download App '}</div>
+                                    <div className="step">{workData?.paragrapg}</div>
+                                    <div className="title">{workData?.paragraph1}</div>
                                     <div className="text">
-                                        {workData?.paragraph2 ?? 'There are many variations of passages of Lorem'}
+                                        {workData?.paragraph2}
                                     </div>
-                                </motion.div>
+                                </FadeInUp>
+
                             </div>
                             <div className="col-xl-4">
-                                <motion.div
-                                    initial={{ y: 80, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    transition={{ duration: 0.5, delay: 0.4 }}
-                                    viewport={{ once: true }}
-                                    className={`work-process-box style1 child2  `}
+                                <FadeInUp
+                                    as="div"
+                                    delay={0.4}
+                                    margin='-50px'
+                                    className='work-process-box style1 child2'
                                 >
                                     <div className="step"> {workData?.paragraph3 ?? 'STEP - 02'} </div>
                                     <div className="title">{workData?.paragraph4 ?? 'Create account '} </div>
                                     <div className="text">
                                         {workData?.paragraph5 ?? 'There are many variations of passages of Lorem'}
                                     </div>
-                                </motion.div>
+                                </FadeInUp>
+
                             </div>
                             <div className="col-xl-4">
-                                <motion.div
-                                    initial={{ y: 80, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    transition={{ duration: 0.5, delay: 0.6 }}
-                                    viewport={{ once: true }}
-                                    className={`work-process-box style1 `}
+                                <FadeInUp
+                                    as="div"
+                                    delay={0.6}
+                                    margin='-50px'
+                                    className='work-process-box style1 '
                                 >
                                     <div className="step"> {workData?.paragraph6 ?? 'STEP - 03'}</div>
                                     <div className="title">{workData?.paragraph7 ?? 'Install App, & Enjoy '} </div>
                                     <div className="text">
                                         {workData?.paragraph8 ?? 'There are many variations of passages of Lorem'}
                                     </div>
-                                </motion.div>
+                                </FadeInUp>
+                               
                             </div>
                         </div>
                     </div>

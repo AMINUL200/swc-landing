@@ -1,13 +1,11 @@
 import React from 'react'
 import { faqThumb1, faqThumb2, fireIcon } from '../assets'
 import { useInView } from 'react-intersection-observer';
-import { div } from 'framer-motion/client';
+import { motion } from "motion/react"
 
 const FaqsSection = ({ faqHeadData, faqQAData }) => {
-    const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
-    const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
+
     const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
-    const [ref6, inView6] = useInView({ threshold: 0.1, triggerOnce: true });
 
 
     return (
@@ -17,25 +15,44 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
                     <div className="row gy-5 gy-xl-0 gx-60 d-flex align-items-start">
                         <div className="col-xl-6">
                             <div className="faq-content style1">
-                                <div ref={ref1} className="section-title">
-                                    <div className={`subtitle ${inView1 ? 'fadeInUp delay-1' : ''} `} >
+                                <div className="section-title">
+                                    <motion.div className={`subtitle `}
+                                        initial={{ y: 80, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.5, delay: 0.2 }}
+                                        viewport={{ once: true, margin: "-50px" }}
+                                    >
                                         {faqHeadData?.title}
                                         <img src={fireIcon} alt="icon" />
-                                    </div>
-                                    <h2 className={`title ${inView1 ? 'fadeInUp delay-2' : ''}`} > {faqHeadData?.heading1} </h2>
-                                    <p className={`section-desc ${inView1 ? 'fadeInUp delay-4' : ''} `} >
+                                    </motion.div>
+                                    <motion.h2 className={`title`}
+                                        initial={{ y: 80, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.5, delay: 0.4 }}
+                                        viewport={{ once: true, margin: "-50px" }}
+                                    >
+                                        {faqHeadData?.heading1}
+                                    </motion.h2>
+                                    <motion.p className={`section-desc`}
+                                        initial={{ y: 80, opacity: 0 }}
+                                        whileInView={{ y: 0, opacity: 1 }}
+                                        transition={{ duration: 0.5, delay: 0.6 }}
+                                        viewport={{ once: true, margin: "-50px" }}
+                                    >
                                         {faqHeadData?.heading2}
-
-                                    </p>
+                                    </motion.p>
                                 </div>
-                                <div ref={ref6} className="faq-accordion">
+                                <div className="faq-accordion">
                                     <div className="accordion" id="accordion">
 
                                         {faqQAData?.map((faq, index) => (
-                                            <div
+                                            <motion.div
                                                 key={faq.id}
-                                                className={`accordion-item mb-3 ${inView6 ? 'fadeInUp' : ''}`}
-                                                style={{ animationDelay: `${0.3 + (index * 0.2)}s` }}
+                                                className={`accordion-item mb-3 `}
+                                                initial={{ y: 80, opacity: 0 }}
+                                                whileInView={{ y: 0, opacity: 1 }}
+                                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                                viewport={{ once: true, margin: "-50px" }}
                                             >
                                                 <h5 className="accordion-header">
                                                     <button
@@ -58,9 +75,9 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
                                                         {faq.answer}
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </motion.div>
                                         ))}
-                                      
+
                                     </div>
                                 </div>
                             </div>

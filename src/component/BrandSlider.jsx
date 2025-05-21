@@ -6,6 +6,7 @@ import 'swiper/css/autoplay';
 
 import { brandLogo1, brandLogo2, brandLogo3, brandLogo4, brandLogo5 } from '../assets';
 import { useInView } from 'react-intersection-observer';
+import FadeInUp from './AnimationCom/FadeInUp';
 
 const logos = [brandLogo1, brandLogo2, brandLogo3, brandLogo4, brandLogo5, brandLogo3];
 
@@ -20,7 +21,7 @@ const BrandSlider = ({ brandData }) => {
   const logos2 = [...brandData.map(item => item.image1), logos[0]];
   // console.log(logos2);
 
-  
+
 
 
 
@@ -29,9 +30,15 @@ const BrandSlider = ({ brandData }) => {
       <div className="brand-slider-container-wrapper style1">
         <div className="container">
           <div className="brand-slider-wrapper style1">
-            <h2 ref={ref1} className={`single-section-title ${inView ? 'fadeInUp delay-1' : ''} `} data-wow-delay=".2s">
+            <FadeInUp
+              as="h2"
+              delay={0.2}
+              margin="-50px"
+              className="single-section-title"
+            >
               {brandData[0]?.title ?? 'Millions of clients trust us.'}
-            </h2>
+            </FadeInUp>
+            
             <div className="row">
               <div className="slider-area brandSliderOne">
                 <Swiper

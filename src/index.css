@@ -12355,6 +12355,7 @@ select.form-input option[value=""][disabled] {
 .blog-details-section {
   padding-top: 150px;
   position: relative;
+  padding-bottom: 30px;
 }
 
 .w-container {

@@ -1,10 +1,9 @@
 import React from 'react'
 import { blogThumb1_1, blogThumb1_2, calendar, fireIcon, FolderIcon, userIcon } from '../assets'
 import { Link } from 'react-router-dom'
-import { useInView } from 'react-intersection-observer';
+import { motion } from "motion/react"
 
 const BlogSection = ({ blogData, addGap }) => {
-    const [ref9, inView9] = useInView({ threshold: 0.1, triggerOnce: true });
 
     // Format date function
     const formatDate = (dateString) => {
@@ -22,22 +21,44 @@ const BlogSection = ({ blogData, addGap }) => {
     return (
         <section className={`blog-section ${addGap ? 'section-padding-3' : 'section-padding'} fix`} id='blog'>
             <div className="container">
-                <div ref={ref9} className="blog-wrapper style1">
+                <div  className="blog-wrapper style1">
 
                     <div className="section-title text-center mxw-685 mx-auto">
                         {!addGap &&
-                            <div className={`subtitle ${inView9 ? 'fadeInUp delay-1' : ''} `} >
+                            <motion.div
+                                className={`subtitle `}
+                                initial={{ y: 80, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.4, delay: 0.2 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                            >
                                 Our Blog <img src={fireIcon} alt="icon" />
-                            </div>
+                            </motion.div>
                         }
 
-                        <h2 className={`title ${inView9 ? 'fadeInUp delay-2' : ''}`} >Recent Articles And Latest Blog</h2>
+                        <motion.h2
+                            className={`title `}
+                            initial={{ y: 80, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 0.3 }}
+                            viewport={{ once: true, margin: "-50px" }}
+
+                        >
+                            Recent Articles And Latest Blog
+                        </motion.h2>
                     </div>
                     <div className="row gy-5">
 
                         {blogData?.map((blog, index) => (
                             <div className="col-xl-4 col-md-6" key={blog.id}>
-                                <div className={`blog-card style1 img-srinck ${inView9 ? `fadeInUp ${getDelayClass(index)}` : ''}`}>
+                                <motion.div
+                                    className={`blog-card style1 img-srinck`}
+                                    initial={{ y: 80, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+
+                                >
                                     <div className="thumb">
                                         <img src={blog.image} alt={blog.title} />
                                     </div>
@@ -64,7 +85,7 @@ const BlogSection = ({ blogData, addGap }) => {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
 
                         ))}
