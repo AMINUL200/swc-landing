@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faClock, faEnvelope, faMapMarkedAlt, faMapMarkerAlt, faPhone, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faArrowRightLong, faClock, faEnvelope, faMapMarkedAlt, faMapMarkerAlt, faPhone, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { logo2 } from '../assets';
+import { logo2, logo3 } from '../assets';
 import { Link } from 'react-scroll';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
+const Sidebar = ({ isSideBarOpen, setIsSidebarOpen , showPopupModel}) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -36,7 +36,7 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                             <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                                 <div className="offcanvas__logo">
                                     <Link onClick={() => navigate('/')} smooth={true}>
-                                        <img src={logo2} alt="logo-img" />
+                                        <img src={logo3} alt="logo-img" height={70} />
                                     </Link>
                                 </div>
                                 <div className="offcanvas__close">
@@ -69,7 +69,7 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                                             <FontAwesomeIcon icon={faMapMarkerAlt} />
                                         </div>
                                         <div className="offcanvas__contact-text">
-                                            <a target="_blank" href="#">Main Street, Melbourne, Australia</a>
+                                            <a target="_blank" href="#">G21, Unit 3 Triangle Centre, 399 Uxbridge Road, UB1 3EJ, United Kingdom</a>
                                         </div>
                                     </li>
                                     <li className="d-flex align-items-center">
@@ -77,8 +77,8 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                                             <FontAwesomeIcon icon={faEnvelope} />
                                         </div>
                                         <div className="offcanvas__contact-text">
-                                            <a href="mailto:info@example.com"><span
-                                                className="mailto:info@example.com">info@example.com</span></a>
+                                            <a href="mailto:info@skilledworkerscloud.co.uk"><span
+                                                className="">info@skilledworkerscloud.co.uk</span></a>
                                         </div>
                                     </li>
                                     <li className="d-flex align-items-center">
@@ -94,13 +94,15 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen }) => {
                                             <FontAwesomeIcon icon={faPhone} />
                                         </div>
                                         <div className="offcanvas__contact-text">
-                                            <a href="tel:+11002345909">+11002345909</a>
+                                            <a href="tel:+44 074 6728 4718">+44 074 6728 4718</a>
                                         </div>
                                     </li>
                                 </ul>
                                 <div className="header-button mt-4">
-                                    <a href="contact.html" className="theme-btn text-center">
-                                        <span>Get A Quote<i className="fa-solid fa-arrow-right-long"></i></span>
+                                    <a href="#" className="theme-btn text-center" onClick={showPopupModel}>
+                                        <span>Get Started
+                                            <FontAwesomeIcon className='ml-3' icon={faArrowRightLong} />
+                                        </span>
                                     </a>
                                 </div>
                                 <div className="social-icon d-flex align-items-center">

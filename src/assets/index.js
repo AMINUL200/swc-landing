@@ -177,7 +177,7 @@ import projectThumb1_8 from './images/project/projectThumb1_8.jpg'
 import projectThumb1_9 from './images/project/projectThumb1_9.jpg'
 import projectThumb1_10 from './images/project/projectThumb1_10.jpg'
 
-
+import modelLeftImg2 from './images/model-left-img2.jpg'
 
 export {
     logo,
@@ -313,6 +313,7 @@ export {
     projectThumb1_10,
 
     wpShape2_1,
+    modelLeftImg2,
 
 
 };

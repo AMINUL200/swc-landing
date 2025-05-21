@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faInfoCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { toast } from 'react-toastify';
 import Loader from './Loader';
+import { modelLeftImg2 } from '../assets';
 
 const initialFormState = {
     firstName: '',
@@ -122,7 +123,7 @@ const PopupModel = ({ show, onClose }) => {
                 setLoading(false)
             }
 
-        }else{
+        } else {
             setLoading(false)
         }
     };
@@ -147,10 +148,10 @@ const PopupModel = ({ show, onClose }) => {
                     </div>
                     <div className="modal-body">
                         <div className="row">
-                            <div className='col-md-12 col-lg-6 modal-left' >
-
-
+                            <div className='col-md-12 col-lg-6 modal-left'>
+                                <img src={modelLeftImg2} alt="Demo" className="modal-left-img" />
                             </div>
+
                             <div className='col-md-12 col-lg-6'>
                                 <form name="register" className="form" onSubmit={handleSubmit}>
                                     {/* Row 1: First Name and Last Name */}

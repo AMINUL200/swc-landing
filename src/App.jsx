@@ -23,7 +23,7 @@ const App = () => {
       <ToastContainer />
       <BackToTop />
       <Header setIsSidebarOpen={setIsSidebarOpen} showPopupModel={() => setShowPopup(true)} />
-      <Sidebar isSideBarOpen={isSideBarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <Sidebar isSideBarOpen={isSideBarOpen} setIsSidebarOpen={setIsSidebarOpen}  showPopupModel={() => setShowPopup(true)}/>
 
       {/* <Routes>
         <Route path='/' element={<HomePage />} />

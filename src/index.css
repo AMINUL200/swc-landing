@@ -11054,6 +11054,13 @@ input.main-search-input::placeholder {
   text-transform: capitalize;
   border-bottom: 1px solid var(--border) !important;
   border: none;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+}
+.mobile-menu .mean-nav ul li a:hover {
+  color: var(--theme) !important;
+  padding-left: 15px;
 }
 
 .mobile-menu .mean-nav ul li a.mean-expand {
@@ -12055,25 +12062,29 @@ textarea.is-invalid {
 
 
 
-.modal-body .modal-left {
-  background-image: url('./assets/images/model-left-img2.jpg') !important;
-  background-size: cover !important;
-  /* background-size: contain; */
-  /* Ensures the image covers the entire area */
-  background-position: center !important;
-  /* Centers the image */
-  background-repeat: no-repeat !important;
+.modal-left {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  color: white;
-  height: 552px;
+  padding: 0; /* Remove padding to allow full width/height */
+  background-color: #000; /* fallback in case image fails */
+  /* height: 100%; Ensure container takes full height */
+  /* width: 100%; Ensure container takes full width */
+  overflow: hidden; /* Prevent any overflow */
+
 }
 
-@media(max-width: 993px) {
+.modal-left-img {
+  width: 100%; /* Take full width of container */
+  height: 100%; /* Take full height of container */
+  object-fit: cover; /* Cover the entire area while maintaining aspect ratio */
+  object-position: center; /* Center the image */
+}
+
+@media (max-width: 993px) {
   .modal-body .modal-left {
     margin-bottom: 30px;
+   
   }
 }
 
@@ -12123,6 +12134,11 @@ textarea.is-invalid {
   width: 100%;
   height: auto;
   padding: 0 25px;
+}
+@media (max-width: 993px) {
+  .form {
+   padding: 0;
+  }
 }
 
 .form-control {
