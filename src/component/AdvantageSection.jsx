@@ -41,8 +41,6 @@ const AdvantageSection = ({ advantageData }) => {
                                                     <img src={checkMarkIcon} alt="icon" />
                                                     {advantageData?.paragraph2}
                                                 </li>
-                                            </ul>
-                                            <ul className="checklist style1">
                                                 <li>
                                                     <img src={checkMarkIcon} alt="icon" />
                                                     {advantageData?.paragraph3}
@@ -51,6 +49,9 @@ const AdvantageSection = ({ advantageData }) => {
                                                     <img src={checkMarkIcon} alt="icon" />
                                                     {advantageData?.paragraph4}
                                                 </li>
+                                            </ul>
+                                            <ul className="checklist style1">
+                                                
                                             </ul>
                                         </div>
                                         <Link className={`theme-btn  ${inView ? "fadeInUp delay-4" : ''} `} to='/about'  >
