@@ -1,15 +1,17 @@
 import React from 'react'
 import { aboutThumb1, aboutThumb2, aboutThumbShape1, aboutThumbShape2, aboutThumbShape3, aboutThumbShape4, checkMarkIcon, fireIcon } from '../assets'
 import { motion } from "motion/react"
+import FadeInUp from './AnimationCom/FadeInUp'
+import FadeInLeft from './AnimationCom/FadeInLeft'
 
 
-const AboutSection = ({  aboutData , addGap}) => {
+const AboutSection = ({ aboutData, addGap }) => {
 
 
 
 
     return (
-        <section className={`about-section ${addGap ? "section-padding-3 pb-4":"section-padding"}   fix`} id='about'>
+        <section className={`about-section ${addGap ? "section-padding-3 pb-4" : "section-padding"}   fix`} id='about'>
             <div className="about-container-wrapper style1">
                 <div className="container">
                     <div className="about-wrapper style1">
@@ -41,42 +43,34 @@ const AboutSection = ({  aboutData , addGap}) => {
                             <div className="col-xl-6">
                                 <div className="about-content">
                                     <div className="section-title">
-                                        <motion.div
-                                            className="subtitle"
-                                            initial={{ y: 80, opacity: 0 }}
-                                            whileInView={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 0.5, delay: 0.2 }}
-                                            viewport={{ once: true, margin: "-100px" }}
+                                        <FadeInUp
+                                            as='div'
+                                            className='subtitle'
+                                            delay={0.2}
                                         >
                                             {aboutData?.title ?? 'About Our App '}
                                             <img src={fireIcon} alt="icon" />
-                                        </motion.div>
-                                        <motion.h2
-                                            className="title"
-                                            initial={{ y: 80, opacity: 0 }}
-                                            whileInView={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 0.4, delay: 0.2 }}
-                                            viewport={{ once: true }}
+                                        </FadeInUp>
+                                        <FadeInUp
+                                            as='h2'
+                                            className='title'
+                                            delay={0.3}
                                         >
                                             {aboutData?.heading1 ?? ' Simple Reports & Analytics Backdown As it'}
-                                        </motion.h2>
-                                        <motion.p
-                                            className="section-desc"
-                                            initial={{ y: 80, opacity: 0 }}
-                                            whileInView={{ y: 0, opacity: 1 }}
-                                            transition={{ duration: 0.4, delay: 0.2 }}
-                                            viewport={{ once: true }}
+                                        </FadeInUp>
+                                        <FadeInUp
+                                            as='p'
+                                            className='section-desc'
+                                            delay={0.4}
                                         >
                                             {aboutData?.heading2 ?? "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use"}
+                                        </FadeInUp>
 
-                                        </motion.p>
                                     </div>
-                                    <motion.ul
-                                        className="checklist style1"
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.4, delay: 0.3 }}
-                                        viewport={{ once: true }}
+                                    <FadeInUp
+                                        as='ul'
+                                        className='checklist style1'
+                                        delay={0.3}
                                     >
                                         <li><img src={checkMarkIcon} alt="icon" />
                                             {aboutData?.paragraph1 ?? 'With our Technological and Marketing Solutions.'}
@@ -87,12 +81,12 @@ const AboutSection = ({  aboutData , addGap}) => {
                                         <li><img src={checkMarkIcon} alt="icon" />
                                             {aboutData?.paragraph3 ?? 'Start Your 14 Days Free Trials Today! '}
                                         </li>
-                                    </motion.ul>
-                                    <motion.div
-                                        initial={{ x: 70, opacity: 0 }}
-                                        whileInView={{ x: 0, opacity: 1 }}
-                                        transition={{ duration: 0.4, delay: 0.1 }}
-                                        viewport={{ once: true, margin: "-100px" }}
+                                    </FadeInUp>
+
+                                    <FadeInLeft
+                                        as='div'
+                                        className=''
+                                        delay={0.6}
                                     >
                                         <a
                                             className="theme-btn"
@@ -100,7 +94,7 @@ const AboutSection = ({  aboutData , addGap}) => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
-                                            {aboutData?.button_name }
+                                            {aboutData?.button_name}
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                                                 <g clipPath="url(#clip0_18_41)">
                                                     <path
@@ -116,7 +110,9 @@ const AboutSection = ({  aboutData , addGap}) => {
                                             </svg>
                                         </a>
 
-                                    </motion.div>
+                                    </FadeInLeft>
+
+                                    
 
                                 </div>
                             </div>

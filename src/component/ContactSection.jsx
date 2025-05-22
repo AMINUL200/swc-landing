@@ -4,8 +4,9 @@ import Loader from './Loader';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import FadeInUp from './AnimationCom/FadeInUp';
 
-const ContactSection = ({ contactData , addGap}) => {
+const ContactSection = ({ contactData, addGap }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
     const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -42,10 +43,10 @@ const ContactSection = ({ contactData , addGap}) => {
                 body: JSON.stringify(formData)
             });
             console.log(response);
-            
+
             const result = await response.json();
             console.log(result);
-            
+
             if (result.flag === 1 && result.status === 200) {
                 console.log(result.data.message);
                 toast.success(result.data.message)
@@ -72,7 +73,7 @@ const ContactSection = ({ contactData , addGap}) => {
     return (
         <>
             {/* <!--Contact Section S T A R T --> */}
-            <section className={`contact-section ${addGap ? 'section-padding-3 padding-bottom': 'section-padding'} fix`} id='contact'>
+            <section className={`contact-section ${addGap ? 'section-padding-3 padding-bottom' : 'section-padding'} fix`} id='contact'>
                 <div className="container">
                     <div className="contact-wrapper style1">
                         <div className="row gy-5">
@@ -166,7 +167,7 @@ const ContactSection = ({ contactData , addGap}) => {
                 <div class="container">
                     <div class="contact-form-wrapper style1">
                         <div class="row gy-5 gx-60">
-                            <div class="col-xl-6">
+                            <div class="col-xl-6 map-h">
                                 <div class="contact-map">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.1996618517865!2d-0.35328432337979576!3d51.50955287181381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x800e1c53346b1bd3%3A0x78d8dbf45f8e8287!2sSkilled%20Workers%20Cloud%20Ltd!5e0!3m2!1sen!2sin!4v1747583793830!5m2!1sen!2sin"
@@ -183,19 +184,31 @@ const ContactSection = ({ contactData , addGap}) => {
 
                                     <form onSubmit={handleSubmit}  >
                                         <div class="row g-4">
-                                            <div ref={ref1} class={`col-lg-6 ${inView1 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.3s' }}>
+                                            <FadeInUp
+                                                as='div'
+                                                delay={0.3}
+                                                className='col-lg-6'
+                                            >
                                                 <div class="form-clt">
                                                     <span>Your name* </span>
                                                     <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
                                                 </div>
-                                            </div>
-                                            <div ref={ref2} class={`col-lg-6 ${inView2 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.5s' }}>
+                                            </FadeInUp>
+                                            <FadeInUp
+                                                as='div'
+                                                delay={0.5}
+                                                className='col-lg-6'
+                                            >
                                                 <div class="form-clt">
                                                     <span>Your Email*  </span>
                                                     <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
                                                 </div>
-                                            </div>
-                                            <div ref={ref3} class={`col-lg-12 ${inView3 ? 'fadeInUp' : ''} `} style={{ animationDelay: '0.7s' }}>
+                                            </FadeInUp>
+                                            <FadeInUp
+                                                as='div'
+                                                delay={0.7}
+                                                className='col-lg-12'
+                                            >
                                                 <div class="form-clt">
                                                     <span>Write Message* </span>
                                                     <textarea name="message" id="message"
@@ -203,12 +216,17 @@ const ContactSection = ({ contactData , addGap}) => {
                                                         onChange={handleChange}
                                                         placeholder="Write Message" required></textarea>
                                                 </div>
-                                            </div>
-                                            <div ref={ref4} class={`col-lg-7 ${inView4 ? 'fadeInUp' : ''}`} style={{ animationDelay: '0.9s' }}>
-                                                <button type="submit" class={`theme-btn ${loading ? 'btn-disable':''}`} disabled={loading}>
-                                                    {loading ? <Loader /> : 'Send Message'} <FontAwesomeIcon icon={faArrowRight}/>
+                                            </FadeInUp>
+                                            <FadeInUp
+                                                as='div'
+                                                delay={0.9}
+                                                className='col-lg-7'
+                                            >
+                                                <button type="submit" class={`theme-btn ${loading ? 'btn-disable' : ''}`} disabled={loading}>
+                                                    {loading ? <Loader /> : 'Send Message'} <FontAwesomeIcon icon={faArrowRight} />
                                                 </button>
-                                            </div>
+                                            </FadeInUp>
+                                            
                                         </div>
                                     </form>
                                 </div>

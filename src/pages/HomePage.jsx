@@ -48,6 +48,8 @@ const HomePage = () => {
 
     } = useContext(AppContext);
 
+    
+
     useEffect(() => {
         const scrollTarget = location.state?.scrollToId;
         if (scrollTarget) {
@@ -59,6 +61,7 @@ const HomePage = () => {
             }
         }
     }, [location]);
+
 
     return (
         <>

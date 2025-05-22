@@ -1,7 +1,8 @@
 import React from 'react'
 import { ctaAppleStore1, ctaplayStore1, ctaShape1, ctaShape2, ctaShape3, ctaShape4, ctaThumb1, fireIcon } from '../assets'
-import { useInView } from 'react-intersection-observer';
-import { motion } from "motion/react"
+import FadeInUp from './AnimationCom/FadeInUp'
+import FadeInRight from './AnimationCom/FadeInRight'
+import FadeInLeft from './AnimationCom/FadeInLeft'
 
 const CtaSection = ({ ctaData }) => {
 
@@ -25,76 +26,62 @@ const CtaSection = ({ ctaData }) => {
                                 <div className="col-xl-8 order-2 order-xl-1">
                                     <div className="cta-content">
                                         <div className="section-title">
-                                            <motion.div
-                                                initial={{ y: 60, opacity: 0 }}
-                                                whileInView={{ y: 0, opacity: 1 }}
-                                                transition={{ duration: 0.5, delay: 0.2 }}
-                                                viewport={{ once: true, margin: "-30px" }}
-                                                className={`subtitle text-white bg2 `}>
+                                            <FadeInUp
+                                                as='div'
+                                                delay={0.2}
+                                                className='subtitle text-white bg2'
+                                            >
                                                 {ctaData?.title}
                                                 <img src={fireIcon} alt="icon" />
-                                            </motion.div>
-                                            <motion.h2
-                                                initial={{ y: 60, opacity: 0 }}
-                                                whileInView={{ y: 0, opacity: 1 }}
-                                                transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
-                                                viewport={{ once: true, margin: "-50px" }}
-                                                className={`title text-white `} >
+                                            </FadeInUp>
+                                            <FadeInUp
+                                                as='h2'
+                                                delay={0.4}
+                                                className='title text-white'
+                                            >
                                                 {ctaData?.heading1}
-                                            </motion.h2>
-                                            <motion.p
-                                                initial={{ y: 60, opacity: 0 }}
-                                                whileInView={{ y: 0, opacity: 1 }}
-                                                transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
-                                                viewport={{ once: true, margin: "-50px" }}
-                                                className={`section-desc text-white mxw-651 `} >
+                                            </FadeInUp>
+                                            <FadeInUp
+                                                as='p'
+                                                delay={0.6}
+                                                className='section-desc text-white mxw-651 '
+                                            >
                                                 {ctaData?.paragraph1}
-                                            </motion.p>
+                                            </FadeInUp>
+
                                         </div>
-                                        <motion.a
-                                            initial={{ x: -80, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{
-                                                duration: 0.4,
-                                                delay: 0.2,
-                                                ease: "easeOut"
-                                            }}
-                                            viewport={{ once: true, margin: "100px" }}
-                                            className="playstore"
+                                        <FadeInRight
+                                            as='a'
+                                            delay={0.4}
+                                            className='playstore'
                                             href="https://play.google.com/store"
-                                            style={{ display: 'inline-block' }}  // Ensure motion works properly
+                                            style={{ display: 'inline-block' }}
                                         >
                                             <img src={ctaData?.image2} alt="img" />
-                                        </motion.a>
-                                        <motion.a
-                                            initial={{ x: 200, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{
-                                                duration: 0.4,
-                                                delay: 0.2,
-                                                ease: "easeOut"
-                                            }}
-                                            viewport={{
-                                                once: true,
-                                                margin: "-30% 0px 100px 0px",
-                                                threshold: 0.3
-                                            }}
-                                            className="playstore"
+                                        </FadeInRight>
+
+                                        <FadeInLeft
+                                            as='a'
+                                            delay={0.4}
+                                            className='playstore'
                                             href="https://www.apple.com/store"
-                                            style={{ display: 'inline-block' }}>
+                                            style={{ display: 'inline-block' }}
+                                        >
                                             <img src={ctaData?.image3} alt="img" />
-                                        </motion.a>
+                                        </FadeInLeft>
+
+
                                     </div>
                                 </div>
                                 <div className="col-xl-4 order-1 order-xl-2">
-                                    <motion.div
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.3 }}
-                                        viewport={{ once: true, margin: "-20px" }}
-                                        className={`cta-thumb `} >
+                                    <FadeInUp
+                                        as='div'
+                                        delay={0.3}
+                                        className='cta-thumb'
+                                    >
                                         <img src={ctaData?.image1} alt="thumb" />
-                                    </motion.div>
+                                    </FadeInUp>
+                                   
                                 </div>
                             </div>
                         </div>

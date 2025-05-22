@@ -2,6 +2,7 @@ import React from 'react'
 import { faqThumb1, faqThumb2, fireIcon } from '../assets'
 import { useInView } from 'react-intersection-observer';
 import { motion } from "motion/react"
+import FadeInUp from './AnimationCom/FadeInUp';
 
 const FaqsSection = ({ faqHeadData, faqQAData }) => {
 
@@ -16,43 +17,41 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
                         <div className="col-xl-6">
                             <div className="faq-content style1">
                                 <div className="section-title">
-                                    <motion.div className={`subtitle `}
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.2 }}
-                                        viewport={{ once: true, margin: "-50px" }}
+                                    <FadeInUp
+                                        as="div"
+                                        delay={0.2}
+                                        className='subtitle'
                                     >
                                         {faqHeadData?.title}
                                         <img src={fireIcon} alt="icon" />
-                                    </motion.div>
-                                    <motion.h2 className={`title`}
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.4 }}
-                                        viewport={{ once: true, margin: "-50px" }}
+                                    </FadeInUp>
+                                    <FadeInUp
+                                        as="h2"
+                                        delay={0.4}
+                                        className='title'
                                     >
                                         {faqHeadData?.heading1}
-                                    </motion.h2>
-                                    <motion.p className={`section-desc`}
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.6 }}
-                                        viewport={{ once: true, margin: "-50px" }}
+                                    </FadeInUp>
+
+                                    <FadeInUp
+                                        as="p"
+                                        delay={0.6}
+                                        className='section-desc'
                                     >
                                         {faqHeadData?.heading2}
-                                    </motion.p>
+                                    </FadeInUp>
+
+
                                 </div>
                                 <div className="faq-accordion">
                                     <div className="accordion" id="accordion">
 
                                         {faqQAData?.map((faq, index) => (
-                                            <motion.div
+                                            <FadeInUp
+                                                as="div"
+                                                delay={index * 0.2}
+                                                className='accordion-item mb-3'
                                                 key={faq.id}
-                                                className={`accordion-item mb-3 `}
-                                                initial={{ y: 80, opacity: 0 }}
-                                                whileInView={{ y: 0, opacity: 1 }}
-                                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                                                viewport={{ once: true, margin: "-50px" }}
                                             >
                                                 <h5 className="accordion-header">
                                                     <button
@@ -75,7 +74,8 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
                                                         {faq.answer}
                                                     </div>
                                                 </div>
-                                            </motion.div>
+                                            </FadeInUp>
+
                                         ))}
 
                                     </div>

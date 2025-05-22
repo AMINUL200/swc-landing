@@ -2,6 +2,7 @@ import React from 'react'
 import { advanceThumbShape1, advantageThumb1, advantageThumb2, blogThumb1_1, blogThumb1_2, calendar, checkMarkIcon, ctaAppleStore1, ctaplayStore1, ctaShape1, ctaShape2, ctaShape3, ctaShape4, ctaThumb1, faqThumb1, faqThumb2, featureProfileShape1, fireIcon, FolderIcon, introProfileThumb1, introShape1, introShape2, introShape3, introShape4, introShape5, introThumbShape1, introThumbShape2, introThumbShape3, userIcon, wcuIcon1, wcuIcon2, wcuIcon3, wcuIcon4, wcuIcon5, wcuIcon6, wcuThumb1, wcuThumbShape1 } from '../assets';
 import { Link } from 'react-scroll';
 import { useInView } from 'react-intersection-observer';
+import FadeInUp from './AnimationCom/FadeInUp';
 const HeroSection = ({ bannerData, showPopupModel }) => {
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
 
@@ -18,7 +19,7 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
                             <div className="shape3 d-none d-xxl-block cir36"><img src={introShape3} alt="shape" /></div>
                             <div className="shape4 d-none d-xxl-block cir36"><img src={introShape4} alt="shape" /></div>
                             <div className="shape5 d-none d-xxl-block cir36"><img src={introShape5} alt="shape" /></div>
-                            <div ref={ref1} className="container">
+                            <div  className="container">
                                 <div className="row">
                                     <div className="col-xl-7 order-2 order-xl-1">
                                         <div className="intro-content">
@@ -27,14 +28,25 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
                                                     <span>News!</span>{bannerData?.title ?? 'Find Your Solution'}
                                                     <img src={fireIcon} alt="icon" />
                                                 </div>
-                                                <h1 className={`intro-title ${inView1 ? 'fadeInUp delay-1' : ''}`} >
+                                                <FadeInUp
+                                                    as='h1'
+                                                    className='intro-title'
+                                                    delay={0.2}
+                                                >
                                                     {bannerData?.heading1 ?? 'We Develop Websites, Applications, and Brands.'}
-                                                </h1>
-                                                <p className={`intro-desc ${inView1 ? 'fadeInUp delay-2' : ''} `}>
+                                                </FadeInUp>
+                                                <FadeInUp
+                                                    as='p'
+                                                    className='intro-desc'
+                                                    delay={0.4}
+                                                >
                                                     {bannerData?.heading2 ?? " There are many variations of passages of Lorem Ipsum  available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,"}
-                                                </p>
+                                                </FadeInUp>
                                             </div>
-                                            <div className={`btn-wrapper style1 ${inView1 ? 'fadeInUp delay-4' : ''} `} >
+                                            <FadeInUp
+                                                as='div'
+                                                className='btn-wrapper style1'
+                                            >
                                                 <a className="theme-btn" onClick={showPopupModel}>
                                                     {bannerData?.button1_name ?? 'Get Started Now'}
 
@@ -53,12 +65,16 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
                                                     </svg>
 
                                                 </a>
-                                            
-                                            </div>
+                                            </FadeInUp>
+
                                             <div className="fancy-box-wrapper style1">
-                                                <div className={`fancy-box style1 ${inView1 ? 'fadeInUp delay-1' : ''} `}>
+                                                <FadeInUp
+                                                    as='div'
+                                                    className='fancy-box style1'
+                                                    delay={0.2}
+                                                >
                                                     <div className="item">
-                                                        <img src={`${bannerData?.image2}`  } alt="thumb" />
+                                                        <img src={`${bannerData?.image2}`} alt="thumb" />
                                                     </div>
                                                     <div className="item">
                                                         <h6>
@@ -68,8 +84,12 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
                                                             {bannerData?.paragraph1 ?? 'Happy Customers'}
                                                         </p>
                                                     </div>
-                                                </div>
-                                                <div className={`fancy-box style5 ${inView1 ? 'fadeInUp delay-2' : ''} `} >
+                                                </FadeInUp>
+                                                <FadeInUp
+                                                    as='div'
+                                                    className='fancy-box style5'
+                                                    delay={0.4}
+                                                >
                                                     <h6>
                                                         {bannerData?.reting ?? '4.8/5'}
                                                     </h6>
@@ -102,12 +122,13 @@ const HeroSection = ({ bannerData, showPopupModel }) => {
 
                                                         {bannerData?.paragraph3 ?? 'Rating'}
                                                     </div>
-                                                </div>
+                                                </FadeInUp>
+                                                
                                             </div>
                                         </div>
                                     </div>
                                     <div className="col-xl-5 order-1 order-xl-2">
-                                        <div className="intro-thumb">
+                                        <div ref={ref1} className="intro-thumb">
                                             <div className="thumbShape1">
                                                 <img src={introThumbShape1} alt="thumbShape" /></div>
                                             <div className="thumbShape2">

@@ -1,31 +1,12 @@
 import React from 'react'
 import { featureProfileShape1, fireIcon } from '../assets'
 import { Link } from 'react-scroll';
-import { motion } from "motion/react"
+import FadeInRight from './AnimationCom/FadeInRight';
+import FadeInLeft from './AnimationCom/FadeInLeft';
 
 const FeatureSection = ({ featureData }) => {
 
-    const AnimatedBox = ({
-        children,
-        delay = 0,
-        x = -80,       // Default: slide from left (-80). Use 80 for right.
-        opacity = 0,
-        duration = 0.4,
-        margin = "-50px",
-        className = "",
-        ...props
-    }) => (
-        <motion.div
-            className={className}
-            initial={{ x, opacity }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration, delay }}
-            viewport={{ once: true, margin }}
-            {...props}
-        >
-            {children}
-        </motion.div>
-    );
+
 
     return (
         <section className="feature-section section-padding fix" id='features'>
@@ -35,35 +16,36 @@ const FeatureSection = ({ featureData }) => {
                         <div className="col-xl-6 order-2 order-xl-1">
                             <div className="feature-content">
                                 <div className="section-title">
-                                    <AnimatedBox className="subtitle" delay={0.2}>
+                                    <FadeInRight
+                                        as='div'
+                                        delay={0.2}
+                                        className='subtitle'
+                                    >
                                         {featureData[0]?.title}
                                         <img src={fireIcon} alt="icon" />
-                                    </AnimatedBox>
-                                    <motion.h2
-                                        className={`title `}
-                                        initial={{ x: -80, opacity: 0 }}
-                                        whileInView={{ x: 0, opacity: 1 }}
-                                        transition={{ duration: 0.4, delay: 0.4 }}
-                                        viewport={{ once: true, margin: "-50px" }}
+                                    </FadeInRight>
+                                    <FadeInRight
+                                        as='h2'
+                                        delay={0.4}
+                                        className='title'
                                     >
                                         {featureData[0]?.heading1}
 
-                                    </motion.h2>
-                                    <motion.p
-                                        className={`section-desc `}
-                                        initial={{ x: -80, opacity: 0 }}
-                                        whileInView={{ x: 0, opacity: 1 }}
-                                        transition={{ duration: 0.4, delay: 0.6 }}
-                                        viewport={{ once: true, margin: "-50px" }}
+                                    </FadeInRight>
+                                    <FadeInRight
+                                        as='p'
+                                        delay={0.6}
+                                        className='section-desc'
                                     >
+
                                         {featureData[0]?.heading2}
-                                    </motion.p>
+                                    </FadeInRight>
+
                                 </div>
-                                <motion.div
-                                    initial={{ x: -80, opacity: 0 }}
-                                    whileInView={{ x: 0, opacity: 1 }}
-                                    transition={{ duration: 0.4, delay: 0.8 }}
-                                    viewport={{ once: true, margin: "-50px" }}
+                                <FadeInRight
+                                    as='div'
+                                    delay={0.8}
+                                    className=''
                                 >
                                     <Link
                                         className={`theme-btn `}
@@ -84,7 +66,8 @@ const FeatureSection = ({ featureData }) => {
                                             </defs>
                                         </svg>
                                     </Link>
-                                </motion.div>
+                                </FadeInRight>
+
                             </div>
                         </div>
                         <div className="col-xl-6 order-1 order-xl-2">
@@ -93,11 +76,10 @@ const FeatureSection = ({ featureData }) => {
 
                                 {featureData?.map((feature, index) => (
                                     <div key={feature.id} className={`feature-box style1 child${index + 1}`}>
-                                        <motion.div className={`feature-box-header `}
-                                            initial={{ x: 80, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 0.4, delay: index * 0.2 }}
-                                            viewport={{ once: true, margin: "-50px" }}
+                                        <FadeInLeft
+                                            as='div'
+                                            delay={index * 0.2}
+                                            className='feature-box-header'
                                         >
                                             <div className="content">
                                                 <h5>{feature.paragraph1} </h5>
@@ -109,15 +91,10 @@ const FeatureSection = ({ featureData }) => {
                                                     <circle cx="17" cy="17.5" r="16" stroke="#F1F1F1" stroke-width="2" />
                                                 </svg>
                                             </div>
-                                        </motion.div>
-
+                                        </FadeInLeft>
 
                                     </div>
                                 ))}
-
-
-
-
 
                             </div>
                         </div>

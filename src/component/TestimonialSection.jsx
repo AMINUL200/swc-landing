@@ -1,15 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { fireIcon, quoteIcon, starIcon1, testimonialProfileThumb1, testimonialProfileThumb2, testimonialProfileThumb3, testimonialShape1, testimonialShape2 } from '../assets';
+import { fireIcon, quoteIcon, starIcon1, testimonialShape1, testimonialShape2 } from '../assets';
 
 const TestimonialSection = ({ testimonialData }) => {
-
-
-
-
     return (
         <section className="testimonial-section">
             <div className="testimonial-container-wrapper style1">
@@ -20,7 +16,7 @@ const TestimonialSection = ({ testimonialData }) => {
                         <div className="container">
                             <div className={`section-title text-center mxw-685 mx-auto`}>
                                 <div className="subtitle">
-                                    {testimonialData[0]?.title}
+                                    {testimonialData[0]?.title ?? 'Testimonial'}
                                     <img src={fireIcon} alt="icon" />
                                 </div>
                                 <h2 className="title">
@@ -38,52 +34,50 @@ const TestimonialSection = ({ testimonialData }) => {
                                         disableOnInteraction: false,
                                     }}
                                     breakpoints={{
-                                        576: {
-                                            slidesPerView: 1,
-                                            centeredSlides: true
-                                        },
-                                        768: {
-                                            slidesPerView: 2
-                                        },
-                                        992: {
-                                            slidesPerView: 2
-                                        },
-                                        1200: {
-                                            slidesPerView: 3
-                                        }
+                                        576: { slidesPerView: 1, centeredSlides: true },
+                                        768: { slidesPerView: 2 },
+                                        992: { slidesPerView: 2 },
+                                        1200: { slidesPerView: 3 }
                                     }}
                                     loop={true}
                                     className="gt-slider"
                                 >
-
-                                    {testimonialData?.map((testimonial) => (
-                                        <SwiperSlide key={testimonial.id}>
-                                            <div className="testimonial-card style1">
-                                                <div className="testimonial-header">
-                                                    <div className="profile-thumb">
-                                                        <img src={testimonial.image} alt="thumb" style={{width:'100px', height:'100px', borderRadius:'50%'}}/>
+                                    {testimonialData?.map((testimonial) => {
+                                        // Convert rating string to number and round it
+                                        const rating = Math.round(parseFloat(testimonial.rating || 0));
+                                        
+                                        return (
+                                            <SwiperSlide key={testimonial.id}>
+                                                <div className="testimonial-card style1">
+                                                    <div className="testimonial-header">
+                                                        <div className="profile-thumb">
+                                                            <img 
+                                                                src={`https://skilledworkerscloud.co.uk/media/testimonials/${testimonial.image}`} 
+                                                                alt="thumb" 
+                                                                style={{ width: '100px', height: '100px', borderRadius: '50%' }} 
+                                                            />
+                                                        </div>
+                                                        <div className="content">
+                                                            <h5>{testimonial.name}</h5>
+                                                            <p className="text">{testimonial.designation}</p>
+                                                        </div>
                                                     </div>
-                                                    <div className="content">
-                                                        <h5>{testimonial.name}</h5>
-                                                        <p className="text">{testimonial.designation}</p>
+                                                    <div className="testimonial-body">
+                                                        <ul className="star-wrapper style1">
+                                                            {/* Render ONLY the number of stars equal to the rating */}
+                                                            {[...Array(rating)].map((_, i) => (
+                                                                <li key={i}>
+                                                                    <img src={starIcon1} alt="icon" />
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                        <p className="desc">{testimonial.description}</p> <br />
                                                     </div>
+                                                    <div className="quote-icon"><img src={quoteIcon} alt="icon" /></div>
                                                 </div>
-                                                <div className="testimonial-body">
-                                                    <ul className="star-wrapper style1">
-                                                        {[...Array(5)].map((_, i) => (
-                                                            <li key={i}><img src={starIcon1} alt="icon" /></li>
-                                                        ))}
-                                                    </ul>
-                                                    <p className="desc">{testimonial.paragraph3}</p> <br />
-                                                </div>
-                                                <div className="quote-icon"><img src={quoteIcon} alt="icon" /></div>
-                                            </div>
-                                        </SwiperSlide>
-                                    ))}
-
-
-
-
+                                            </SwiperSlide>
+                                        );
+                                    })}
                                 </Swiper>
                             </div>
                         </div>

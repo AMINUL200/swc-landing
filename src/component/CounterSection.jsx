@@ -2,6 +2,7 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer';
 import CountUp from 'react-countup';
 import { motion } from "motion/react"
+import FadeInUp from './AnimationCom/FadeInUp';
 
 const CounterSection = ({ countData }) => {
     const [ref, inView] = useInView({
@@ -19,12 +20,10 @@ const CounterSection = ({ countData }) => {
                         <div ref={ref} className="container">
                             <div className="row gy-5">
                                 <div className="col-xl-3 col-md-6 d-flex justify-content-center">
-                                    <motion.div
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.2 }}
-                                        viewport={{ once: true }}
-                                        className={`counter-box style1`}
+                                    <FadeInUp
+                                        as="div"
+                                        delay={0.2}
+                                        className='counter-box style1'
                                     >
                                         <div className="counter">
                                             {inView && (
@@ -38,15 +37,14 @@ const CounterSection = ({ countData }) => {
                                             <span className="plus">+</span>
                                         </div>
                                         <p className="text">{countData?.paragraph1}</p>
-                                    </motion.div>
+                                    </FadeInUp>
+
                                 </div>
                                 <div className="col-xl-3 col-md-6 d-flex justify-content-center">
-                                    <motion.div
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.4 }}
-                                        viewport={{ once: true }}
-                                        className={`counter-box style1 `}
+                                    <FadeInUp
+                                        as="div"
+                                        delay={0.4}
+                                        className='counter-box style1'
                                     >
                                         <div className="counter">
                                             {inView && (
@@ -60,51 +58,50 @@ const CounterSection = ({ countData }) => {
                                             <span className="plus">+</span>
                                         </div>
                                         <p className="text">{countData?.paragraph2}</p>
-                                    </motion.div>
+                                    </FadeInUp>
+
                                 </div>
                                 <div className="col-xl-3 col-md-6 d-flex justify-content-center">
-                                    <motion.div
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.6 }}
-                                        viewport={{ once: true }}
-                                        className={`counter-box style1 `}
+                                    <FadeInUp
+                                        as="div"
+                                        delay={0.6}
+                                        className='counter-box style1'
                                     >
                                         <div className="counter">
-                                        {inView && (
-                                            <CountUp
-                                                start={0}
-                                                end={countData?.number3 || 0}
-                                                duration={10}
-                                                className="counter-number"
-                                            />
-                                        )}
+                                            {inView && (
+                                                <CountUp
+                                                    start={0}
+                                                    end={countData?.number3 || 0}
+                                                    duration={10}
+                                                    className="counter-number"
+                                                />
+                                            )}
                                             <span className="plus">k</span>
                                         </div>
                                         <p className="text">{countData?.paragraph3}</p>
-                                    </motion.div>
+                                    </FadeInUp>
+
                                 </div>
                                 <div className="col-xl-3 col-md-6 d-flex justify-content-center">
-                                    <motion.div
-                                        initial={{ y: 80, opacity: 0 }}
-                                        whileInView={{ y: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5, delay: 0.8 }}
-                                        viewport={{ once: true }}
-                                        className={`counter-box style1 `}
+                                    <FadeInUp
+                                        as="div"
+                                        delay={0.8}
+                                        className='counter-box style1'
                                     >
                                         <div className="counter">
-                                        {inView && (
-                                            <CountUp
-                                                start={0}
-                                                end={countData?.number4 || 0}
-                                                duration={10}
-                                                className="counter-number"
-                                            />
-                                        )}
+                                            {inView && (
+                                                <CountUp
+                                                    start={0}
+                                                    end={countData?.number4 || 0}
+                                                    duration={10}
+                                                    className="counter-number"
+                                                />
+                                            )}
                                             <span className="plus">k</span>
                                         </div>
                                         <p className="text">{countData?.paragraph4}</p>
-                                    </motion.div>
+                                    </FadeInUp>
+                                  
                                 </div>
                             </div>
                         </div>

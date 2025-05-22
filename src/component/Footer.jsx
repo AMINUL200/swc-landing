@@ -2,15 +2,12 @@ import React from 'react'
 import { logo, logo3, shape1, shape2, shape3 } from '../assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-scroll';
+import FadeInUp from './AnimationCom/FadeInUp';
 
 
 const Footer = () => {
-    // Animation hooks for each section
-    const [ref1, inView1] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref2, inView2] = useInView({ threshold: 0.2, triggerOnce: true });
-    const [ref3, inView3] = useInView({ threshold: 0.2, triggerOnce: true });
+    
     return (
         <footer className="footer-section position-relative ">
             <div className="footer-widgets-wrapper style1 fix">
@@ -19,7 +16,11 @@ const Footer = () => {
                 <div className="shape3"><img src={shape3} alt="shape" /></div>
                 <div className="container">
                     <div className="row">
-                        <div ref={ref1} className={`col-xl-4 col-lg-4 col-md-6  ${inView1 ? 'fadeInUp delay-1' : ''}`} >
+                        <FadeInUp
+                            as='div'
+                            delay={0.2}
+                            className='col-xl-4 col-lg-4 col-md-6 '
+                        >
                             <div className="single-footer-widget">
                                 <div className="widget-head">
                                     <a href="index.html">
@@ -50,8 +51,12 @@ const Footer = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div ref={ref2} className={`col-xl-2 col-lg-4 col-md-6 ps-lg-5 ${inView2 ? 'fadeInUp delay-2' : ''}`} >
+                        </FadeInUp>
+                        <FadeInUp
+                            as='div'
+                            delay={0.4}
+                            className='col-xl-2 col-lg-4 col-md-6 ps-lg-5 '
+                        >
                             <div className="single-footer-widget">
                                 <div className="widget-head">
                                     <h3> Pages </h3>
@@ -89,8 +94,12 @@ const Footer = () => {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div ref={ref3} className={`col-xl-2 col-lg-4 col-md-6  ${inView3 ? 'fadeInUp delay-3' : ''}`} >
+                        </FadeInUp>
+                        <FadeInUp
+                            as='div'
+                            delay={0.6}
+                            className='col-xl-2 col-lg-4 col-md-6  '
+                        >
                             <div className="single-footer-widget">
                                 <div className="widget-head">
                                     <h3> Utility Pages </h3>
@@ -128,7 +137,8 @@ const Footer = () => {
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </FadeInUp>
+                       
                         <div className="col-xl-4 col-lg-4 col-md-6">
                             <div className="single-footer-widget">
                                 <div className="contact-box">
@@ -172,7 +182,8 @@ const Footer = () => {
                                             </svg>
                                         </div>
                                         <div className="link">
-                                            <a href="tel:+44 0208 129 1655">+44 0208 129 1655</a> <br />
+                                            <a href="tel:+44 0208 129 1655">+44 0208 129 1655</a> 
+                                            <br /> <br />
                                             <a href="tel:+44 074 6728 4718">+44 074 6728 4718</a>
                                         </div>
                                     </div>

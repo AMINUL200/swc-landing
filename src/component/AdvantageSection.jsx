@@ -2,7 +2,6 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-scroll'
 import { advanceThumbShape1, advantageThumb1, advantageThumb2, checkMarkIcon, fireIcon } from '../assets';
-import { motion } from "motion/react"
 import FadeInUp from './AnimationCom/FadeInUp';
 
 const AdvantageSection = ({ advantageData }) => {

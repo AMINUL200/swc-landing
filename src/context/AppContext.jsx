@@ -67,13 +67,13 @@ const AppContextProvider = (props) => {
                     fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/faq2.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/faq-details.php'),
                     fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/faq-details2.php'),
-                    fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/testimonial.php'),
+                    fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/testimonial.php'), //
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/app.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/features.php'),
-                    fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/blog.php'),
+                    fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/blog.php'), //
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/contact.php'),
                     fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/sponsor-compliances.php'),
-                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/sponser_complience.php')
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/customizations.php')
                 ]);
 
                 const [
@@ -135,11 +135,14 @@ const AppContextProvider = (props) => {
                 if (featureJson.flag === 1 && featureJson.status === 200) setFeatureData(featureJson.data);
                 if (blogJson.flag === 1 && blogJson.status === 200) setBlogData(blogJson.data);
                 if (contactJson.flag === 1 && contactJson.status === 200) setContactData(contactJson.data[0]);
-                if (sponserJson.flag === 1 && sponserJson.status === 200) setSponserData(sponserJson.data[0]);
-                if (workPrecessingJson.flag === 1 && workPrecessingJson.status === 200) setWorkProcessingData(workPrecessingJson.data[0]);
-
+                if (sponserJson.flag === 1 && sponserJson.status === 200) setSponserData(sponserJson.data);
+                if (workPrecessingJson.flag === 1 && workPrecessingJson.status === 200) setWorkProcessingData(workPrecessingJson.data);
+                console.log('Data fetched successfully:', workPrecessingJson.data);
+               
+                
+                
             } catch (error) {
-                console.error('API fetch error:', error);
+                console.error('API fetch error:', error.message);
             } finally {
                 setLoading(false);
                 const timer = setTimeout(() => {

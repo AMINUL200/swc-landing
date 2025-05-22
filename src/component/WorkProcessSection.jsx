@@ -17,7 +17,6 @@ const WorkProcessSection = ({ workData }) => {
                         <FadeInUp
                             as="div"
                             delay={0.2}
-                            margin="-50px"
                             className="subtitle"
                         >
                             {workData?.title}
@@ -26,7 +25,6 @@ const WorkProcessSection = ({ workData }) => {
                         <FadeInUp
                             as="h2"
                             delay={0.3}
-                            margin="-50px"
                             className="title"
                         >
                             {workData?.heading ?? 'Make Your Device Manage Everything For You!'}
@@ -40,7 +38,6 @@ const WorkProcessSection = ({ workData }) => {
                                 <FadeInUp
                                     as="div"
                                     delay={0.2}
-                                    margin='-50px'
                                     className='work-process-box style1 '
                                 >
                                     <div className="step">{workData?.paragrapg}</div>
@@ -55,7 +52,6 @@ const WorkProcessSection = ({ workData }) => {
                                 <FadeInUp
                                     as="div"
                                     delay={0.4}
-                                    margin='-50px'
                                     className='work-process-box style1 child2'
                                 >
                                     <div className="step"> {workData?.paragraph3 ?? 'STEP - 02'} </div>
@@ -69,8 +65,7 @@ const WorkProcessSection = ({ workData }) => {
                             <div className="col-xl-4">
                                 <FadeInUp
                                     as="div"
-                                    delay={0.6}
-                                    margin='-50px'
+                                    delay={0.7}
                                     className='work-process-box style1 '
                                 >
                                     <div className="step"> {workData?.paragraph6 ?? 'STEP - 03'}</div>

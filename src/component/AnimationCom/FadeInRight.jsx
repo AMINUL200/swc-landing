@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 
-const FadeInLeft = ({
-     children,
+const FadeInRight = ({
+    children,
     as = "div",
     delay = 0,
     duration = 0.5,
@@ -14,7 +14,7 @@ const FadeInLeft = ({
     return (
         <Component
             className={className}
-            initial={{ x: 80, opacity: 0 }}
+            initial={{ x: -80, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration, delay }}
             viewport={{ once: true, margin }}
@@ -24,4 +24,4 @@ const FadeInLeft = ({
         </Component>
     );
 }
-export default FadeInLeft;
+export default FadeInRight;
