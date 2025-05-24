@@ -44,7 +44,7 @@ const BrandSlider = ({ brandData }) => {
                 <Swiper
                   modules={[Autoplay]}
                   loop={true}
-                  autoplay={{ delay: 2500, disableOnInteraction: false }}
+                  // autoplay={{ delay: 2500, disableOnInteraction: false }}
                   speed={800}
                   breakpoints={{
                     0: { slidesPerView: 1 },
@@ -58,7 +58,7 @@ const BrandSlider = ({ brandData }) => {
                   {logos2.map((logo, index) => (
                     <SwiperSlide key={index}>
                       <div className="brand-logo">
-                        <img src={logo} alt={`logo-${index}`} />
+                        <img src={logo} alt={`logo-${index}`} width={200} height={100}/>
                       </div>
                     </SwiperSlide>
                   ))}
