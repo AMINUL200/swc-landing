@@ -7,10 +7,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import FadeInUp from './AnimationCom/FadeInUp';
 
 const ContactSection = ({ contactData, addGap }) => {
-    const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
-    const [ref2, inView2] = useInView({ threshold: 0.1, triggerOnce: true });
-    const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
-    const [ref4, inView4] = useInView({ threshold: 0.1, triggerOnce: true });
+
     // console.log(contactData);
     const [loading, setLoading] = useState(false)
 
@@ -68,6 +65,8 @@ const ContactSection = ({ contactData, addGap }) => {
             setLoading(false);
         }
     };
+    console.log(contactData);
+    
 
 
     return (
@@ -92,7 +91,7 @@ const ContactSection = ({ contactData, addGap }) => {
                                             </svg>
                                         </div>
                                         <div className="title"> {contactData?.address_heading} </div>
-                                        <a className="text" href="#">{contactData?.address}</a>
+                                        <a className="text" href="#">{contactData?.contact_office}</a>
                                     </div>
                                 </div>
                             </div>
@@ -129,8 +128,8 @@ const ContactSection = ({ contactData, addGap }) => {
                                         <h3 className="title title-2">
                                             <a href={`mailto:${contactData?.email}`}>  {contactData?.email} </a>
                                         </h3>
-
-                                        <p className="text">{contactData?.email_heading}</p>
+                                        
+                                        <p className="text">{contactData?.contact_email}</p>
 
                                     </div>
                                 </div>
@@ -149,11 +148,11 @@ const ContactSection = ({ contactData, addGap }) => {
                                                     fill="#7444FD" />
                                             </svg>
                                         </div>
-                                        <h3 className="title">
+                                        {/* <h3 className="title">
                                             <a href={`tel:${contactData?.number}`}> Hot: {contactData?.number} </a>
-                                        </h3>
+                                        </h3> */}
 
-                                        <p className="text">{contactData?.number_heading}</p>
+                                        <p className="text">{contactData?.contact_phone}</p>
                                     </div>
                                 </div>
                             </div>
