@@ -44,7 +44,7 @@ const BrandSlider = ({ brandData }) => {
                 <Swiper
                   modules={[Autoplay]}
                   loop={true}
-                  // autoplay={{ delay: 2500, disableOnInteraction: false }}
+                  autoplay={{ delay: 2500, disableOnInteraction: false }}
                   speed={800}
                   breakpoints={{
                     0: { slidesPerView: 1 },
