@@ -8,7 +8,7 @@ import FadeInUp from './AnimationCom/FadeInUp';
 
 const ContactSection = ({ contactData, addGap }) => {
 
-    // console.log(contactData);
+    console.log(contactData);
     const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState({
@@ -65,9 +65,9 @@ const ContactSection = ({ contactData, addGap }) => {
             setLoading(false);
         }
     };
-    console.log(contactData);
-    
 
+
+const cleanedPhone = contactData?.contact_phone?.replace(/\r\n/g, '');
 
     return (
         <>
@@ -125,11 +125,11 @@ const ContactSection = ({ contactData, addGap }) => {
                                                 </defs>
                                             </svg>
                                         </div>
-                                        <h3 className="title title-2">
+                                        {/* <h3 className="title title-2">
                                             <a href={`mailto:${contactData?.email}`}>  {contactData?.email} </a>
-                                        </h3>
-                                        
-                                        <p className="text">{contactData?.contact_email}</p>
+                                        </h3> */}
+
+                                        <a className="text" dangerouslySetInnerHTML={{ __html: contactData?.contact_email }} />
 
                                     </div>
                                 </div>
@@ -152,7 +152,10 @@ const ContactSection = ({ contactData, addGap }) => {
                                             <a href={`tel:${contactData?.number}`}> Hot: {contactData?.number} </a>
                                         </h3> */}
 
-                                        <p className="text">{contactData?.contact_phone}</p>
+                                        <p
+                                            className="text"
+                                            dangerouslySetInnerHTML={{ __html: contactData?.contact_phone }}
+                                        ></p>
                                     </div>
                                 </div>
                             </div>
@@ -177,11 +180,11 @@ const ContactSection = ({ contactData, addGap }) => {
                             <div class="col-xl-6">
                                 <div class="contact-form style1">
                                     <h2 class="contact-title">
-                                        {contactData?.heading1}
+                                        {contactData?.heading1 ?? 'Ready to Get Started?'}
                                     </h2>
-                                    <p class="desc">{contactData?.paragraph1}</p>
+                                    <p class="desc">{contactData?.paragraph1 ?? 'Nullam varius, erat quis iaculis dictum, eros urna varius eros, ut blandit felis odio in turpis. Quisque rhoncus,'}</p>
 
-                                    <form onSubmit={handleSubmit}  >
+                                    <form onSubmit={handleSubmit}  className='mt-4'>
                                         <div class="row g-4">
                                             <FadeInUp
                                                 as='div'
@@ -225,7 +228,7 @@ const ContactSection = ({ contactData, addGap }) => {
                                                     {loading ? <Loader /> : 'Send Message'} <FontAwesomeIcon icon={faArrowRight} />
                                                 </button>
                                             </FadeInUp>
-                                            
+
                                         </div>
                                     </form>
                                 </div>
