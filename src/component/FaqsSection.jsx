@@ -3,6 +3,8 @@ import { faqThumb1, faqThumb2, fireIcon } from '../assets'
 import { useInView } from 'react-intersection-observer';
 import { motion } from "motion/react"
 import FadeInUp from './AnimationCom/FadeInUp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons'
 
 const FaqsSection = ({ faqHeadData, faqQAData }) => {
 
@@ -63,6 +65,16 @@ const FaqsSection = ({ faqHeadData, faqQAData }) => {
                                                         aria-controls={`faq${faq.id}`}
                                                     >
                                                         {faq.question}
+                                                        <span className="accordion-icon">
+                                                            <FontAwesomeIcon
+                                                                icon={faPlus}
+                                                                className="plus-icon"
+                                                            />
+                                                            <FontAwesomeIcon
+                                                                icon={faMinus}
+                                                                className="minus-icon"
+                                                            />
+                                                        </span>
                                                     </button>
                                                 </h5>
                                                 <div

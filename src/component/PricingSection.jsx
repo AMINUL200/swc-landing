@@ -9,6 +9,7 @@ const PricingSection = ({ pricingData, addGap }) => {
     const yearlyPlans = pricingData?.yearly_plans || [];
 
 
+    console.log("Pricing Data:", monthlyPlans);
 
 
     return (
@@ -57,7 +58,7 @@ const PricingSection = ({ pricingData, addGap }) => {
                                             <div className="pricing-card-header">
                                                 <h6>{plan.heading1}</h6>
                                                 <div className="price-wrapper">
-                                                    <span className="price">£ {plan.amount}</span>
+                                                    <span className="price">£{plan.amount}</span>
                                                     <span className="text"> / Per Month</span>
                                                 </div>
                                                 <p className="text">{plan.description}</p>

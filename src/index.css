@@ -1618,6 +1618,7 @@ input[type=radio]:checked~label::before {
   animation-delay: 0.3s;
   animation-name: var(--animation-name);
 }
+
 /* .swiper-slide{
   height: 100px !important;
 }
@@ -7544,11 +7545,11 @@ input.main-search-input::placeholder {
 
 .wp-content .accordion-item .accordion-header .accordion-button {
   font-weight: 600;
-  color: var(--white);
+  /* color: var(--text); */
   letter-spacing: -0.2px;
   border: 0;
   box-shadow: none;
-  background-color: var(--theme);
+  background-color: var(--theme3);
   padding: 15px 20px 0;
   text-align: center;
   font-family: "Urbanist", sans-serif;
@@ -7557,39 +7558,85 @@ input.main-search-input::placeholder {
   font-weight: 600;
   line-height: 34px;
   letter-spacing: -0.48px;
+  border: 1px solid var(--border);
   border: 1px solid transparent;
   border-radius: 10px 10px 0px 0px;
   -webkit-border-radius: 10px 10px 0px 0px;
   -moz-border-radius: 10px 10px 0px 0px;
   -ms-border-radius: 10px 10px 0px 0px;
   -o-border-radius: 10px 10px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .wp-content .accordion-item .accordion-header .accordion-button:after {
-  font-size: 12px;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out !important;
+  /* font-size: 12px; */
+  /* font-weight: 500; */
+  /* transition: all 0.3s ease-in-out !important; */
   /* background-image: url(../images/icon/chevron-right.svg); */
-  background-image: url(../src/assets/images/icon/chevron-right.svg);
-  color: var(--theme2);
+  /* background-image: url(../src/assets/images/icon/chevron-right.svg); */
+  /* color: var(--theme2); */
+  display: none;
 }
 
 .wp-content .accordion-item .accordion-header .accordion-button:not(.collapsed):after {
-  font-size: 12px;
+  /* font-size: 12px; */
   /* background-image: url(../images/icon/chevron-down.svg); */
-  background-image: url(../src/assets/images/icon/chevron-down.svg);
-  font-weight: 500;
-  color: var(--theme2);
-  transform: rotate(0);
-  -webkit-transform: rotate(0);
+  /* background-image: url(../src/assets/images/icon/chevron-down.svg); */
+  /* font-weight: 500; */
+  /* color: var(--theme2); */
+  /* transform: rotate(0); */
+  /* -webkit-transform: rotate(0);
   -moz-transform: rotate(0);
   -ms-transform: rotate(0);
-  -o-transform: rotate(0);
+  -o-transform: rotate(0); */
 }
 
+.wp-content .accordion-item .accordion-header .accordion-button .accordion-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  transition: all 0.5s ease;
+}
+
+.wp-content .accordion-item .accordion-header .accordion-button .accordion-icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.wp-content .accordion-item .accordion-header .accordion-button .plus-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.wp-content .accordion-item .accordion-header .accordion-button .minus-icon {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+/* Expanded state */
+.wp-content .accordion-item .accordion-header .accordion-button:not(.collapsed) .plus-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+.wp-content .accordion-item .accordion-header .accordion-button:not(.collapsed) .minus-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+
+
 .wp-content .accordion-item .accordion-header .accordion-button.collapsed {
-  background-color: transparent;
+  /* background-color: transparent; */
   border: 1px solid var(--border);
+
   padding: 18px 20px;
   color: var(--title);
 }
@@ -7602,8 +7649,8 @@ input.main-search-input::placeholder {
   padding-right: 55px;
   padding-left: 20px;
   padding-top: 15px;
-  background-color: var(--theme);
-  color: var(--white);
+  background-color: var(--theme3);
+  color: var(--text);
   font-family: "Urbanist", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -8125,28 +8172,53 @@ input.main-search-input::placeholder {
   border: 1px solid var(--border);
   border: 1px solid transparent;
   border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.faq-content .accordion-item .accordion-header .accordion-button:after {
-  font-size: 12px;
-  font-weight: 500;
-  transition: all 0.3s ease-in-out !important;
-  background-image: url(../src/assets/images/icon/chevron-right.svg);
-  /* background-image: url(../images/icon/chevron-right.svg); */
-  color: var(--theme2);
+/* Remove Bootstrap's default icon */
+.faq-content .accordion-item .accordion-header .accordion-button::after {
+  display: none;
 }
 
-.faq-content .accordion-item .accordion-header .accordion-button:not(.collapsed):after {
-  font-size: 12px;
-  /* background-image: url(../images/icon/chevron-down.svg); */
-  background-image: url(../src/assets/images/icon/chevron-down.svg);
-  font-weight: 500;
-  color: var(--theme2);
-  transform: rotate(0);
-  -webkit-transform: rotate(0);
-  -moz-transform: rotate(0);
-  -ms-transform: rotate(0);
-  -o-transform: rotate(0);
+/* Custom icon styles */
+.faq-content .accordion-item .accordion-header .accordion-button .accordion-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  transition: all 0.5s ease;
+}
+
+.faq-content .accordion-item .accordion-header .accordion-button .accordion-icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.faq-content .accordion-item .accordion-header .accordion-button .plus-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+.faq-content .accordion-item .accordion-header .accordion-button .minus-icon {
+  opacity: 0;
+  transform: rotate(-180deg);
+}
+
+/* Expanded state */
+.faq-content .accordion-item .accordion-header .accordion-button:not(.collapsed) .plus-icon {
+  opacity: 0;
+  transform: rotate(180deg);
+}
+
+.faq-content .accordion-item .accordion-header .accordion-button:not(.collapsed) .minus-icon {
+  opacity: 1;
+  transform: rotate(0deg);
 }
 
 .faq-content .accordion-item .accordion-header .accordion-button.collapsed {
@@ -11068,6 +11140,7 @@ input.main-search-input::placeholder {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
 }
+
 .mobile-menu .mean-nav ul li a:hover {
   color: var(--theme) !important;
   padding-left: 15px;
@@ -11357,8 +11430,8 @@ input.main-search-input::placeholder {
   padding: 18px 20px;
 }
 
-@media(max-width : 1200px){
-  .map-h{
+@media(max-width : 1200px) {
+  .map-h {
     height: 350px !important;
   }
 }
@@ -12082,25 +12155,32 @@ textarea.is-invalid {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0; /* Remove padding to allow full width/height */
-  background-color: #000; /* fallback in case image fails */
+  padding: 0;
+  /* Remove padding to allow full width/height */
+  background-color: #000;
+  /* fallback in case image fails */
   /* height: 100%; Ensure container takes full height */
   /* width: 100%; Ensure container takes full width */
-  overflow: hidden; /* Prevent any overflow */
+  overflow: hidden;
+  /* Prevent any overflow */
 
 }
 
 .modal-left-img {
-  width: 100%; /* Take full width of container */
-  height: 100%; /* Take full height of container */
-  object-fit: cover; /* Cover the entire area while maintaining aspect ratio */
-  object-position: center; /* Center the image */
+  width: 100%;
+  /* Take full width of container */
+  height: 100%;
+  /* Take full height of container */
+  object-fit: cover;
+  /* Cover the entire area while maintaining aspect ratio */
+  object-position: center;
+  /* Center the image */
 }
 
 @media (max-width: 993px) {
   .modal-body .modal-left {
     margin-bottom: 30px;
-   
+
   }
 }
 
@@ -12151,9 +12231,10 @@ textarea.is-invalid {
   height: auto;
   padding: 0 25px;
 }
+
 @media (max-width: 993px) {
   .form {
-   padding: 0;
+    padding: 0;
   }
 }
 

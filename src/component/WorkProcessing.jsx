@@ -3,6 +3,8 @@ import { fireIcon, wpShape2_1, wpThumb2_1 } from '../assets'
 import { motion } from "motion/react"
 import { useInView } from 'react-intersection-observer';
 import FadeInUp from './AnimationCom/FadeInUp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const WorkProcessing = ({ workPrecessingData }) => {
     console.log("workPrecessingData", workPrecessingData);
@@ -42,7 +44,7 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                 </div>
                                 <div class="wp-accordion">
                                     <div class="accordion" id="accordion">
-                                        
+
                                         <FadeInUp
                                             as='div'
                                             delay={0.3}
@@ -52,11 +54,21 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
                                                     {faqDetails[0]?.question}
+                                                    <span className="accordion-icon">
+                                                        <FontAwesomeIcon
+                                                            icon={faPlus}
+                                                            className="plus-icon"
+                                                        />
+                                                        <FontAwesomeIcon
+                                                            icon={faMinus}
+                                                            className="minus-icon"
+                                                        />
+                                                    </span>
                                                 </button>
                                             </h5>
                                             <div id="faq1" class="accordion-collapse show" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                  {faqDetails[0]?.answer}
+                                                    {faqDetails[0]?.answer}
 
                                                 </div>
                                             </div>
@@ -72,7 +84,17 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false"
                                                     aria-controls="faq2">
-                                                     {faqDetails[1]?.question}
+                                                    {faqDetails[1]?.question}
+                                                    <span className="accordion-icon">
+                                                        <FontAwesomeIcon
+                                                            icon={faPlus}
+                                                            className="plus-icon"
+                                                        />
+                                                        <FontAwesomeIcon
+                                                            icon={faMinus}
+                                                            className="minus-icon"
+                                                        />
+                                                    </span>
                                                 </button>
                                             </h5>
                                             <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordion">
@@ -92,11 +114,21 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                                     data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
                                                     aria-controls="faq3">
                                                     {faqDetails[2]?.question}
+                                                    <span className="accordion-icon">
+                                                        <FontAwesomeIcon
+                                                            icon={faPlus}
+                                                            className="plus-icon"
+                                                        />
+                                                        <FontAwesomeIcon
+                                                            icon={faMinus}
+                                                            className="minus-icon"
+                                                        />
+                                                    </span>
                                                 </button>
                                             </h5>
                                             <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordion">
                                                 <div class="accordion-body">
-                                                     {faqDetails[2]?.answer}
+                                                    {faqDetails[2]?.answer}
                                                 </div>
                                             </div>
                                         </FadeInUp>
@@ -109,7 +141,17 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                                 <button class="accordion-button collapsed" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="true"
                                                     aria-controls="faq4">
-                                                  {faqDetails[3]?.question}
+                                                    {faqDetails[3]?.question}
+                                                    <span className="accordion-icon">
+                                                        <FontAwesomeIcon
+                                                            icon={faPlus}
+                                                            className="plus-icon"
+                                                        />
+                                                        <FontAwesomeIcon
+                                                            icon={faMinus}
+                                                            className="minus-icon"
+                                                        />
+                                                    </span>
                                                 </button>
                                             </h5>
                                             <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#accordion">

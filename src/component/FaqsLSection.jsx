@@ -3,6 +3,8 @@ import { faqThumb1, faqThumb2, fireIcon } from '../assets'
 import { useInView } from 'react-intersection-observer';
 import { div } from 'framer-motion/client';
 import FadeInUp from './AnimationCom/FadeInUp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const FaqsLSection = ({ faqHeadData, faqQAData }) => {
     const [ref3, inView3] = useInView({ threshold: 0.1, triggerOnce: true });
@@ -40,7 +42,7 @@ const FaqsLSection = ({ faqHeadData, faqQAData }) => {
                                     </FadeInUp>
 
                                 </div>
-                                <div  className="faq-accordion">
+                                <div className="faq-accordion">
                                     <div className="accordion" id="accordion">
 
                                         {faqQAData?.map((faq, index) => (
@@ -60,6 +62,16 @@ const FaqsLSection = ({ faqHeadData, faqQAData }) => {
                                                         aria-controls={`faq${faq.id}`}
                                                     >
                                                         {faq.question}
+                                                        <span className="accordion-icon">
+                                                            <FontAwesomeIcon
+                                                                icon={faPlus}
+                                                                className="plus-icon"
+                                                            />
+                                                            <FontAwesomeIcon
+                                                                icon={faMinus}
+                                                                className="minus-icon"
+                                                            />
+                                                        </span>
                                                     </button>
                                                 </h5>
                                                 <div
