@@ -7,7 +7,7 @@ import FadeInUp from './AnimationCom/FadeInUp';
 
 
 const Footer = () => {
-    
+
     return (
         <footer className="footer-section position-relative ">
             <div className="footer-widgets-wrapper style1 fix">
@@ -102,43 +102,61 @@ const Footer = () => {
                         >
                             <div className="single-footer-widget">
                                 <div className="widget-head">
-                                    <h3> Utility Pages </h3>
+                                    <h3> Our Services </h3>
                                 </div>
                                 <ul className="list-area2">
                                     <li>
-                                        <Link to='#'>
-                                            Project
-                                        </Link>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/cms?id=1"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            HRMS Software
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link to='blog'>
-                                            Blog
-                                        </Link>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/cms?id=2"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            HR File Preparation
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link to='contact'>
-                                            Contact
-                                        </Link>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/cms?id=3"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            File Manager
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link to='pricing'>
-                                            Pricing
-                                        </Link>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/cms?id=4"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Software Development
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link to='#'>
-                                            Project details
-                                        </Link>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/cms?id=5"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Business Consultancy
+                                        </a>
                                     </li>
                                     <li>
-                                        <Link to='testimonial'>
-                                            Our Team
-                                        </Link>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/cms?id=6"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Web/Profile Development
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
                         </FadeInUp>
-                       
+
                         <div className="col-xl-4 col-lg-4 col-md-6">
                             <div className="single-footer-widget">
                                 <div className="contact-box">
@@ -182,8 +200,8 @@ const Footer = () => {
                                             </svg>
                                         </div>
                                         <div className="link">
-                                            <a href="tel:+44 0208 129 1655">+44 0208 129 1655</a> 
-                                            <br /> 
+                                            <a href="tel:+44 0208 129 1655">+44 0208 129 1655</a>
+                                            <br />
                                             <a href="tel:+44 074 6728 4718">+44 074 6728 4718</a>
                                         </div>
                                     </div>
