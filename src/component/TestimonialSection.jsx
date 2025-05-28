@@ -10,7 +10,7 @@ const TestimonialSection = ({ testimonialData }) => {
         <section className="testimonial-section">
             <div className="testimonial-container-wrapper style1">
                 <div className="container">
-                    <div className="testimonial-wrapper style1 section-padding fix">
+                    <div className="testimonial-wrapper style1 section-padding fix" id='testimonial'>
                         <div className="shape1"><img src={testimonialShape1} alt="shape" /></div>
                         <div className="shape2"><img src={testimonialShape2} alt="shape" /></div>
                         <div className="container">

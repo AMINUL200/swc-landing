@@ -17,7 +17,7 @@ const WorkProcessing = ({ workPrecessingData }) => {
     return (
         <section class="wp-section section-padding fix">
             <div class="container">
-                <div class="wp-wrapper style2">
+                <div class="wp-wrapper style2" id='customizations'>
                     <div class="shape">
                         <img src={wpShape2_1} alt="shape" />
                     </div>

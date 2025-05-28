@@ -63,32 +63,32 @@ const Footer = () => {
                                 </div>
                                 <ul className="list-area">
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='home'>
                                             Home
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='about'>
                                             About Us
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
-                                            Integrations
+                                        <Link to='customizations'>
+                                            Customizations
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='features'>
                                             Features
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='pricing'>
                                             Pricing
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to=''>
+                                        <Link to='contact'>
                                             Contact Us
                                         </Link>
                                     </li>
@@ -111,17 +111,17 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='blog'>
                                             Blog
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='contact'>
                                             Contact
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='pricing'>
                                             Pricing
                                         </Link>
                                     </li>
@@ -131,7 +131,7 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to='#'>
+                                        <Link to='testimonial'>
                                             Our Team
                                         </Link>
                                     </li>

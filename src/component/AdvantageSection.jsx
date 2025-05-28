@@ -71,7 +71,7 @@ const AdvantageSection = ({ advantageData }) => {
                                             className=''
 
                                         >
-                                            <Link className={`theme-btn `} to='/about'  >
+                                            <Link className={`theme-btn `} to='contact'  >
                                                 {advantageData?.button_name}
 
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
