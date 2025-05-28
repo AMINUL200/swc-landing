@@ -9,7 +9,7 @@ const PricingSection = ({ pricingData, addGap }) => {
     const yearlyPlans = pricingData?.yearly_plans || [];
 
 
-    console.log("Pricing Data:", monthlyPlans);
+    // console.log("Pricing Data:", monthlyPlans);
 
 
     return (

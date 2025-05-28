@@ -10,7 +10,8 @@ const BlogSection = ({ blogData, addGap }) => {
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         return new Date(dateString).toLocaleDateString('en-US', options);
     };
-
+    console.log(blogData);
+    
 
 
     // Get only the first 3 blogs
@@ -58,7 +59,7 @@ const BlogSection = ({ blogData, addGap }) => {
                                             {blog.category_id}
                                         </div>
                                         <h3>
-                                            <Link to={`/blog/${blog.category_id}`}>{blog.title}</Link>
+                                            <Link to={`/blog/${blog.title}`}>{blog.title}</Link>
                                         </h3>
                                         <div className="blog-meta">
                                             <div className="item child1">

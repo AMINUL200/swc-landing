@@ -18,10 +18,10 @@ const BrandSlider = ({ brandData }) => {
 
   // console.log(brandData[0].title);
   // const logos2 = brandData.map(item => item.image1);
-  const logos2 = [...brandData.map(item => item.image1), logos[0]];
+  const logos2 = [...brandData.map(item => item.image1)];
   // console.log(logos2);
 
-
+  
 
 
 

@@ -32,16 +32,7 @@ const BlogDetails = () => {
     return delays[index % delays.length];
   };
 
-  // const blogInfo = blogDataInfo(id);
 
-  // // const blogInfo = useLoaderData();
-  // const blogDetailsData = blogInfo.blogs[0]
-  // // console.log('blogdetails:',blogDetailsData);
-
-  // // console.log(blogDetailsData?.heading2);
-
-  // const recentPost = blogInfo.recent_posts;
-  // console.log(recentPost);
 
 
   useEffect(() => {
@@ -49,8 +40,10 @@ const BlogDetails = () => {
       try {
         const data = await blogDataInfo(id);
         if (data) {
+          console.log(data.blogs[0]);
           setBlogDetailsData(data.blogs[0]);
           setRecentPost(data.recent_posts || []);
+
         } else {
           setError("Failed to load blog details");
         }
@@ -63,8 +56,10 @@ const BlogDetails = () => {
   }, [id]);
 
   if (blogDetailsLoading) {
-    return <Preloader/>
+    return <Preloader />
   }
+  console.log(recentPost);
+
 
 
   return (
@@ -77,7 +72,7 @@ const BlogDetails = () => {
 
             <div className="blog-post-content-box">
               <div className="meta-text-block text-center">
-                <div className="blog-category-box">
+                {/* <div className="blog-category-box">
                   <motion.div
                     initial={{ x: -80, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
@@ -85,14 +80,14 @@ const BlogDetails = () => {
                     viewport={{ once: true, margin: "-100px" }}
                     className="blog-category">{blogDetailsData?.catagory_name}
                   </motion.div>
-                </div>
+                </div> */}
                 <motion.div
                   initial={{ x: 80, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true, margin: "-100px" }}
                   className="blog-date text-dark">
-                  February 28, 2025
+                  {formatDate(blogDetailsData?.date)}
                 </motion.div>
               </div>
               <div className="blog-post-title-block text-center">
@@ -102,7 +97,7 @@ const BlogDetails = () => {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   viewport={{ once: true, margin: "-100px" }}
                   className="blog-detail-title">
-                  {blogDetailsData?.heading1}
+                  {blogDetailsData?.title}
                 </motion.div>
               </div>
               <div className="blog-details-desc-box">
@@ -117,7 +112,10 @@ const BlogDetails = () => {
               </div>
               <div className="blog-details-thumbnail-box">
                 <div ref={ref1} className="blog-single-image-box">
-                  <img className={`blog-single-image ${inView1 ? 'img-custom-anim-right delay-2' : ''}`} src={blogThumb3_6} alt="" />
+                  <img
+                    className={`blog-single-image ${inView1 ? 'img-custom-anim-right delay-2' : ''}`}
+                    src={`https://skilledworkerscloud.co.uk/media/blog/${blogDetailsData?.image}`} alt=""
+                  />
                 </div>
               </div>
             </div>
@@ -126,8 +124,10 @@ const BlogDetails = () => {
                 <div className="blog-grid">
                   <div className="blog-detail-content-block">
                     <div className="blog-rich-text-block-1">
-                      <div className="blog-rich-text w-richtext">
-                        <motion.p
+                      <div className="blog-rich-text w-richtext" dangerouslySetInnerHTML={{ __html: blogDetailsData?.content }} />
+
+
+                      {/* <motion.p
                           initial={{ y: 80, opacity: 0 }}
                           whileInView={{ y: 0, opacity: 1 }}
                           transition={{ duration: 0.5, delay: 0.3 }}
@@ -238,8 +238,8 @@ const BlogDetails = () => {
                           viewport={{ once: true, margin: "-100px" }}
                         >
                           {blogDetailsData?.paragraph7}
-                        </motion.p>
-                      </div>
+                        </motion.p> */}
+                      {/* </div> */}
                     </div>
                   </div>
                   <div className="blog-sidebar">
@@ -251,15 +251,15 @@ const BlogDetails = () => {
                         <div className="blog-author-box text-start">
 
                           {recentPost?.map((post, index) => (
-                            <Link key={index} to={`/blog/${post.catagory}`}>
+                            <Link key={index} to={`/blog/${post.title}`}>
                               <img src={post.image} alt="" />
                               <motion.p
                                 initial={{ y: 80, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
+                                transition={{ duration: 0.5, delay:index * 0.2 }}
                                 viewport={{ once: true, margin: "-20px" }}
                               >
-                                {post.heading}
+                                {post.title}
                               </motion.p>
                             </Link>
                           ))}

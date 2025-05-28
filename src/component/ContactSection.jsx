@@ -8,7 +8,6 @@ import FadeInUp from './AnimationCom/FadeInUp';
 
 const ContactSection = ({ contactData, addGap }) => {
 
-    console.log(contactData);
     const [loading, setLoading] = useState(false)
 
     const [formData, setFormData] = useState({

@@ -55,6 +55,8 @@ const CtaSection = ({ ctaData }) => {
                                             delay={0.4}
                                             className='playstore'
                                             href="https://play.google.com/store"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             style={{ display: 'inline-block' }}
                                         >
                                             <img src={ctaData?.image2} alt="img" />
@@ -65,6 +67,8 @@ const CtaSection = ({ ctaData }) => {
                                             delay={0.4}
                                             className='playstore'
                                             href="https://www.apple.com/store"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             style={{ display: 'inline-block' }}
                                         >
                                             <img src={ctaData?.image3} alt="img" />
@@ -81,7 +85,7 @@ const CtaSection = ({ ctaData }) => {
                                     >
                                         <img src={ctaData?.image1} alt="thumb" />
                                     </FadeInUp>
-                                   
+
                                 </div>
                             </div>
                         </div>

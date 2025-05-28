@@ -137,7 +137,6 @@ const AppContextProvider = (props) => {
                 if (contactJson.flag === 1 && contactJson.status === 200) setContactData(contactJson.data[0]);
                 if (sponserJson.flag === 1 && sponserJson.status === 200) setSponserData(sponserJson.data);
                 if (workPrecessingJson.flag === 1 && workPrecessingJson.status === 200) setWorkProcessingData(workPrecessingJson.data);
-                console.log('Data fetched successfully:', workPrecessingJson.data);
                
                 
                 
@@ -162,7 +161,7 @@ const AppContextProvider = (props) => {
     const blogDataInfo = async (id) => {
         setBlogDetailsLoading(true);  // Use separate loading state for blog details
         try {
-            const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk/website-api/api/controller/blog_details.php?blog=${id}`);
+            const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk//website-api/api/controller/blog_details.php?blog=${id}`);
             const blogDetailsJson = await blogDetailsRes.json();
 
             if (blogDetailsJson.flag === 1 && blogDetailsJson.status === 200) {

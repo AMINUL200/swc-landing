@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const WorkProcessing = ({ workPrecessingData }) => {
-    console.log("workPrecessingData", workPrecessingData);
+    // console.log("workPrecessingData", workPrecessingData);
 
     const moduleData = workPrecessingData?.module?.[0] || {};
     const faqDetails = workPrecessingData?.details || [];
