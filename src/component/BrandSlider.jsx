@@ -58,7 +58,7 @@ const BrandSlider = ({ brandData }) => {
                   {logos2.map((logo, index) => (
                     <SwiperSlide key={index}>
                       <div className="brand-logo">
-                        <img src={logo} alt={`logo-${index}`} width={200} height={100}/>
+                        <img src={logo} alt={`logo-${index}`} width={200} height={50}/>
                       </div>
                     </SwiperSlide>
                   ))}

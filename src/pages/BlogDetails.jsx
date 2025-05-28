@@ -252,7 +252,7 @@ const BlogDetails = () => {
 
                           {recentPost?.map((post, index) => (
                             <Link key={index} to={`/blog/${post.title}`}>
-                              <img src={post.image} alt="" />
+                              <img src={`https://skilledworkerscloud.co.uk/media/blog/${post.image}`} alt="" />
                               <motion.p
                                 initial={{ y: 80, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
