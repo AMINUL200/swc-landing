@@ -105,14 +105,7 @@ const Footer = () => {
                                     <h3> Our Services </h3>
                                 </div>
                                 <ul className="list-area2">
-                                    <li>
-                                        <a
-                                            href="https://skilledworkerscloud.co.uk/cms?id=1"
-                                            target="_blank"
-                                            rel="noopener noreferrer">
-                                            HRMS Software
-                                        </a>
-                                    </li>
+
                                     <li>
                                         <a
                                             href="https://skilledworkerscloud.co.uk/cms?id=2"
@@ -151,6 +144,14 @@ const Footer = () => {
                                             target="_blank"
                                             rel="noopener noreferrer">
                                             Web/Profile Development
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/recruitment-services"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            Recruitment
                                         </a>
                                     </li>
                                 </ul>
@@ -219,22 +220,22 @@ const Footer = () => {
                         </p>
                         <ul className="social-links" data-wow-delay=".5s">
                             <li>
-                                <a href="#" aria-label="Facebook">
+                                <a href="https://www.facebook.com/skilledworkerscloud/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faFacebookF} />
                                 </a>
                             </li>
                             <li>
-                                <a href="#" aria-label="Twitter">
+                                <a href="https://x.com/scloud244" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faTwitter} />
                                 </a>
                             </li>
                             <li>
-                                <a href="#" aria-label="LinkedIn">
+                                <a href="https://www.linkedin.com/company/skilled-workers-cloud-ltd/?viewAsMember=true" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faLinkedinIn} />
                                 </a>
                             </li>
                             <li>
-                                <a href="#" aria-label="Instagram">
+                                <a href="https://www.instagram.com/skilledworkerscloud/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faInstagram} />
                                 </a>
                             </li>

@@ -6,7 +6,7 @@ import { logo2, logo3 } from '../assets';
 import { Link } from 'react-scroll';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const Sidebar = ({ isSideBarOpen, setIsSidebarOpen , showPopupModel}) => {
+const Sidebar = ({ isSideBarOpen, setIsSidebarOpen, showPopupModel }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -99,17 +99,30 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen , showPopupModel}) => {
                                     </li>
                                 </ul>
                                 <div className="header-button mt-4">
-                                    <a href="#" className="theme-btn text-center" onClick={showPopupModel}>
+                                    <a href="#"
+                                        className="theme-btn text-center" onClick={(e) => {
+                                            // e.preventDefault();
+                                            showPopupModel();
+                                            setIsSidebarOpen(false);
+                                        }}>
                                         <span>Get Started
                                             <FontAwesomeIcon className='ml-3' icon={faArrowRightLong} />
                                         </span>
                                     </a>
                                 </div>
                                 <div className="social-icon d-flex align-items-center">
-                                    <a href="#"><FontAwesomeIcon icon={faFacebookF} /></a>
-                                    <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
-                                    <a href="#"><FontAwesomeIcon icon={faYoutube} /></a>
-                                    <a href="#"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+                                    <a href="https://www.facebook.com/skilledworkerscloud/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                                        <FontAwesomeIcon icon={faFacebookF} />
+                                    </a>
+                                    <a href="https://x.com/scloud244" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                                        <FontAwesomeIcon icon={faTwitter} />
+                                    </a>
+                                    <a href="https://www.instagram.com/skilledworkerscloud/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                                        <FontAwesomeIcon icon={faInstagram} />
+                                    </a>
+                                    <a href="https://www.linkedin.com/company/skilled-workers-cloud-ltd/?viewAsMember=true" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                                        <FontAwesomeIcon icon={faLinkedinIn} />
+                                    </a>
                                 </div>
                             </div>
                         </div>
