@@ -12605,7 +12605,9 @@ select.form-input option[value=""][disabled] {
   margin-bottom: 30px;
   margin-top: 0;
 }
-
+.blog-rich-text strong{
+  color: var(--black);
+}
 .blog-rich-text h2 {
   font-family: Sentient, Arial, sans-serif;
   margin-bottom: 10px;

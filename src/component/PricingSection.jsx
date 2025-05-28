@@ -2,6 +2,7 @@ import React from 'react'
 import { fireIcon } from '../assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-scroll';
 
 const PricingSection = ({ pricingData, addGap }) => {
 
@@ -77,7 +78,7 @@ const PricingSection = ({ pricingData, addGap }) => {
 
                                                 </ul>
                                             </div>
-                                            <a class={`theme-btn ${plan.id === '2' ? 'style4' : 'style5'}`} href="pricing.html"> {plan.button_name} </a>
+                                            <Link class={`theme-btn ${plan.id === '2' ? 'style4' : 'style5'}`} to='contact'> {plan.button_name} </Link>
                                         </div>
                                     </div>
                                 ))}
