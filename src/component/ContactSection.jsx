@@ -191,7 +191,7 @@ const cleanedPhone = contactData?.contact_phone?.replace(/\r\n/g, '');
                                                 className='col-lg-6'
                                             >
                                                 <div class="form-clt">
-                                                    <span>Your name* </span>
+                                                    {/* <span>Your name* </span> */}
                                                     <input type="text" name="name" id="name" value={formData.name} onChange={handleChange} placeholder="Your Name" required />
                                                 </div>
                                             </FadeInUp>
@@ -201,7 +201,7 @@ const cleanedPhone = contactData?.contact_phone?.replace(/\r\n/g, '');
                                                 className='col-lg-6'
                                             >
                                                 <div class="form-clt">
-                                                    <span>Your Email*  </span>
+                                                    {/* <span>Your Email*  </span> */}
                                                     <input type="text" name="email" id="email" value={formData.email} onChange={handleChange} placeholder="Your Email" required />
                                                 </div>
                                             </FadeInUp>
@@ -211,7 +211,7 @@ const cleanedPhone = contactData?.contact_phone?.replace(/\r\n/g, '');
                                                 className='col-lg-12'
                                             >
                                                 <div class="form-clt">
-                                                    <span>Write Message* </span>
+                                                    {/* <span>Write Message* </span> */}
                                                     <textarea name="message" id="message"
                                                         value={formData.message}
                                                         onChange={handleChange}

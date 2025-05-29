@@ -122,7 +122,7 @@ const AppContextProvider = (props) => {
                 if (brandJson.flag === 1 && brandJson.status === 200) setBrandData(brandJson.data);
                 if (aboutJson.flag === 1 && aboutJson.status === 200) setAboutData(aboutJson.data[0]);
                 if (workJson.flag === 1 && workJson.status === 200) setWorkData(workJson.data[0]);
-                if (pricingJson.flag === 1 && pricingJson.status === 200) setPricingData(pricingJson.data[0]);
+                if (pricingJson.flag === 1 && pricingJson.status === 200) setPricingData(pricingJson.data.data);
                 if (advantageJson.flag === 1 && advantageJson.status === 200) setAdvantageData(advantageJson.data[0]);
                 if (wcuJson.flag === 1 && wcuJson.status === 200) setWcuData(wcuJson.data[0]);
                 if (countJson.flag === 1 && countJson.status === 200) setCountData(countJson.data[0]);
@@ -138,6 +138,8 @@ const AppContextProvider = (props) => {
                 if (sponserJson.flag === 1 && sponserJson.status === 200) setSponserData(sponserJson.data);
                 if (workPrecessingJson.flag === 1 && workPrecessingJson.status === 200) setWorkProcessingData(workPrecessingJson.data);
                
+                // console.log(pricingJson.data.data);
+                
                 
                 
             } catch (error) {

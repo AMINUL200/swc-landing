@@ -10,7 +10,7 @@ const BlogSection = ({ blogData, addGap }) => {
         const options = { year: 'numeric', month: 'short', day: 'numeric' };
         return new Date(dateString).toLocaleDateString('en-US', options);
     };
-    console.log(blogData);
+    // console.log(blogData);
     
 
 

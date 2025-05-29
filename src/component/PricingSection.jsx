@@ -6,12 +6,12 @@ import { Link } from 'react-scroll';
 
 const PricingSection = ({ pricingData, addGap }) => {
 
-    const monthlyPlans = pricingData?.monthly_plans || [];
-    const yearlyPlans = pricingData?.yearly_plans || [];
 
 
-    // console.log("Pricing Data:", monthlyPlans);
+    const monthlyPlans = pricingData?.[0] || [];
+    const yearlyPlans = pricingData?.[1] || [];
 
+  
 
     return (
         <section class={`pricing-section ${addGap ? "section-padding-3 pb-4" : "section-padding"}  fix`} id='pricing'>
@@ -19,16 +19,16 @@ const PricingSection = ({ pricingData, addGap }) => {
                 <div class="section-title text-center mxw-685 mx-auto">
                     {!addGap &&
                         <div class="subtitle">
-                            {pricingData?.title}
+                            {pricingData?.title ?? "Pricing"}
                             <img src={fireIcon} alt="icon" />
                         </div>
                     }
 
                     <h2 class="title">
-                        {pricingData?.heading1 }
+                        Choose Your Plan
                     </h2>
                     <p class="text">
-                        {pricingData?.heading2 }
+                        Select the plan that works best for your needs
 
                     </p>
                 </div>
@@ -38,12 +38,12 @@ const PricingSection = ({ pricingData, addGap }) => {
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="pills-monthly-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-monthly" type="button" role="tab" aria-controls="pills-monthly"
-                                    aria-selected="true"> {pricingData?.button_name1 ?? 'Monthly'} </button>
+                                    aria-selected="true"> {monthlyPlans?.name} </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-yearly-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-yearly" type="button" role="tab" aria-controls="pills-yearly"
-                                    aria-selected="false" tabindex="-1"> {pricingData?.button_name2 ?? 'Yearly'} </button>
+                                    aria-selected="false" tabindex="-1"> {yearlyPlans?.name} </button>
                             </li>
                         </ul>
                     </div>
@@ -53,32 +53,39 @@ const PricingSection = ({ pricingData, addGap }) => {
                             aria-labelledby="pills-monthly-tab">
                             <div class="row gy-5" style={{ justifyContent: 'space-around' }}>
 
-                                {monthlyPlans.map((plan) => (
+                                {monthlyPlans.plans.map((plan) => (
                                     <div key={plan.id} className="col-xl-4 col-md-6">
                                         <div className="pricing-card style1">
                                             <div className="pricing-card-header">
-                                                <h6>{plan.heading1}</h6>
+                                                <h6>{plan?.name}</h6>
                                                 <div className="price-wrapper">
-                                                    <span className="price">£{plan.amount}</span>
-                                                    <span className="text"> / Per Month</span>
+                                                    <span className="price">£{plan?.sales_price}</span>
+                                                    <span className="text"> /{plan.type}</span>
                                                 </div>
-                                                <p className="text">{plan.description}</p>
+                                                <p className="text">{plan?.description}</p>
                                             </div>
                                             <div className="pricing-card-body">
                                                 <ul className="checklist">
-                                                    {plan.features.map(([text, included], index) => (
+                                                    {plan.features.map((feature, index) => (
                                                         <li key={index}>
                                                             <FontAwesomeIcon
                                                                 icon={faCircleCheck}
-                                                                className={included ? "green" : "gray"}
+                                                                className={feature.icon_class ? "green" : "gray"}
                                                             />
-                                                            {text}
+                                                            {feature.name}
                                                         </li>
                                                     ))}
 
                                                 </ul>
                                             </div>
-                                            <Link class={`theme-btn ${plan.id === '2' ? 'style4' : 'style5'}`} to='contact'> {plan.button_name} </Link>
+                                            <a
+                                                className={`theme-btn ${plan.id === '2' ? 'style4' : 'style5'}`}
+                                                href={plan.button_url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {plan.button_name}
+                                            </a>
                                         </div>
                                     </div>
                                 ))}
@@ -90,32 +97,39 @@ const PricingSection = ({ pricingData, addGap }) => {
                             <div class="row gy-5" style={{ justifyContent: 'space-around' }}>
 
 
-                                {yearlyPlans.map((plan) => (
+                                {yearlyPlans.plans.map((plan) => (
                                     <div key={plan.id} className="col-xl-4 col-md-6">
                                         <div className="pricing-card style1">
                                             <div className="pricing-card-header">
-                                                <h6>{plan.heading1}</h6>
+                                                <h6>{plan.name}</h6>
                                                 <div className="price-wrapper">
-                                                    <span className="price">${plan.amount}</span>
-                                                    <span className="text"> / Per Month</span>
+                                                    <span className="price">£{plan.sales_price}</span>
+                                                    <span className="text"> / {plan.type}</span>
                                                 </div>
                                                 <p className="text">{plan.description}</p>
                                             </div>
                                             <div className="pricing-card-body">
                                                 <ul className="checklist">
-                                                    {plan.features.map(([text, included], index) => (
+                                                    {plan.features.map((feature, index) => (
                                                         <li key={index}>
                                                             <FontAwesomeIcon
                                                                 icon={faCircleCheck}
-                                                                className={included ? "green" : "gray"}
+                                                                className={feature.icon_class ? "green" : "gray"}
                                                             />
-                                                            {text}
+                                                            {feature.name}
                                                         </li>
                                                     ))}
 
                                                 </ul>
                                             </div>
-                                            <a class={`theme-btn ${plan.id === '2' ? 'style4' : 'style5'}`} href="pricing.html"> {plan.button_name} </a>
+                                            <a
+                                                className={`theme-btn ${plan.id === '5' ? 'style4' : 'style5'}`}
+                                                href={plan.button_url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {plan.button_name}
+                                            </a>
                                         </div>
                                     </div>
                                 ))}
