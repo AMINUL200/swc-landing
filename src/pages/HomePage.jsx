@@ -19,6 +19,8 @@ import SponsorCompliances from '../component/SponsorCompliances';
 import WorkProcessing from '../component/WorkProcessing';
 import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
+import MetaTags from '../component/MetaTags/MetaTags';
+import { Helmet } from 'react-helmet';
 
 const HomePage = () => {
     const location = useLocation();
@@ -43,12 +45,15 @@ const HomePage = () => {
         blogData,
         contactData,
         sponserData,
-        workPrecessingData
+        workPrecessingData,
+        metaData,
+       
 
 
     } = useContext(AppContext);
 
     
+
 
     useEffect(() => {
         const scrollTarget = location.state?.scrollToId;
@@ -65,6 +70,8 @@ const HomePage = () => {
 
     return (
         <>
+            <MetaTags meta={metaData}/>
+            
             <HeroSection bannerData={bannerData} showPopupModel={() => setShowPopup(true)} />
             <BrandSlider brandData={brandData} />
             <AboutSection ClassAdd='' aboutData={aboutData} />
@@ -74,12 +81,12 @@ const HomePage = () => {
             <CounterSection countData={countData} />
             <FaqsSection faqHeadData={faqHeadData} faqQAData={faqQAData} />
             <FaqsLSection faqHeadData={faqLeftHeadData} faqQAData={faqLeftQAData} />
-            <SponsorCompliances sponserData={sponserData}/>
+            <SponsorCompliances sponserData={sponserData} />
             <TestimonialSection testimonialData={testimonialData} />
             <FeatureSection featureData={featureData} />
             <PricingSection pricingData={pricingData} />
             <CtaSection ctaData={ctaData} />
-            <WorkProcessing workPrecessingData={workPrecessingData}/>
+            <WorkProcessing workPrecessingData={workPrecessingData} />
             <BlogSection blogData={blogData} />
             <ContactSection contactData={contactData} />
         </>

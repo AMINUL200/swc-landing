@@ -24,11 +24,29 @@ const AppContextProvider = (props) => {
     const [contactData, setContactData] = useState(null)
     const [sponserData, setSponserData] = useState(null)
     const [workPrecessingData, setWorkProcessingData] = useState(null)
+    const [metaData, setMetaData] = useState(null);
 
     const [showPopup, setShowPopup] = useState(false)
     const [blogDetailsLoading, setBlogDetailsLoading] = useState(false);
     const [servicesLoading, setServicesLoading] = useState(false);
     const [aboutPageLoading, setAboutPageLoading] = useState(false)
+
+
+    useEffect(() => {
+        const fetchMetaData = async () => {
+            try {
+                const metaRes = await fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/meta_tag.php');
+                const metaJson = await metaRes.json();
+                if (metaJson.flag === 1 && metaJson.status === 200) {
+                    setMetaData(metaJson.data[0]);
+                }
+            } catch (error) {
+                console.error("Meta fetch error:", error);
+            }
+        };
+
+        fetchMetaData(); // Fetch meta data first
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -73,7 +91,7 @@ const AppContextProvider = (props) => {
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/blog.php'), //
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/contact.php'),
                     fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/sponsor-compliances.php'),
-                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/customizations.php')
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/customizations.php'),
                 ]);
 
                 const [
@@ -137,11 +155,12 @@ const AppContextProvider = (props) => {
                 if (contactJson.flag === 1 && contactJson.status === 200) setContactData(contactJson.data[0]);
                 if (sponserJson.flag === 1 && sponserJson.status === 200) setSponserData(sponserJson.data);
                 if (workPrecessingJson.flag === 1 && workPrecessingJson.status === 200) setWorkProcessingData(workPrecessingJson.data);
-               
-                // console.log(pricingJson.data.data);
-                
-                
-                
+
+
+                // console.log(metaDataJson.data[0]);
+
+
+
             } catch (error) {
                 console.error('API fetch error:', error.message);
             } finally {
@@ -201,14 +220,14 @@ const AppContextProvider = (props) => {
         try {
             const aboutPageRes = await fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/about_page.php');
             const aboutPageJson = await aboutPageRes.json();
-             if (aboutPageJson.flag === 1 && aboutPageJson.status === 200) {
+            if (aboutPageJson.flag === 1 && aboutPageJson.status === 200) {
                 return aboutPageJson.data[0];
             }
             return null;
         } catch (error) {
             console.error("About page Data error:", error)
             return null;
-        }finally{
+        } finally {
             setAboutPageLoading(false);
         }
     }
@@ -248,6 +267,7 @@ const AppContextProvider = (props) => {
         aboutPageLoading,
         sponserData,
         workPrecessingData,
+        metaData
 
     };
 
