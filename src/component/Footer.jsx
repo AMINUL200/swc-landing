@@ -2,7 +2,7 @@ import React from 'react'
 import { logo, logo3, shape1, shape2, shape3 } from '../assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import FadeInUp from './AnimationCom/FadeInUp';
 import { termsAndConditionInfo } from './TermsAndCondition';
 
@@ -224,8 +224,8 @@ const Footer = () => {
                                 Copyright © SWC All rights |
                             </p>
                             <ul className='terms'>
-                                <li> <Link to="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</Link></li>
-                                <li><Link to="/privacy_policy" target='_blank'>Privacy Policy</Link></li>
+                                <li> <a href="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
+                                <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a>  </li>
                             </ul>
                         </div>
 
