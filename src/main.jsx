@@ -31,7 +31,10 @@ const router = createBrowserRouter([
         element: <BlogDetails />,
         // loader: blogdataInfo,
       },
-
+      {
+        path: '/test',
+        element: '<h1>Test purpus </h1>'
+      },
 
 
       // { path: 'about', element: <AboutPage /> },

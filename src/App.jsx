@@ -11,7 +11,7 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import { AppContext } from './context/AppContext';
 
 const App = () => {
-  const { loading, showPopup, setShowPopup } = useContext(AppContext)
+  const { loading, showPopup, setShowPopup, popupData } = useContext(AppContext)
   const [isSideBarOpen, setIsSidebarOpen] = useState(false);
 
 
@@ -32,7 +32,7 @@ const App = () => {
 
       <Outlet />
 
-      <PopupModel show={showPopup} onClose={() => setShowPopup(false)} />
+      <PopupModel show={showPopup} onClose={() => setShowPopup(false)} popupData={popupData}/>
       <Footer />
 
 

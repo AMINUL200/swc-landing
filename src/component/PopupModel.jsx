@@ -16,13 +16,13 @@ const initialFormState = {
     terms: false,
 };
 
-const PopupModel = ({ show, onClose }) => {
+const PopupModel = ({ show, onClose, popupData }) => {
     const [formData, setFormData] = useState(initialFormState);
     const [errors, setErrors] = useState({});
     const [isClosing, setIsClosing] = useState(false);
     const [animationClass, setAnimationClass] = useState('');
     const [loading, setLoading] = useState(false)
-
+    
     useEffect(() => {
         if (show) {
             document.body.style.overflow = 'hidden';
@@ -141,7 +141,7 @@ const PopupModel = ({ show, onClose }) => {
             <div className="modal-background">
                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                     <div className="modal-header">
-                        <h3>Explore Our HRMS – Get a Demo Now!</h3>
+                        <h3>{popupData?.heading} </h3>
                         <button className="close-btn" onClick={handleClose}>
                             <FontAwesomeIcon icon={faTimes} />
                         </button>
@@ -149,7 +149,7 @@ const PopupModel = ({ show, onClose }) => {
                     <div className="modal-body">
                         <div className="row">
                             <div className='col-md-12 col-lg-6 modal-left'>
-                                <img src='https://skilledworkerscloud.co.uk/media/hrms/popup/popup.jpg' alt="Demo" className="modal-left-img" />
+                                <img src={popupData?.image} alt="Demo" className="modal-left-img" />
                             </div>
 
                             <div className='col-md-12 col-lg-6'>
@@ -328,7 +328,7 @@ const PopupModel = ({ show, onClose }) => {
                                                     onChange={handleChange}
                                                 />
                                                 <label className="form-checkbox-label" htmlFor="terms">
-                                                    I agree to the terms and conditions
+                                                     {popupData?.check_box}
                                                 </label>
                                                 {errors.terms && (
                                                     <span className="form-alert" style={{ display: 'block' }}>
