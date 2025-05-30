@@ -224,8 +224,8 @@ const Footer = () => {
                                 Copyright © SWC All rights |
                             </p>
                             <ul className='terms'>
-                                <li> <a href="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
-                                <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a>  </li>
+                                <li> <a href="terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
+                                <li><a href="privacy_policy" target='_blank'>Privacy Policy</a>  </li>
                             </ul>
                         </div>
 
