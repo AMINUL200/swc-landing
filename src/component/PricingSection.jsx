@@ -70,7 +70,7 @@ const PricingSection = ({ pricingData, addGap }) => {
                                                         <li key={index}>
                                                             <FontAwesomeIcon
                                                                 icon={faCircleCheck}
-                                                                className={feature.icon_class ? "green" : "gray"}
+                                                                className={feature.icon_class === '1' ? "green" : "gray"}
                                                             />
                                                             {feature.name}
                                                         </li>
@@ -114,7 +114,7 @@ const PricingSection = ({ pricingData, addGap }) => {
                                                         <li key={index}>
                                                             <FontAwesomeIcon
                                                                 icon={faCircleCheck}
-                                                                className={feature.icon_class ? "green" : "gray"}
+                                                                className={feature.icon_class === '1' ? "green" : "gray"}
                                                             />
                                                             {feature.name}
                                                         </li>
