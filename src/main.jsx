@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         // loader: blogdataInfo,
       },
       {
-        path: '/test1',
+        path: 'test1',
         element: '<h1>Test2 purpus </h1>'
       },
 
