@@ -226,6 +226,7 @@ const Footer = () => {
                             <ul className='terms'>
                                 <li> <a href="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
                                 <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a>  </li>
+                                <li><a href="about" target='_blank'>About</a>  </li>
                             </ul>
                         </div>
 
