@@ -42,14 +42,19 @@ const router = createBrowserRouter([
     ]
   },
   {
+    path: '/test',
+    element: '<h1>Test purpus </h1>'
+  },
+
+  {
     path: '/terms_condition',
     element: <TermsAndCondition />,
     loader: termsAndConditionInfo,
   },
   {
-    path:'/privacy_policy',
-    element : <PrivacyPolicy/>,
-    loader:privacyPolicyInfo
+    path: '/privacy_policy',
+    element: <PrivacyPolicy />,
+    loader: privacyPolicyInfo
 
   }
 ])
