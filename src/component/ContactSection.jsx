@@ -181,7 +181,7 @@ const cleanedPhone = contactData?.contact_phone?.replace(/\r\n/g, '');
                                     <h2 class="contact-title">
                                         {contactData?.heading1 ?? 'Ready to Get Started?'}
                                     </h2>
-                                    <p class="desc">{contactData?.paragraph1 ?? 'Nullam varius, erat quis iaculis dictum, eros urna varius eros, ut blandit felis odio in turpis. Quisque rhoncus,'}</p>
+                                    <p class="desc">{contactData?.paragraph1 ?? 'Have questions or need support? Fill out the form below and our team will get in touch with you shortly'}</p>
 
                                     <form onSubmit={handleSubmit}  className='mt-4'>
                                         <div class="row g-4">

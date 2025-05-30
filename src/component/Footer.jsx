@@ -4,9 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-scroll';
 import FadeInUp from './AnimationCom/FadeInUp';
+import { termsAndConditionInfo } from './TermsAndCondition';
 
 
 const Footer = () => {
+    const handleTermsHover = () => {
+        termsAndConditionInfo();
+    }
 
     return (
         <footer className="footer-section position-relative ">
@@ -215,9 +219,16 @@ const Footer = () => {
             <div className="footer-bottom style1">
                 <div className="container">
                     <div className="footer-wrapper d-flex align-items-center justify-content-between">
-                        <p className="wow fadeInLeft" data-wow-delay=".3s">
-                            Copyright © SWC All rights
-                        </p>
+                        <div className='d-flex'>
+                            <p className="wow fadeInLeft" data-wow-delay=".3s">
+                                Copyright © SWC All rights |
+                            </p>
+                            <ul className='terms'>
+                                <li> <a href="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
+                                <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a>  </li>
+                            </ul>
+                        </div>
+
                         <ul className="social-links" data-wow-delay=".5s">
                             <li>
                                 <a href="https://www.facebook.com/skilledworkerscloud/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">

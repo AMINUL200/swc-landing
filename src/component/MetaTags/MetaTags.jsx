@@ -8,11 +8,11 @@ const DEFAULT_META = {
 };
 const MetaTags = ({ meta }) => {
     if (!meta) {
-        console.log("No meta data received");
+        // console.log("No meta data received");
         return null;
     }
     
-    console.log("Received meta data:", meta);
+    // console.log("Received meta data:", meta);
 
 
     return (

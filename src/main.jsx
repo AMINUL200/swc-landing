@@ -16,6 +16,8 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import PricingPage from './pages/PricingPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import BlogPage from './pages/BlogPage.jsx';
+import TermsAndCondition, { termsAndConditionInfo } from './component/TermsAndCondition.jsx';
+import PrivacyPolicy, { privacyPolicyInfo } from './component/PrivacyPolicy.jsx';
 
 // const {blogDataInfo} = useContext(AppContext)
 const router = createBrowserRouter([
@@ -29,12 +31,26 @@ const router = createBrowserRouter([
         element: <BlogDetails />,
         // loader: blogdataInfo,
       },
+
+
+
       // { path: 'about', element: <AboutPage /> },
       // { path: 'services', element: <ServicesPage /> },
       // { path: 'pricing', element: <PricingPage /> },
       // { path: 'contact', element: <ContactPage /> },
       // {path:'blog', element: <BlogPage />},
     ]
+  },
+  {
+    path: '/terms_condition',
+    element: <TermsAndCondition />,
+    loader: termsAndConditionInfo,
+  },
+  {
+    path:'/privacy_policy',
+    element : <PrivacyPolicy/>,
+    loader:privacyPolicyInfo
+
   }
 ])
 

@@ -6531,6 +6531,22 @@ input.main-search-input::placeholder {
   gap: 25px;
 }
 
+.footer-bottom.style1 .footer-wrapper .terms  {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-bottom.style1 .footer-wrapper .terms a {
+  color: #797979;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 157.4%;
+  text-transform: capitalize;
+}
+
 @media (max-width: 767px) {
   .footer-bottom.style1 .footer-wrapper .social-links {
     gap: 5px;
@@ -12605,9 +12621,13 @@ select.form-input option[value=""][disabled] {
   margin-bottom: 30px;
   margin-top: 0;
 }
-.blog-rich-text strong{
+
+.blog-rich-text strong ,
+.privacy-policy strong
+{
   color: var(--black);
 }
+
 .blog-rich-text h2 {
   font-family: Sentient, Arial, sans-serif;
   margin-bottom: 10px;
