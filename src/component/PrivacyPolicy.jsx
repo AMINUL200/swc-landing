@@ -15,17 +15,7 @@ const PrivacyPolicy = () => {
                     dangerouslySetInnerHTML={{ __html: privacyData.description }}
                 />
 
-                <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-                    <h2 className="text-xl font-semibold text-gray-700 mb-2">Contact Us</h2>
-                    <p className="text-gray-600">
-                        For any questions about our privacy policy, please contact:
-                    </p>
-                    <ul className="mt-2 space-y-1 text-gray-600">
-                        <li>Email: support@skilledworkerscloud.co.uk</li>
-                        <li>Phone: +44 074 6728 4718</li>
-                        <li>Address: G21, Unit 3 Triangle Centre, 399 Uxbridge Road, UB1 3EJ, United Kingdom</li>
-                    </ul>
-                </div>
+                
 
         </div>
     )

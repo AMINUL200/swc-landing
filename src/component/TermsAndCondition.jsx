@@ -5,7 +5,7 @@ const TermsAndCondition = () => {
     const termsData = useLoaderData();
     
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-4xl mx-auto px-4 py-8 pb-4">
             <h1 className="text-3xl font-bold text-gray-800 mb-6">{termsData.name}</h1>
             
             <div 
@@ -13,17 +13,7 @@ const TermsAndCondition = () => {
                 dangerouslySetInnerHTML={{ __html: termsData.description }}
             />
             
-            <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-                <h2 className="text-xl font-semibold text-gray-700 mb-2">Contact Support</h2>
-                <p className="text-gray-600">
-                    For any questions about these terms, please contact us at:
-                </p>
-                <ul className="mt-2 space-y-1 text-gray-600">
-                    <li>Email: support@skilledworkerscloud.co.uk</li>
-                    <li>Phone: +44 074 6728 4718</li>
-                    <li>Website: <a href="https://www.skilledworkerscloud.co.uk" className="text-blue-600 hover:underline">www.skilledworkerscloud.co.uk</a></li>
-                </ul>
-            </div>
+           
         </div>
     );
 }
