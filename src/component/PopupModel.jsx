@@ -149,7 +149,7 @@ const PopupModel = ({ show, onClose }) => {
                     <div className="modal-body">
                         <div className="row">
                             <div className='col-md-12 col-lg-6 modal-left'>
-                                <img src={modelLeftImg2} alt="Demo" className="modal-left-img" />
+                                <img src='https://skilledworkerscloud.co.uk/media/hrms/popup/popup.jpg' alt="Demo" className="modal-left-img" />
                             </div>
 
                             <div className='col-md-12 col-lg-6'>
