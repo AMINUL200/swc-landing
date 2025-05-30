@@ -32,8 +32,8 @@ const router = createBrowserRouter([
         // loader: blogdataInfo,
       },
       {
-        path: '/test',
-        element: '<h1>Test purpus </h1>'
+        path: '/test1',
+        element: '<h1>Test2 purpus </h1>'
       },
 
 
@@ -45,8 +45,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: '/test',
-    element: '<h1>Test purpus </h1>'
+    path: '/test2',
+    element: '<h1>Test2 purpus </h1>'
   },
 
   {
