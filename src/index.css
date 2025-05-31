@@ -6531,7 +6531,7 @@ input.main-search-input::placeholder {
   gap: 25px;
 }
 
-.footer-bottom.style1 .footer-wrapper .terms  {
+.footer-bottom.style1 .footer-wrapper .terms {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -8054,6 +8054,12 @@ input.main-search-input::placeholder {
   left: -77px;
 }
 
+@media (max-width: 370px) {
+  .faq-wrapper.style1 .faq-thumb {
+    height: 315px;
+  }
+}
+
 @media (max-width: 1200px) {
   .faq-wrapper.style1 .faq-thumb {
     bottom: -187px;
@@ -8138,7 +8144,7 @@ input.main-search-input::placeholder {
 @media (max-width: 831px) {
   .faq-wrapper.style1.faq-left .faq-thumb .absolute-thumb {
     left: 194px;
-    /* top: -45px; */
+    top: -100px;
   }
 }
 
@@ -8163,6 +8169,13 @@ input.main-search-input::placeholder {
 
   .faq-wrapper.style1 .faq-thumb .absolute-thumb .img-ph {
     max-width: 34%;
+  }
+}
+
+
+@media (max-width: 370px){
+  .faq-wrapper.style1 .faq-thumb .absolute-thumb img{
+    height: 277px;
   }
 }
 
@@ -12622,9 +12635,8 @@ select.form-input option[value=""][disabled] {
   margin-top: 0;
 }
 
-.blog-rich-text strong ,
-.privacy-policy strong
-{
+.blog-rich-text strong,
+.privacy-policy strong {
   color: var(--black);
 }
 
