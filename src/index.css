@@ -6669,7 +6669,7 @@ input.main-search-input::placeholder {
 
 .intro-wrapper.style1 .intro-content {
   position: relative;
-  padding: 223px 0 180px;
+  padding: 142px 0 180px;
   z-index: 5;
   max-width: 720px;
 }
@@ -6779,6 +6779,7 @@ input.main-search-input::placeholder {
   position: relative;
   padding: 223px 0 0;
   z-index: 3;
+  /* bottom: -45px; */
 }
 
 @media (max-width: 767px) {
@@ -7499,7 +7500,8 @@ input.main-search-input::placeholder {
   top: 0;
   right: -277px;
 }
-.wp-wrapper.style2 .shape-left img{
+
+.wp-wrapper.style2 .shape-left img {
   transform: rotate(180deg);
 }
 
