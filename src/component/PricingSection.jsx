@@ -51,7 +51,7 @@ const PricingSection = ({ pricingData, addGap }) => {
                         {/* Monthly Plans */}
                         <div class="tab-pane fade active show" id="pills-monthly" role="tabpanel"
                             aria-labelledby="pills-monthly-tab">
-                            <div class="row gy-5" style={{ justifyContent: 'space-around' }}>
+                            <div class="row gy-5" >
 
                                 {monthlyPlans.plans.map((plan) => (
                                     <div key={plan.id} className="col-xl-4 col-md-6">

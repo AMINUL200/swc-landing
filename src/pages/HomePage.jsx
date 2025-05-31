@@ -21,6 +21,7 @@ import { useLocation } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 import MetaTags from '../component/MetaTags/MetaTags';
 import { Helmet } from 'react-helmet';
+import RecruitmentSection from '../component/RecruitmentSection';
 
 const HomePage = () => {
     const location = useLocation();
@@ -47,11 +48,13 @@ const HomePage = () => {
         sponserData,
         workPrecessingData,
         metaData,
+        recruitmentData
        
 
 
     } = useContext(AppContext);
 
+    console.log(recruitmentData);
     
 
 
@@ -87,6 +90,7 @@ const HomePage = () => {
             <PricingSection pricingData={pricingData} />
             <CtaSection ctaData={ctaData} />
             <WorkProcessing workPrecessingData={workPrecessingData} />
+            <RecruitmentSection recruitmentData={recruitmentData}/>
             <BlogSection blogData={blogData} />
             <ContactSection contactData={contactData} />
         </>

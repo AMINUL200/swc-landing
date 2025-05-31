@@ -6,19 +6,19 @@ import FadeInUp from './AnimationCom/FadeInUp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const WorkProcessing = ({ workPrecessingData }) => {
-    const moduleData = workPrecessingData?.module?.[0] || {};
-    const faqDetails = workPrecessingData?.details || [];
+const RecruitmentSection = ({ recruitmentData }) => {
+    const moduleData = recruitmentData?.module?.[0] || {};
+    const faqDetails = recruitmentData?.details || [];
     const [ref1, inView1] = useInView({ threshold: 0.1, triggerOnce: true });
 
     return (
         <section className="wp-section section-padding fix">
             <div className="container">
                 <div className="wp-wrapper style2" id='customizations'>
-                    <div className="shape">
+                    <div className="shape-left">
                         <img src={wpShape2_1} alt="shape" />
                     </div>
-                    <div className="row gy-5 gy-md-0 gx-60 d-flex align-items-center">
+                    <div className="row gy-5 gy-md-0 gx-60 d-flex align-items-center flex-row-reverse">
                         <div className="col-xl-4 order-2 order-xl-1">
                             <div className="wp-content style2">
                                 <div className="section-title">
@@ -39,7 +39,7 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                     </FadeInUp>
                                 </div>
                                 <div className="wp-accordion">
-                                    <div className="accordion" id="workProcessingAccordion">
+                                    <div className="accordion" id="recruitmentAccordion">
                                         {faqDetails.map((faq, index) => (
                                             <FadeInUp
                                                 key={index}
@@ -52,9 +52,9 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                                         className={`accordion-button ${index === 0 ? '' : 'collapsed'}`}
                                                         type="button"
                                                         data-bs-toggle="collapse"
-                                                        data-bs-target={`#workProcessingFaq${index}`}
+                                                        data-bs-target={`#recruitmentFaq${index}`}
                                                         aria-expanded={index === 0 ? 'true' : 'false'}
-                                                        aria-controls={`workProcessingFaq${index}`}
+                                                        aria-controls={`recruitmentFaq${index}`}
                                                     >
                                                         {faq?.question}
                                                         <span className="accordion-icon">
@@ -64,9 +64,9 @@ const WorkProcessing = ({ workPrecessingData }) => {
                                                     </button>
                                                 </h5>
                                                 <div
-                                                    id={`workProcessingFaq${index}`}
+                                                    id={`recruitmentFaq${index}`}
                                                     className={`accordion-collapse collapse ${index === 0 ? 'show' : ''}`}
-                                                    data-bs-parent="#workProcessingAccordion"
+                                                    data-bs-parent="#recruitmentAccordion"
                                                 >
                                                     <div className="accordion-body">
                                                         {faq?.answer}
@@ -99,4 +99,4 @@ const WorkProcessing = ({ workPrecessingData }) => {
     )
 }
 
-export default WorkProcessing
+export default RecruitmentSection

@@ -43,8 +43,7 @@ const FaqsLSection = ({ faqHeadData, faqQAData }) => {
 
                                 </div>
                                 <div className="faq-accordion">
-                                    <div className="accordion" id="accordion">
-
+                                    <div className="accordion" id="faqsLeftSectionAccordion">
                                         {faqQAData?.map((faq, index) => (
                                             <FadeInUp
                                                 as="div"
@@ -57,36 +56,28 @@ const FaqsLSection = ({ faqHeadData, faqQAData }) => {
                                                         className={`accordion-button ${index === faqQAData.length - 1 ? '' : 'collapsed'}`}
                                                         type="button"
                                                         data-bs-toggle="collapse"
-                                                        data-bs-target={`#faq${faq.id}`}
+                                                        data-bs-target={`#faqsLeftSectionFaq${faq.id}`}
                                                         aria-expanded={index === faqQAData.length - 1 ? "true" : "false"}
-                                                        aria-controls={`faq${faq.id}`}
+                                                        aria-controls={`faqsLeftSectionFaq${faq.id}`}
                                                     >
                                                         {faq.question}
                                                         <span className="accordion-icon">
-                                                            <FontAwesomeIcon
-                                                                icon={faPlus}
-                                                                className="plus-icon"
-                                                            />
-                                                            <FontAwesomeIcon
-                                                                icon={faMinus}
-                                                                className="minus-icon"
-                                                            />
+                                                            <FontAwesomeIcon icon={faPlus} className="plus-icon" />
+                                                            <FontAwesomeIcon icon={faMinus} className="minus-icon" />
                                                         </span>
                                                     </button>
                                                 </h5>
                                                 <div
-                                                    id={`faq${faq.id}`}
+                                                    id={`faqsLeftSectionFaq${faq.id}`}
                                                     className={`accordion-collapse collapse ${index === faqQAData.length - 1 ? 'show' : ''}`}
-                                                    data-bs-parent="#accordion"
+                                                    data-bs-parent="#faqsLeftSectionAccordion"
                                                 >
                                                     <div className="accordion-body">
                                                         {faq.answer}
                                                     </div>
                                                 </div>
                                             </FadeInUp>
-
                                         ))}
-
                                     </div>
                                 </div>
                             </div>

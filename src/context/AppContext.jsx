@@ -26,6 +26,7 @@ const AppContextProvider = (props) => {
     const [workPrecessingData, setWorkProcessingData] = useState(null)
     const [metaData, setMetaData] = useState(null);
     const [popupData, setPopupData] = useState(null)
+    const [recruitmentData, setRecruitmentData] = useState(null)
 
     const [showPopup, setShowPopup] = useState(false)
     const [blogDetailsLoading, setBlogDetailsLoading] = useState(false);
@@ -73,7 +74,8 @@ const AppContextProvider = (props) => {
                     contactRes,
                     sponserRes,
                     workPrecessingRes,
-                    popupRes
+                    popupRes,
+                    recruitmentRes 
                 ] = await Promise.all([
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/banner.php'),
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/clients.php'),
@@ -94,7 +96,8 @@ const AppContextProvider = (props) => {
                     fetch('https://skilledworkerscloud.co.uk/website-api/api/controller/contact.php'),
                     fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/sponsor-compliances.php'),
                     fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/customizations.php'),
-                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/popup.php')
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/popup.php'),
+                    fetch('https://skilledworkerscloud.co.uk//website-api/api/controller/recruitment.php')
                 ]);
 
                 const [
@@ -117,7 +120,8 @@ const AppContextProvider = (props) => {
                     contactJson,
                     sponserJson,
                     workPrecessingJson,
-                    popupJson
+                    popupJson,
+                    recruitmentJson
                 ] = await Promise.all([
                     bannerRes.json(),
                     brandRes.json(),
@@ -138,7 +142,8 @@ const AppContextProvider = (props) => {
                     contactRes.json(),
                     sponserRes.json(),
                     workPrecessingRes.json(),
-                    popupRes.json()
+                    popupRes.json(),
+                    recruitmentRes.json()
                 ]);
 
                 if (bannerJson.flag === 1 && bannerJson.status === 200) setBannerData(bannerJson.data[0]);
@@ -161,9 +166,10 @@ const AppContextProvider = (props) => {
                 if (sponserJson.flag === 1 && sponserJson.status === 200) setSponserData(sponserJson.data);
                 if (workPrecessingJson.flag === 1 && workPrecessingJson.status === 200) setWorkProcessingData(workPrecessingJson.data);
                 if (popupJson.flag === 1 && popupJson.status === 200) setPopupData(popupJson.data[0]);
+                if (recruitmentJson.flag === 1 && recruitmentJson.status === 200) setRecruitmentData(recruitmentJson.data);
 
 
-                // console.log(metaDataJson.data[0]);
+                // console.log(recruitmentJson.data);
 
 
 
@@ -274,7 +280,8 @@ const AppContextProvider = (props) => {
         sponserData,
         workPrecessingData,
         metaData,
-        popupData
+        popupData,
+        recruitmentData
 
     };
 
