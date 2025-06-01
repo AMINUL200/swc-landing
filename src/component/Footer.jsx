@@ -63,49 +63,6 @@ const Footer = () => {
                         >
                             <div className="single-footer-widget">
                                 <div className="widget-head">
-                                    <h3> Pages </h3>
-                                </div>
-                                <ul className="list-area">
-                                    <li>
-                                        <Link to='home'>
-                                            Home
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to='about'>
-                                            About Us
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to='customizations'>
-                                            Customizations
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to='features'>
-                                            Features
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to='pricing'>
-                                            Pricing
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link to='contact'>
-                                            Contact Us
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </FadeInUp>
-                        <FadeInUp
-                            as='div'
-                            delay={0.6}
-                            className='col-xl-2 col-lg-4 col-md-6  '
-                        >
-                            <div className="single-footer-widget">
-                                <div className="widget-head">
                                     <h3> Our Services </h3>
                                 </div>
                                 <ul className="list-area2">
@@ -158,6 +115,53 @@ const Footer = () => {
                                             Recruitment
                                         </a>
                                     </li>
+                                </ul>
+                            </div>
+                        </FadeInUp>
+                        <FadeInUp
+                            as='div'
+                            delay={0.6}
+                            className='col-xl-2 col-lg-4 col-md-6  '
+                        >
+                            <div className="single-footer-widget">
+                                <div className="widget-head">
+                                    <h3> Our Logs </h3>
+                                </div>
+                                <ul className="list-area2">
+
+                                    <li>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/hrms-v2/register"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                             Register 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/hrms-v2/"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                            HRMS Organization Login
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/hrms-v2/subadmin"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                           Partner Login
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="https://skilledworkerscloud.co.uk/hrms-v2/"
+                                            target="_blank"
+                                            rel="noopener noreferrer">
+                                           Employee Login
+                                        </a>
+                                    </li>
+                                  
                                 </ul>
                             </div>
                         </FadeInUp>
@@ -226,7 +230,7 @@ const Footer = () => {
                             <ul className='terms'>
                                 <li> <a href="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
                                 <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a>  </li>
-                               
+
                             </ul>
                         </div>
 
