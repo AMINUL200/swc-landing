@@ -63,7 +63,7 @@ const Footer = () => {
                         >
                             <div className="single-footer-widget">
                                 <div className="widget-head">
-                                    <h3> Our Services </h3>
+                                    <h3>  Services </h3>
                                 </div>
                                 <ul className="list-area2">
 
