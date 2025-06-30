@@ -18,7 +18,7 @@ const MetaTags = ({ meta }) => {
     return (
         <Helmet>
             {/* Standard Meta Tags */}
-            <title>{meta.page_title || meta.meta_title || "Default Title"}</title>
+            <title>{meta.page_title || meta.meta_title || "SponicHR Developed By SWC"}</title>
             <meta name="description" content={meta.meta_description || ""} />
             <meta name="keywords" content={meta.meta_keywords || ""} />
             <meta name="viewport" content={meta.view_port_meta || "width=device-width, initial-scale=1.0"} />
