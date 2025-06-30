@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { logo, logo3, logo4 } from '../assets';
+import {  faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
+import {  logo4 } from '../assets';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = ({ setIsSidebarOpen, showPopupModel }) => {
