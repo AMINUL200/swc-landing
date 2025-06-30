@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faArrowRightLong, faClock, faEnvelope, faMapMarkedAlt, faMapMarkerAlt, faPhone, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { logo2, logo3 } from '../assets';
+import { logo2, logo3, logo4 } from '../assets';
 import { Link } from 'react-scroll';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -36,7 +36,7 @@ const Sidebar = ({ isSideBarOpen, setIsSidebarOpen, showPopupModel }) => {
                             <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
                                 <div className="offcanvas__logo">
                                     <Link onClick={() => navigate('/')} smooth={true}>
-                                        <img src={logo3} alt="logo-img" height={70} />
+                                        <img src={logo4} alt="logo-img" height={70} />
                                     </Link>
                                 </div>
                                 <div className="offcanvas__close">

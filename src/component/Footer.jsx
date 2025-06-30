@@ -1,5 +1,5 @@
 import React from 'react'
-import { logo, logo3, shape1, shape2, shape3 } from '../assets'
+import { logo, logo3, logo4, shape1, shape2, shape3 } from '../assets'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-scroll';
@@ -28,7 +28,7 @@ const Footer = () => {
                             <div className="single-footer-widget">
                                 <div className="widget-head">
                                     <a href="index.html">
-                                        <img src={logo3} alt="logo-img" />
+                                        <img src={logo4} alt="logo-img" />
                                     </a>
                                 </div>
                                 <div className="footer-content">

@@ -1,6 +1,8 @@
 import logo from './images/logo/logo.svg';
 import logo2 from './images/logo/logo2.svg';
 import logo3 from './images/logo/logo2.png';
+import logo4 from './images/icon/logo.png';
+import fabIcon from './images/icon/fab.png';
 
 import shape1 from './images/shape/footerShape1_1.png'
 import shape2 from './images/shape/footerShape1_2.png'
@@ -186,6 +188,8 @@ export {
     shape3,
     logo2,
     logo3,
+    logo4,
+    fabIcon,
     introShape1,
     introShape2,
     introShape3,
