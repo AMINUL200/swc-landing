@@ -37,13 +37,14 @@ const Footer = () => {
                                     </p>
                                     <div className="store-links">
                                         <div className="apple">
-                                            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="17"
-                                                viewBox="0 0 19 17" fill="none">
-                                                <path
-                                                    d="M13.9741 0.148438C11.9982 0.148438 11.1631 1.09311 9.78702 1.09311C8.37612 1.09311 7.29994 0.155311 5.58766 0.155311C3.91164 0.155311 2.12437 1.1805 0.989386 2.92696C-0.604303 5.38978 -0.333787 10.0282 2.24738 13.9797C3.17066 15.3942 4.40366 16.9806 6.02087 16.9978H6.05028C7.45578 16.9978 7.87332 16.0757 9.8076 16.0649H9.837C11.7424 16.0649 12.1246 16.9924 13.5242 16.9924H13.5536C15.1709 16.9752 16.47 15.2175 17.3933 13.8083C18.0578 12.7949 18.3048 12.2863 18.8145 11.1398C15.0807 9.71985 14.4809 4.41664 18.1735 2.38344C17.0463 0.969377 15.4624 0.150401 13.9692 0.150401L13.9741 0.148438Z"
-                                                    fill="white" />
-                                            </svg> App Store</a>
+                                            <a href="#">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 384 512" fill="white">
+                                                    <path d="M318.7 268.2c-.3-38.5 17.1-67.8 53.7-89.2-20.3-29.5-50.8-46.2-92.4-50.7-38.9-4.2-81.2 22.9-95.8 22.9-15.2 0-59.4-21.9-91.8-21.3-47.3.7-87.2 27.3-110.9 70.5-47.5 82.4-12.1 204.4 34 271.4 22.7 33.3 49.9 70.7 85.5 69.4 34.2-1.3 47.1-22.4 88.6-22.4 41.2 0 52.7 22.4 88.7 21.6 36.8-.7 60.2-33.7 82.5-67.4 14.4-22.1 20.2-33.6 31.5-58.9-82.7-31.4-78.6-115.1-78.6-118.9zM244.6 84.4c27.5-33.3 24.2-63.6 23.4-74.4-22.7 1-49.2 15.4-64.9 35.1-17.3 21-26.3 46.7-24.2 73.7 24.9 1.9 50.8-12.6 65.7-34.4z" />
+                                                </svg>
+                                                App Store
+                                            </a>
                                         </div>
+
                                         <div className="play">
                                             <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="17"
                                                 viewBox="0 0 26 17" fill="none">
@@ -134,7 +135,7 @@ const Footer = () => {
                                             href="https://skilledworkerscloud.co.uk/hrms-v2/register"
                                             target="_blank"
                                             rel="noopener noreferrer">
-                                             Register 
+                                            Register
                                         </a>
                                     </li>
                                     <li>
@@ -150,7 +151,7 @@ const Footer = () => {
                                             href="https://skilledworkerscloud.co.uk/hrms-v2/subadmin"
                                             target="_blank"
                                             rel="noopener noreferrer">
-                                           Partner Login
+                                            Partner Login
                                         </a>
                                     </li>
                                     <li>
@@ -158,10 +159,10 @@ const Footer = () => {
                                             href="https://skilledworkerscloud.co.uk/hrms-v2/"
                                             target="_blank"
                                             rel="noopener noreferrer">
-                                           Employee Login
+                                            Employee Login
                                         </a>
                                     </li>
-                                  
+
                                 </ul>
                             </div>
                         </FadeInUp>
@@ -229,7 +230,12 @@ const Footer = () => {
                             </p>
                             <ul className='terms'>
                                 <li> <a href="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
-                                <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a>  </li>
+                                <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a> | </li>
+                                <li>
+                                    Develop by <a target='_blank' href="https://skilledworkerscloud.co.uk/">
+                                        <img src={logo3} alt="" height={30} />
+                                    </a>
+                                </li>
 
                             </ul>
                         </div>

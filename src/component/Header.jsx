@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
-import {  logo4 } from '../assets';
+import { faArrowRightLong, faBars, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { logo4 } from '../assets';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = ({ setIsSidebarOpen, showPopupModel }) => {
@@ -10,13 +10,18 @@ const Header = ({ setIsSidebarOpen, showPopupModel }) => {
 
   const handleScrollLinkClick = (sectionId) => {
     if (location.pathname === '/') {
-      // already on home page – scroll immediately
       const el = document.getElementById(sectionId);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const headerHeight = document.getElementById('header-sticky')?.offsetHeight || 0;
+        const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
       }
     } else {
-      // go to homepage and scroll after mount
       navigate('/', { state: { scrollToId: sectionId } });
     }
   };

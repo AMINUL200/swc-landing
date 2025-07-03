@@ -6298,6 +6298,7 @@ input.main-search-input::placeholder {
 
 .footer-widgets-wrapper.style1 .single-footer-widget .footer-content .store-links .apple a svg {
   margin-right: 5px;
+  margin-bottom: 8px;
 }
 
 .footer-widgets-wrapper.style1 .single-footer-widget .footer-content .store-links .apple a:hover {
