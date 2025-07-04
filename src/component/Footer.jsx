@@ -33,7 +33,7 @@ const Footer = () => {
                                 </div>
                                 <div className="footer-content">
                                     <p>
-                                        SKILLED WORKERS CLOUD – Smart, Simple & Secure HR Management.
+                                        SponicHR – Smart, Simple & Secure HR Management.
                                     </p>
                                     <div className="store-links">
                                         <div className="apple">
