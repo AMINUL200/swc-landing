@@ -232,7 +232,7 @@ const Footer = () => {
                                 <li> <a href="/terms_condition" target='_blank' onMouseEnter={handleTermsHover}> Terms of Us |</a></li>
                                 <li><a href="/privacy_policy" target='_blank'>Privacy Policy</a> | </li>
                                 <li>
-                                    Develop by <a target='_blank' href="https://skilledworkerscloud.co.uk/">
+                                  Design and Develop by <a target='_blank' href="https://skilledworkerscloud.co.uk/">
                                         <img src={logo3} alt="" height={30} />
                                     </a>
                                 </li>
