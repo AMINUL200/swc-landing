@@ -192,9 +192,11 @@ const AppContextProvider = (props) => {
 
 
     const blogDataInfo = async (id) => {
+        const encodeId = encodeURIComponent(id);
+        // console.log(encodeId);
         setBlogDetailsLoading(true);  // Use separate loading state for blog details
         try {
-            const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk//website-api/api/controller/blog_details.php?blog=${id}`);
+            const blogDetailsRes = await fetch(`https://skilledworkerscloud.co.uk//website-api/api/controller/blog_details.php?blog=${encodeId}`);
             const blogDetailsJson = await blogDetailsRes.json();
 
             if (blogDetailsJson.flag === 1 && blogDetailsJson.status === 200) {

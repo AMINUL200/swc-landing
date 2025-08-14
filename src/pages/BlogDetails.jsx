@@ -34,13 +34,14 @@ const BlogDetails = () => {
 
 
 
+  console.log('Fetching blog data for ID:', id);
 
   useEffect(() => {
     const fetchBlogDetails = async () => {
       try {
         const data = await blogDataInfo(id);
         if (data) {
-          console.log(data.blogs[0]);
+          // console.log('blog data :: ', data.blogs[0]);
           setBlogDetailsData(data.blogs[0]);
           setRecentPost(data.recent_posts || []);
 
@@ -58,7 +59,7 @@ const BlogDetails = () => {
   if (blogDetailsLoading) {
     return <Preloader />
   }
-  console.log(recentPost);
+  // console.log(recentPost);
 
 
 
@@ -143,7 +144,7 @@ const BlogDetails = () => {
                               <motion.p
                                 initial={{ y: 80, opacity: 0 }}
                                 whileInView={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.5, delay:index * 0.2 }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
                                 viewport={{ once: true, margin: "-20px" }}
                               >
                                 {post.title}

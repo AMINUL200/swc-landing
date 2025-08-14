@@ -16,6 +16,7 @@ const BlogSection = ({ blogData, addGap }) => {
 
     // Get only the first 3 blogs
     const limitedBlogData = blogData?.slice(1, 4);
+    // console.log(limitedBlogData);
     return (
         <section className={`blog-section ${addGap ? 'section-padding-3' : 'section-padding'} fix`} id='blog'>
             <div className="container">

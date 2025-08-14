@@ -54,7 +54,7 @@ const HomePage = () => {
 
     } = useContext(AppContext);
 
-    console.log(recruitmentData);
+    // console.log(recruitmentData);
     
 
 
