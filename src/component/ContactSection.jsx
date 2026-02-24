@@ -239,7 +239,7 @@ const ContactSection = ({ contactData, addGap }) => {
               <div className="row justify-content-center pt-12">
                 <div class="col-xl-8">
                   <div class="contact-form style1">
-                    <h2 class="contact-title align-center">
+                    <h2 class="contact-title align-center" style={{textAlign:'center'}}>
                       {contactData?.heading1 ?? "Ready to Get Started?"}
                     </h2>
                     <p class="desc d-flex justify-content-center">
