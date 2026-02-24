@@ -290,7 +290,7 @@ const ContactSection = ({ contactData, addGap }) => {
                             ></textarea>
                           </div>
                         </FadeInUp>
-                        <FadeInUp as="div" delay={0.9} className="col-lg-12">
+                        <FadeInUp as="div" delay={0.9} className="col-lg-12 d-flex justify-content-center">
                           <button
                             type="submit"
                             className={`theme-btn justify-content-center d-flex ${loading ? "btn-disable" : ""}`}
