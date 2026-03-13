@@ -6,11 +6,82 @@ import { Link } from 'react-scroll';
 import FadeInUp from './AnimationCom/FadeInUp';
 import { termsAndConditionInfo } from './TermsAndCondition';
 
-
-const Footer = () => {
+const Footer = ({ contactData }) => {
     const handleTermsHover = () => {
         termsAndConditionInfo();
     }
+
+    console.log("Contact Data:  ", contactData)
+
+    // Parse contact data
+    const parseContactData = () => {
+        if (!contactData) return null;
+
+        // Extract email addresses
+        const extractEmails = (emailString) => {
+            if (!emailString) return { primary: '', support: '' };
+            
+            // Split by <br> and clean up
+            const parts = emailString.split('<br>').map(part => part.trim());
+            
+            // Find primary email (info@)
+            const primaryEmail = parts.find(part => part.includes('info@')) || '';
+            
+            // Find support email (support@) or After Sales
+            const supportEmail = parts.find(part => part.includes('support@') || part.includes('After Sales')) || '';
+            
+            // Clean email addresses (remove any text labels)
+            const cleanEmail = (email) => {
+                if (!email) return '';
+                const match = email.match(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/);
+                return match ? match[1] : email;
+            };
+
+            return {
+                primary: cleanEmail(primaryEmail),
+                support: cleanEmail(supportEmail)
+            };
+        };
+
+        // Extract phone numbers
+        const extractPhones = (phoneString) => {
+            if (!phoneString) return { landline: '', mobile: '' };
+            
+            // Split by <br> and clean up
+            const parts = phoneString.split('<br>').map(part => part.trim());
+            
+            // Find landline
+            const landline = parts.find(part => part.includes('Landline')) || '';
+            
+            // Find mobile/WhatsApp
+            const mobile = parts.find(part => part.includes('Mobile')) || '';
+            
+            // Extract phone numbers
+            const extractNumber = (text) => {
+                if (!text) return '';
+                const match = text.match(/[\+\(]?[0-9\-\s]+/);
+                return match ? match[0].trim() : text;
+            };
+
+            return {
+                landline: extractNumber(landline),
+                mobile: extractNumber(mobile)
+            };
+        };
+
+        const emails = extractEmails(contactData.contact_email);
+        const phones = extractPhones(contactData.contact_phone);
+
+        return {
+            office: contactData.contact_office || "Suite 602, 6th Floor, 252-262 Romford Road, London, E7 9HZ United Kingdom",
+            email_primary: emails.primary || "info@skilledworkerscloud.co.uk",
+            email_support: emails.support || "support@skilledworkerscloud.co.uk",
+            phone_landline: phones.landline || "+44 0208 129 1655",
+            phone_mobile: phones.mobile || "+44 074 6728 4718"
+        };
+    };
+
+    const parsedData = parseContactData();
 
     return (
         <footer className="footer-section position-relative ">
@@ -173,22 +244,23 @@ const Footer = () => {
                                     <div className="subtitle">Address</div>
                                     <div className="widget-head">Ready to get started?</div>
                                     <div className="text">
-                                        G21, Unit 3 Triangle Centre, 399 Uxbridge Road, UB1 3EJ, United Kingdom
+                                        {parsedData?.office}
                                     </div>
                                     <div className="info">
-                                        <div className="icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="23"
-                                            viewBox="0 0 22 23" fill="none">
-                                            <path
-                                                d="M3.66671 4.16699H18.3334C19.3417 4.16699 20.1667 4.99199 20.1667 6.00033V17.0003C20.1667 18.0087 19.3417 18.8337 18.3334 18.8337H3.66671C2.65837 18.8337 1.83337 18.0087 1.83337 17.0003V6.00033C1.83337 4.99199 2.65837 4.16699 3.66671 4.16699Z"
-                                                stroke="#5236FF" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path d="M20.1667 6L11 12.4167L1.83337 6" stroke="#5236FF" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
+                                        <div className="icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23"
+                                                viewBox="0 0 22 23" fill="none">
+                                                <path
+                                                    d="M3.66671 4.16699H18.3334C19.3417 4.16699 20.1667 4.99199 20.1667 6.00033V17.0003C20.1667 18.0087 19.3417 18.8337 18.3334 18.8337H3.66671C2.65837 18.8337 1.83337 18.0087 1.83337 17.0003V6.00033C1.83337 4.99199 2.65837 4.16699 3.66671 4.16699Z"
+                                                    stroke="#5236FF" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path d="M20.1667 6L11 12.4167L1.83337 6" stroke="#5236FF" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
                                         </div>
                                         <div className="link">
-                                            <a href="info@skilledworkerscloud.co.uk">info@skilledworkerscloud.co.uk</a> <br />
-                                            <a href="support@skilledworkerscloud.co.uk">support@skilledworkerscloud.co.uk</a>
+                                            <a href={`mailto:${parsedData?.email_primary}`}>{parsedData?.email_primary}</a> <br />
+                                            <a href={`mailto:${parsedData?.email_support}`}>{parsedData?.email_support}</a>
                                         </div>
                                     </div>
                                     <div className="info">
@@ -210,9 +282,9 @@ const Footer = () => {
                                             </svg>
                                         </div>
                                         <div className="link">
-                                            <a href="tel:+44 0208 129 1655">+44 0208 129 1655</a>
+                                            <a href={`tel:${parsedData?.phone_landline.replace(/\s/g, '')}`}>{parsedData?.phone_landline}</a>
                                             <br />
-                                            <a href="tel:+44 074 6728 4718">+44 074 6728 4718</a>
+                                            <a href={`tel:${parsedData?.phone_mobile.replace(/\s/g, '')}`}>{parsedData?.phone_mobile}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -270,4 +342,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default Footer;
